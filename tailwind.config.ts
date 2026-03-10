@@ -15,14 +15,28 @@ const config: Config = {
         shiro: "#E8E0D0",
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        serif: ["Cormorant Garamond", "serif"],
-        jp: ["Noto Serif JP", "serif"],
+        sans: ["var(--font-inter)", "sans-serif"],
+        serif: ["var(--font-cormorant)", "serif"],
+        jp: ["var(--font-noto-jp)", "serif"],
       },
       borderRadius: {
         lg: "0.75rem",
         xl: "1rem",
         "2xl": "1.5rem",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
