@@ -7,6 +7,7 @@ Landing page institucional da Oficina Cigarra com area administrativa simples pa
 - Next.js (App Router)
 - React + TypeScript
 - Tailwind CSS
+- shadcn/ui
 - Supabase (pronto para integracao)
 
 ## Estrutura principal

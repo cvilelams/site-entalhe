@@ -3,6 +3,10 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ADMIN_SESSION_KEY } from "@/lib/constants";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 export default function AdminLoginPage() {
   const [password, setPassword] = useState("");
@@ -20,22 +24,31 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <main style={{ minHeight: "100vh", display: "grid", placeItems: "center", background: "#f5f0e8" }}>
-      <form onSubmit={onSubmit} style={{ width: "min(420px, 92vw)", background: "#fff", padding: 24, borderRadius: 12, border: "1px solid #d9cfbe" }}>
-        <h1 style={{ marginTop: 0 }}>Admin Oficina Cigarra</h1>
-        <p>Entre com a senha de administracao.</p>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Senha"
-          style={{ width: "100%", padding: 10, borderRadius: 8, border: "1px solid #d9cfbe" }}
-        />
-        {error && <p style={{ color: "#b00020" }}>{error}</p>}
-        <button type="submit" style={{ marginTop: 12, width: "100%", padding: 10, borderRadius: 8, border: "none", background: "#6b4e2a", color: "#fff" }}>
-          Entrar
-        </button>
-      </form>
+    <main className="grid min-h-screen place-items-center bg-washi px-4 py-8">
+      <Card className="w-full max-w-md">
+        <CardHeader>
+          <CardTitle className="font-serif text-3xl">Admin Oficina Cigarra</CardTitle>
+          <CardDescription>Entre com a senha de administracao.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={onSubmit} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="password">Senha</Label>
+              <Input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Senha"
+              />
+            </div>
+            {error && <p className="text-sm text-red-700">{error}</p>}
+            <Button type="submit" className="w-full">
+              Entrar
+            </Button>
+          </form>
+        </CardContent>
+      </Card>
     </main>
   );
 }

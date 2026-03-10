@@ -3,12 +3,12 @@ import { landingData } from "@/lib/landing-data";
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#e8e0d0", borderTop: "1px solid #d9cfbe" }}>
-      <div className="container-page" style={{ padding: "2rem 0", display: "flex", gap: "1rem", justifyContent: "space-between", flexWrap: "wrap" }}>
-        <strong>{landingData.footer.copyright}</strong>
-        <nav style={{ display: "flex", gap: "1rem" }}>
+    <footer className="border-t border-[#d9cfbe] bg-shiro">
+      <div className="mx-auto flex w-[min(1120px,92vw)] flex-wrap justify-between gap-4 py-8">
+        <strong className="text-sm md:text-base">{landingData.footer.copyright}</strong>
+        <nav className="flex gap-4">
           {landingData.footer.links.map((link) => (
-            <Link key={link.label} href={link.href} target="_blank" rel="noreferrer">
+            <Link key={link.label} href={link.href} target="_blank" rel="noreferrer" className="text-sm text-sumi/85 transition-colors hover:text-sumi">
               {link.label}
             </Link>
           ))}

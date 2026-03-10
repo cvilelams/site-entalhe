@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import { getContent, getVisibility } from "@/lib/content/store";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 function isVisible(visibility: Array<{ section: string; is_visible: boolean }>, section: string) {
   return visibility.some((v) => v.section === section && v.is_visible);
@@ -14,54 +17,63 @@ export default function HomePage() {
   const overview = content.sections.course_overview;
   const guarantee = content.sections.guarantee;
   const finalCta = content.sections.final_cta;
+  const pageContainer = "mx-auto w-[min(1120px,92vw)]";
 
   return (
     <main>
       {isVisible(visibility, "hero") && (
-        <section className="section" style={{ minHeight: "65vh", display: "grid", alignItems: "center" }}>
-          <div className="container-page">
-            <h1 className="title-serif" style={{ fontSize: "clamp(2.2rem, 7vw, 4.2rem)", marginBottom: 12 }}>
+        <section className="grid min-h-[65vh] items-center py-16">
+          <div className={pageContainer}>
+            <h1 className="mb-3 font-serif text-[clamp(2.2rem,7vw,4.2rem)]">
               {hero?.title}
             </h1>
-            <p style={{ maxWidth: 680, fontSize: "1.125rem", opacity: 0.86 }}>{hero?.subtitle}</p>
-            <Link href={hero?.cta_url ?? "#"} style={{ display: "inline-block", marginTop: 24, background: "#6b4e2a", color: "#fff", padding: "0.85rem 1.25rem", borderRadius: 8 }}>
-              {hero?.cta_text ?? "Saiba mais"}
-            </Link>
+            <p className="max-w-[680px] text-lg opacity-90">{hero?.subtitle}</p>
+            <Button asChild className="mt-6">
+              <Link href={hero?.cta_url ?? "#"}>{hero?.cta_text ?? "Saiba mais"}</Link>
+            </Button>
           </div>
         </section>
       )}
 
       {isVisible(visibility, "social_proof") && (
-        <section className="section" style={{ borderTop: "1px solid #d9cfbe", borderBottom: "1px solid #d9cfbe", padding: "1.2rem 0" }}>
-          <div className="container-page" style={{ display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", gap: 12, textAlign: "center" }}>
-            <div>
-              <strong>{social?.item1_value}</strong>
-              <p>{social?.item1_label}</p>
-            </div>
-            <div>
-              <strong>{social?.item2_value}</strong>
-              <p>{social?.item2_label}</p>
-            </div>
-            <div>
-              <strong>{social?.item3_value}</strong>
-              <p>{social?.item3_label}</p>
-            </div>
+        <section className="border-y border-[#d9cfbe] py-5">
+          <div className={`${pageContainer} grid gap-3 text-center md:grid-cols-3`}>
+            <Card>
+              <CardContent className="pt-6">
+                <strong className="text-xl">{social?.item1_value}</strong>
+                <p className="mt-1 text-sm text-sumi/80">{social?.item1_label}</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="pt-6">
+                <strong className="text-xl">{social?.item2_value}</strong>
+                <p className="mt-1 text-sm text-sumi/80">{social?.item2_label}</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="pt-6">
+                <strong className="text-xl">{social?.item3_value}</strong>
+                <p className="mt-1 text-sm text-sumi/80">{social?.item3_label}</p>
+              </CardContent>
+            </Card>
           </div>
         </section>
       )}
 
       {isVisible(visibility, "course_overview") && (
-        <section className="section">
-          <div className="container-page">
-            <h2 className="title-serif" style={{ fontSize: "2rem" }}>{overview?.title}</h2>
-            <p style={{ maxWidth: 760 }}>{overview?.description}</p>
-            <div style={{ marginTop: 24, display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 16 }}>
+        <section className="py-16">
+          <div className={pageContainer}>
+            <h2 className="font-serif text-3xl">{overview?.title}</h2>
+            <p className="mt-2 max-w-[760px] text-sumi/85">{overview?.description}</p>
+            <div className="mt-6 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
               {content.collections.modules.map((m) => (
-                <article key={m.id} style={{ border: "1px solid #d9cfbe", borderRadius: 10, padding: 16 }}>
-                  <small>{m.icon}</small>
-                  <h3>{m.title}</h3>
-                  <p>{m.description}</p>
-                </article>
+                <Card key={m.id}>
+                  <CardContent className="pt-6">
+                    <small className="text-base">{m.icon}</small>
+                    <h3 className="mt-1 font-semibold">{m.title}</h3>
+                    <p className="mt-1 text-sm text-sumi/80">{m.description}</p>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </div>
@@ -69,29 +81,33 @@ export default function HomePage() {
       )}
 
       {isVisible(visibility, "instructors") && (
-        <section className="section" style={{ background: "#efe7da" }}>
-          <div className="container-page" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: 16 }}>
+        <section className="bg-[#efe7da] py-16">
+          <div className={`${pageContainer} grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]`}>
             {content.collections.instructors.map((i) => (
-              <article key={i.id} style={{ border: "1px solid #d9cfbe", borderRadius: 10, padding: 16 }}>
-                <h3 className="title-serif">{i.name}</h3>
-                <p>{i.bio}</p>
-              </article>
+              <Card key={i.id}>
+                <CardContent className="pt-6">
+                  <h3 className="font-serif text-xl">{i.name}</h3>
+                  <p className="mt-2 text-sm text-sumi/80">{i.bio}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </section>
       )}
 
       {isVisible(visibility, "testimonials") && (
-        <section className="section">
-          <div className="container-page">
-            <h2 className="title-serif" style={{ fontSize: "2rem" }}>Depoimentos</h2>
-            <div style={{ marginTop: 24, display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 16 }}>
+        <section className="py-16">
+          <div className={pageContainer}>
+            <h2 className="font-serif text-3xl">Depoimentos</h2>
+            <div className="mt-6 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
               {content.collections.testimonials.map((t) => (
-                <article key={t.id} style={{ border: "1px solid #d9cfbe", borderRadius: 10, padding: 16 }}>
-                  <p>"{t.text}"</p>
-                  <strong>{t.name}</strong>
-                  <p>{t.role}</p>
-                </article>
+                <Card key={t.id}>
+                  <CardContent className="pt-6">
+                    <p className="text-sumi/85">"{t.text}"</p>
+                    <strong className="mt-3 block">{t.name}</strong>
+                    <p className="text-sm text-sumi/70">{t.role}</p>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </div>
@@ -99,38 +115,42 @@ export default function HomePage() {
       )}
 
       {isVisible(visibility, "guarantee") && (
-        <section className="section" style={{ background: "#e8e0d0" }}>
-          <div className="container-page">
-            <h2 className="title-serif">{guarantee?.title}</h2>
-            <p>{guarantee?.text}</p>
+        <section className="bg-shiro py-16">
+          <div className={pageContainer}>
+            <Card className="bg-[#efe7da]">
+              <CardContent className="pt-6">
+                <h2 className="font-serif text-3xl">{guarantee?.title}</h2>
+                <p className="mt-2 max-w-3xl text-sumi/85">{guarantee?.text}</p>
+              </CardContent>
+            </Card>
           </div>
         </section>
       )}
 
       {isVisible(visibility, "faq") && (
-        <section className="section">
-          <div className="container-page">
-            <h2 className="title-serif">FAQ</h2>
-            <div style={{ marginTop: 12, display: "grid", gap: 10 }}>
+        <section className="py-16">
+          <div className={pageContainer}>
+            <h2 className="font-serif text-3xl">FAQ</h2>
+            <Accordion type="single" collapsible className="mt-3 grid gap-2">
               {content.collections.faq.map((f) => (
-                <details key={f.id} style={{ border: "1px solid #d9cfbe", borderRadius: 8, padding: 12 }}>
-                  <summary>{f.question}</summary>
-                  <p style={{ marginTop: 8 }}>{f.answer}</p>
-                </details>
+                <AccordionItem key={f.id} value={f.id}>
+                  <AccordionTrigger>{f.question}</AccordionTrigger>
+                  <AccordionContent>{f.answer}</AccordionContent>
+                </AccordionItem>
               ))}
-            </div>
+            </Accordion>
           </div>
         </section>
       )}
 
       {isVisible(visibility, "final_cta") && (
-        <section className="section" style={{ background: "#6b4e2a", color: "#fff" }}>
-          <div className="container-page">
-            <h2 className="title-serif" style={{ fontSize: "2rem" }}>{finalCta?.title}</h2>
-            <p>{finalCta?.subtitle}</p>
-            <Link href={finalCta?.button_url ?? "#"} style={{ display: "inline-block", marginTop: 20, background: "#fff", color: "#6b4e2a", padding: "0.8rem 1.15rem", borderRadius: 8 }}>
-              {finalCta?.button_text}
-            </Link>
+        <section className="bg-urushi py-16 text-white">
+          <div className={pageContainer}>
+            <h2 className="font-serif text-3xl">{finalCta?.title}</h2>
+            <p className="mt-2 max-w-3xl text-white/90">{finalCta?.subtitle}</p>
+            <Button asChild variant="outline" className="mt-5 border-0 bg-white text-urushi hover:bg-white/90">
+              <Link href={finalCta?.button_url ?? "#"}>{finalCta?.button_text}</Link>
+            </Button>
           </div>
         </section>
       )}
