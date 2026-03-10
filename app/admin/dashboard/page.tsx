@@ -1,8 +1,12 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ADMIN_SESSION_KEY } from "@/lib/constants";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+import { Textarea } from "@/components/ui/textarea";
 
 type ContentResponse = {
   sections: Record<string, Record<string, string>>;
@@ -73,44 +77,10 @@ export default function AdminDashboardPage() {
   }
 
   if (!content) {
-    return <main style={{ padding: 24 }}>Carregando...</main>;
+    return <main className="p-6">Carregando...</main>;
   }
 
   return (
-<<<<<<< Updated upstream
-    <main style={{ padding: 24, background: "#f5f0e8", minHeight: "100vh" }}>
-      <h1 style={{ marginTop: 0 }}>Dashboard de Conteudo</h1>
-      {status && <p>{status}</p>}
-
-      <section style={{ marginBottom: 24, background: "#fff", border: "1px solid #d9cfbe", borderRadius: 10, padding: 16 }}>
-        <h2>Visibilidade das secoes</h2>
-        <div style={{ display: "grid", gap: 8 }}>
-          {visibility.map((v) => (
-            <label key={v.section} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <input
-                type="checkbox"
-                checked={v.is_visible}
-                onChange={(e) => toggleSection(v.section, e.target.checked)}
-              />
-              <span>{v.label}</span>
-            </label>
-          ))}
-        </div>
-      </section>
-
-      {Object.entries(content.sections).map(([section, fields]) => (
-        <section key={section} style={{ marginBottom: 16, background: "#fff", border: "1px solid #d9cfbe", borderRadius: 10, padding: 16 }}>
-          <h3 style={{ marginTop: 0 }}>{section}</h3>
-          <div style={{ display: "grid", gap: 10 }}>
-            {Object.entries(fields).map(([key, value]) => (
-              <label key={key} style={{ display: "grid", gap: 6 }}>
-                <span>{key}</span>
-                <textarea
-                  defaultValue={value}
-                  onBlur={(e) => saveField(section, key, e.target.value)}
-                  rows={3}
-                  style={{ width: "100%", borderRadius: 8, border: "1px solid #d9cfbe", padding: 8 }}
-=======
     <main className="min-h-screen bg-fundo-off px-4 py-6 md:px-6">
       <div className="mx-auto w-full max-w-5xl space-y-6">
         <header className="space-y-2">
@@ -133,15 +103,9 @@ export default function AdminDashboardPage() {
                   id={`visibility-${v.section}`}
                   checked={v.is_visible}
                   onCheckedChange={(checked) => toggleSection(v.section, checked)}
->>>>>>> Stashed changes
                 />
-              </label>
+              </div>
             ))}
-<<<<<<< Updated upstream
-          </div>
-        </section>
-      ))}
-=======
           </CardContent>
         </Card>
 
@@ -166,7 +130,6 @@ export default function AdminDashboardPage() {
           </Card>
         ))}
       </div>
->>>>>>> Stashed changes
     </main>
   );
 }

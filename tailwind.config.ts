@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+﻿import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
@@ -18,18 +18,8 @@ const config: Config = {
           DEFAULT: "#fcfcfc",
           off: "#f4f0eb",
         },
-        washi: "#F5F0E8",
-        sumi: "#1C1917",
-        urushi: "#6B4E2A",
-        kinari: "#A89070",
-        shiro: "#E8E0D0",
       },
       fontFamily: {
-<<<<<<< Updated upstream
-        sans: ["Inter", "sans-serif"],
-        serif: ["Cormorant Garamond", "serif"],
-        jp: ["Noto Serif JP", "serif"],
-=======
         titulo: ["var(--font-montserrat)", "sans-serif"],
         corpo: ["var(--font-inter)", "sans-serif"],
         sans: ["var(--font-inter)", "sans-serif"],
@@ -49,7 +39,6 @@ const config: Config = {
         card: "0 2px 12px rgba(0,0,0,0.07)",
         btn: "0 4px 16px rgba(92,148,109,0.35)",
         "btn-2": "0 4px 16px rgba(158,176,76,0.35)",
->>>>>>> Stashed changes
       },
       borderRadius: {
         sm: "2px",
@@ -58,8 +47,6 @@ const config: Config = {
         xl: "1rem",
         "2xl": "1.5rem",
       },
-<<<<<<< Updated upstream
-=======
       backgroundImage: {
         "hatch-verde":
           "repeating-linear-gradient(-45deg, rgba(92,148,109,0.10) 0px, rgba(92,148,109,0.10) 1px, transparent 1px, transparent 8px)",
@@ -81,11 +68,9 @@ const config: Config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
->>>>>>> Stashed changes
     },
   },
   plugins: [],
 };
 
 export default config;
-
