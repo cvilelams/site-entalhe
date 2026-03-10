@@ -77,6 +77,7 @@ export default function AdminDashboardPage() {
   }
 
   return (
+<<<<<<< Updated upstream
     <main style={{ padding: 24, background: "#f5f0e8", minHeight: "100vh" }}>
       <h1 style={{ marginTop: 0 }}>Dashboard de Conteudo</h1>
       {status && <p>{status}</p>}
@@ -109,12 +110,63 @@ export default function AdminDashboardPage() {
                   onBlur={(e) => saveField(section, key, e.target.value)}
                   rows={3}
                   style={{ width: "100%", borderRadius: 8, border: "1px solid #d9cfbe", padding: 8 }}
+=======
+    <main className="min-h-screen bg-fundo-off px-4 py-6 md:px-6">
+      <div className="mx-auto w-full max-w-5xl space-y-6">
+        <header className="space-y-2">
+          <h1 className="font-titulo text-h1 font-extrabold tracking-tight text-terracota">Dashboard de Conteudo</h1>
+          {status && <p className="font-corpo text-sm-body text-cinza/80">{status}</p>}
+        </header>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="font-titulo text-h2 font-bold text-cinza">Visibilidade das secoes</CardTitle>
+            <CardDescription>Ative ou desative as secoes da landing page.</CardDescription>
+          </CardHeader>
+          <CardContent className="grid gap-3">
+            {visibility.map((v) => (
+              <div key={v.section} className="flex items-center justify-between rounded-sm border border-[#e7dece] bg-white px-3 py-2">
+                <Label htmlFor={`visibility-${v.section}`} className="cursor-pointer">
+                  {v.label}
+                </Label>
+                <Switch
+                  id={`visibility-${v.section}`}
+                  checked={v.is_visible}
+                  onCheckedChange={(checked) => toggleSection(v.section, checked)}
+>>>>>>> Stashed changes
                 />
               </label>
             ))}
+<<<<<<< Updated upstream
           </div>
         </section>
       ))}
+=======
+          </CardContent>
+        </Card>
+
+        {Object.entries(content.sections).map(([section, fields]) => (
+          <Card key={section}>
+            <CardHeader>
+              <CardTitle className="font-titulo text-h2 font-bold capitalize text-cinza">{section.replaceAll("_", " ")}</CardTitle>
+              <CardDescription>As alteracoes sao salvas quando o campo perde o foco.</CardDescription>
+            </CardHeader>
+            <CardContent className="grid gap-4">
+              {Object.entries(fields).map(([key, value]) => (
+                <label key={key} className="grid gap-2">
+                  <span className="font-titulo text-label font-bold uppercase tracking-widest text-cinza">{key}</span>
+                  <Textarea
+                    defaultValue={value}
+                    onBlur={(e) => saveField(section, key, e.target.value)}
+                    rows={3}
+                  />
+                </label>
+              ))}
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+>>>>>>> Stashed changes
     </main>
   );
 }

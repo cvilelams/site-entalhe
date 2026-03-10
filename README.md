@@ -7,7 +7,47 @@ Landing page institucional da Oficina Cigarra com area administrativa simples pa
 - Next.js (App Router)
 - React + TypeScript
 - Tailwind CSS
+<<<<<<< Updated upstream
+=======
+- shadcn/ui
+- Radix UI (primitivos do shadcn)
+- Montserrat + Inter (tipografia)
+>>>>>>> Stashed changes
 - Supabase (pronto para integracao)
+
+## Design System (Style Guide)
+
+O projeto segue o guia definido em `styleguide.md` e tokens em `tailwind.config.ts`.
+
+### Fundacao visual
+
+- Tipografia:
+  - `font-titulo` -> Montserrat (titulos, botoes, labels)
+  - `font-corpo` -> Inter (texto corrido e descricoes)
+- Cores principais:
+  - `verde-musgo` (`#5c946d`) para CTA principal e destaques
+  - `verde-folha` (`#9eb04c`) para variacoes e apoio
+  - `terracota` (`#c65b2c`) para titulos e pontos de atencao
+  - `cinza` (`#595959`) para textos
+  - `fundo` / `fundo-off` para fundos base
+
+### Componentizacao
+
+- Base de componentes em `components/ui` (padrao shadcn/ui):
+  - `button`, `card`, `input`, `label`, `textarea`, `switch`, `accordion`
+- Os componentes ja aplicam o style guide por padrao (tipografia, bordas, cores, foco e hover).
+
+### Convencoes de layout
+
+- Container: `max-w-5xl mx-auto px-8`
+- Espacamento vertical de secao: `py-20` (minimo recomendado)
+- Hierarquia tipografica via tokens: `text-display`, `text-h1`, `text-h2`, `text-h3`, `text-body`, `text-sm-body`, `text-label`
+
+### Texturas e fundos
+
+- `bg-hatch-verde`
+- `bg-hatch-terracota`
+- `bg-cedro-gradient`
 
 ## Estrutura principal
 

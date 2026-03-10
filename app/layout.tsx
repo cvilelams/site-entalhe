@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Cormorant_Garamond, Noto_Serif_JP } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/constants";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const cormorant = Cormorant_Garamond({ subsets: ["latin"], variable: "--font-cormorant", weight: ["300", "400", "500"] });
-const notoSerifJp = Noto_Serif_JP({ subsets: ["latin"], variable: "--font-noto-jp", weight: ["300", "400"] });
+const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat", weight: ["400", "600", "700", "800", "900"] });
 
 export const metadata: Metadata = {
   title: SITE_NAME,
@@ -15,7 +14,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.variable} ${cormorant.variable} ${notoSerifJp.variable}`}>{children}</body>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className={`${inter.variable} ${montserrat.variable}`}>{children}</body>
     </html>
   );
 }

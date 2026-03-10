@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< Updated upstream
 :root {
   --washi: #f5f0e8;
   --sumi: #1c1917;
@@ -39,4 +40,14 @@ a {
 
 .title-serif {
   font-family: var(--font-cormorant), serif;
+=======
+@layer base {
+  body {
+    @apply bg-fundo text-cinza font-corpo;
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+>>>>>>> Stashed changes
 }
