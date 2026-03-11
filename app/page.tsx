@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import HeroParallaxBackground from "@/components/home/HeroParallaxBackground";
 import { getContent, getVisibility } from "@/lib/content/store";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
@@ -22,8 +23,9 @@ export default function HomePage() {
   return (
     <main>
       {isVisible(visibility, "hero") && (
-        <section className="grid min-h-[65vh] items-center bg-cedro-gradient py-20 text-white">
-          <div className={pageContainer}>
+        <section className="relative grid min-h-[65vh] items-center overflow-hidden bg-cedro-gradient py-20 text-white">
+          <HeroParallaxBackground imageSrc="/images/hero/hero-bg.png" />
+          <div className={`${pageContainer} relative z-10`}>
             <span className="font-titulo text-label font-bold uppercase tracking-widest text-verde-folha">Curso online para iniciantes</span>
             <h1 className="mb-3 mt-2 font-titulo text-display font-black uppercase tracking-tighter text-white">
               {hero?.title}
