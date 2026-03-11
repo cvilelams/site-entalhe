@@ -11,3 +11,26 @@
     @apply text-inherit no-underline;
   }
 }
+
+@keyframes carousel-autoplay {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 0.375rem));
+  }
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+  gap: 0.75rem;
+  animation: carousel-autoplay 28s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track {
+    animation: none;
+  }
+}

@@ -14,11 +14,17 @@ export default function HomePage() {
   const content = getContent();
   const visibility = getVisibility();
   const hero = content.sections.hero;
-  const social = content.sections.social_proof;
   const overview = content.sections.course_overview;
   const guarantee = content.sections.guarantee;
   const finalCta = content.sections.final_cta;
   const pageContainer = "mx-auto max-w-5xl px-8";
+  const mosaicPlaceholders = [
+    "[placeholder mosaico 1]",
+    "[placeholder mosaico 2]",
+    "[placeholder mosaico 3]",
+    "[placeholder mosaico 4]",
+    "[placeholder mosaico 5]",
+  ];
 
   return (
     <main>
@@ -38,26 +44,63 @@ export default function HomePage() {
       )}
 
       {isVisible(visibility, "social_proof") && (
-        <section className="border-y border-[#e7dfd4] bg-fundo py-6">
-          <div className={`${pageContainer} grid gap-3 text-center md:grid-cols-3`}>
-            <Card>
-              <CardContent className="pt-6">
-                <strong className="font-titulo text-h2 font-extrabold text-terracota">{social?.item1_value}</strong>
-                <p className="mt-1 font-corpo text-sm-body text-cinza/80">{social?.item1_label}</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="pt-6">
-                <strong className="font-titulo text-h2 font-extrabold text-terracota">{social?.item2_value}</strong>
-                <p className="mt-1 font-corpo text-sm-body text-cinza/80">{social?.item2_label}</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="pt-6">
-                <strong className="font-titulo text-h2 font-extrabold text-terracota">{social?.item3_value}</strong>
-                <p className="mt-1 font-corpo text-sm-body text-cinza/80">{social?.item3_label}</p>
-              </CardContent>
-            </Card>
+        <section className="border-y border-[#e7dfd4] bg-fundo py-16">
+          <div className={`${pageContainer} space-y-12`}>
+            <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-terracota">POR QUE ENTALHAR COM FACA?</h2>
+
+            <div>
+              <div>
+                <h3 className="font-titulo text-h2 font-bold text-cinza">UMA PRÁTICA MANUAL PARA UMA VIDA MELHOR</h3>
+                <p className="mt-3 font-corpo text-body text-cinza/85">
+                  Numa sociedade cada vez mais virtual, desconectar-se e trabalhar com as mãos é uma atividade preciosa.
+                </p>
+                <p className="mt-3 font-corpo text-body text-cinza/85">
+                  Quem já entalhou sabe como é uma atividade gostosa para a alma, e não só isso, o médico Drauzio Varella
+                  enfatiza como a manualidade ajuda evitar o declínio cognitivo, reduzir o estresse e aumentar a sensação
+                  de bem-estar.
+                </p>
+              </div>
+              <div className="mt-6 flex min-h-56 items-center justify-center rounded-xl border border-dashed border-cinza/40 bg-fundo-off p-6 text-center">
+                <p className="font-corpo text-sm-body text-cinza/70">[imagem minha mãe entalhando]</p>
+              </div>
+            </div>
+
+            <div>
+              <div>
+                <h3 className="font-titulo text-h2 font-bold text-cinza">DESENVOLVER SUA CRIATIVIDADE</h3>
+                <p className="mt-3 font-corpo text-body text-cinza/85">
+                  Após esculpir o famoso Davi de um enorme bloco de mármore, há quem diga que Michelangelo afirmou: "Eu
+                  apenas tirei da pedra de mármore tudo que não era Davi". Isso se aplica a qualquer atividade de entalhe:
+                  a retirada do que não importa para se revelar o que sempre esteve lá.
+                </p>
+                <p className="mt-3 font-corpo text-body text-cinza/85">
+                  É muito satisfatório começar a entender um bloco rígido como uma potencial peça escultural, estimulando
+                  naturalmente diversas habilidades criativas e praticando sua expressão.
+                </p>
+              </div>
+              <div className="mt-6 overflow-hidden pb-2">
+                <div className="carousel-track">
+                  {[...mosaicPlaceholders, ...mosaicPlaceholders].map((label, index) => (
+                    <div
+                      key={`${label}-${index}`}
+                      className="flex min-h-52 min-w-[220px] items-center justify-center rounded-xl border border-dashed border-cinza/40 bg-fundo-off p-6 text-center"
+                    >
+                      <p className="font-corpo text-sm-body text-cinza/70">{label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-titulo text-h2 font-bold text-cinza">COMECE COM POUCAS FERRAMENTAS</h3>
+              <p className="mt-3 font-corpo text-body text-cinza/85">
+                Basicamente com um pedaço de madeira e uma faca de entalhe já podemos esculpir.
+              </p>
+              <div className="mt-6 flex min-h-56 items-center justify-center rounded-xl border border-dashed border-cinza/40 bg-fundo-off p-6 text-center">
+                <p className="font-corpo text-sm-body text-cinza/70">[imagem ferramentas para comecar a entalhar]</p>
+              </div>
+            </div>
           </div>
         </section>
       )}
