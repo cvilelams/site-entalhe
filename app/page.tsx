@@ -24,7 +24,7 @@ export default function HomePage() {
     <main>
       {isVisible(visibility, "hero") && (
         <section className="relative grid min-h-[65vh] items-center overflow-hidden bg-cedro-gradient py-20 text-white">
-          <HeroParallaxBackground imageSrc="/images/hero/hero-bg.png" />
+          <HeroParallaxBackground imageSrc="/images/hero/hero-bg-workshop-20260311.jpeg" />
           <div className={`${pageContainer} relative z-10`}>
             <span className="font-titulo text-label font-bold uppercase tracking-widest text-verde-folha">Curso online para iniciantes</span>
             <h1 className="mb-3 mt-2 font-titulo text-display font-black uppercase tracking-tighter text-white">

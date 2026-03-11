@@ -26,12 +26,14 @@ export default function HeroParallaxBackground({ imageSrc }: HeroParallaxBackgro
 
       const rect = containerRef.current.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
-      const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
-      const clampedProgress = Math.min(1, Math.max(0, progress));
-      const centeredProgress = clampedProgress - 0.5;
-      const maxOffset = mobileQuery.matches ? 18 : 42;
+      const elementCenter = rect.top + rect.height / 2;
+      const viewportCenter = viewportHeight / 2;
+      const normalizedOffset = (elementCenter - viewportCenter) / viewportCenter;
+      const clampedOffset = Math.max(-1, Math.min(1, normalizedOffset));
+      const easedOffset = Math.sign(clampedOffset) * Math.pow(Math.abs(clampedOffset), 0.85);
+      const maxOffset = mobileQuery.matches ? 56 : 140;
 
-      setTranslateY(centeredProgress * maxOffset * 2);
+      setTranslateY(easedOffset * -maxOffset);
     };
 
     const onScrollOrResize = () => {
@@ -64,9 +66,9 @@ export default function HeroParallaxBackground({ imageSrc }: HeroParallaxBackgro
   return (
     <div ref={containerRef} className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
       <div
-        className="absolute inset-0 scale-110 bg-cover bg-center will-change-transform"
+        className="absolute inset-0 bg-cover bg-center will-change-transform"
         style={{
-          transform: `translate3d(0, ${translateY}px, 0)`,
+          transform: `translate3d(0, ${translateY}px, 0) scale(1.2)`,
         }}
       >
         <Image src={imageSrc} alt="" fill priority sizes="100vw" className="object-cover object-center" />
