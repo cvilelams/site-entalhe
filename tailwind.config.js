@@ -1,6 +1,5 @@
-﻿import type { Config } from "tailwindcss";
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -22,8 +21,6 @@ const config: Config = {
       fontFamily: {
         titulo: ["var(--font-montserrat)", "sans-serif"],
         corpo: ["var(--font-inter)", "sans-serif"],
-        sans: ["var(--font-inter)", "sans-serif"],
-        serif: ["var(--font-montserrat)", "sans-serif"],
       },
       fontSize: {
         label: ["0.68rem", { lineHeight: "1", letterSpacing: "0.22em", fontWeight: "700" }],
@@ -35,17 +32,15 @@ const config: Config = {
         h1: ["2.2rem", { lineHeight: "1.15", letterSpacing: "-0.02em" }],
         display: ["3.2rem", { lineHeight: "1.05", letterSpacing: "-0.03em" }],
       },
+      borderRadius: {
+        sm: "2px",
+        md: "4px",
+        lg: "8px",
+      },
       boxShadow: {
         card: "0 2px 12px rgba(0,0,0,0.07)",
         btn: "0 4px 16px rgba(92,148,109,0.35)",
         "btn-2": "0 4px 16px rgba(158,176,76,0.35)",
-      },
-      borderRadius: {
-        sm: "2px",
-        md: "4px",
-        lg: "0.75rem",
-        xl: "1rem",
-        "2xl": "1.5rem",
       },
       backgroundImage: {
         "hatch-verde":
@@ -72,5 +67,3 @@ const config: Config = {
   },
   plugins: [],
 };
-
-export default config;

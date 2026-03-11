@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-washi text-sumi font-sans;
+    @apply bg-fundo text-cinza font-corpo;
   }
 
   a {
