@@ -23,15 +23,14 @@ export default function HomePage() {
   return (
     <main>
       {isVisible(visibility, "hero") && (
-        <section className="relative grid min-h-[65vh] items-center overflow-hidden bg-cedro-gradient py-20 text-white">
+        <section className="relative grid min-h-[70vh] items-center overflow-hidden bg-cedro-gradient py-20 text-white">
           <HeroParallaxBackground imageSrc="/images/hero/hero-bg-workshop-20260311.jpeg" />
-          <div className={`${pageContainer} relative z-10`}>
-            <span className="font-titulo text-label font-bold uppercase tracking-widest text-verde-folha">Curso online para iniciantes</span>
-            <h1 className="mb-3 mt-2 font-titulo text-display font-black uppercase tracking-tighter text-white">
+          <div className={`${pageContainer} relative z-10 flex flex-col items-center text-center`}>
+            <h1 className="mb-4 mt-2 max-w-4xl font-titulo text-display font-black uppercase tracking-tighter text-white">
               {hero?.title}
             </h1>
-            <p className="max-w-[680px] font-corpo text-body text-white/90">{hero?.subtitle}</p>
-            <Button asChild className="mt-6">
+            <p className="mx-auto max-w-[720px] font-corpo text-body text-white/90">{hero?.subtitle}</p>
+            <Button asChild className="mt-8 self-center">
               <Link href={hero?.cta_url ?? "#"}>{hero?.cta_text ?? "Saiba mais"}</Link>
             </Button>
           </div>

@@ -1,8 +1,8 @@
 export const landingData = {
   hero: {
-    title: "Aprenda a entalhar madeira com faca",
-    subtitle: "Curso artesanal para quem quer criar com as proprias maos",
-    cta_text: "Quero fazer o curso",
+    title: "EXPLORE O UNIVERSO DO ENTALHE EM MADEIRA",
+    subtitle: "Do bloquinha de madeira à escultura, aprenda na prática ao entalhar uma capivara!",
+    cta_text: "QUERO ENTALHAR",
     cta_url: "https://wa.me/5500000000000",
     media_type: "image",
     media_url: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1600&auto=format&fit=crop",
