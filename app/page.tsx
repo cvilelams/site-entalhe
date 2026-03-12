@@ -16,7 +16,6 @@ export default function HomePage() {
   const visibility = getVisibility();
   const hero = content.sections.hero;
   const overview = content.sections.course_overview;
-  const guarantee = content.sections.guarantee;
   const finalCta = content.sections.final_cta;
   const pageContainer = "mx-auto max-w-5xl px-8";
   const mosaicPlaceholders = [
@@ -257,50 +256,100 @@ export default function HomePage() {
 
       {isVisible(visibility, "instructors") && (
         <section className="bg-fundo-off bg-hatch-verde py-20">
-          <div className={`${pageContainer} grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]`}>
-            {content.collections.instructors.map((i) => (
-              <Card key={i.id}>
-                <CardContent className="pt-6">
-                  <h3 className="font-titulo text-h2 font-bold text-cinza">{i.name}</h3>
-                  <p className="mt-2 font-corpo text-sm-body text-cinza/80">{i.bio}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {isVisible(visibility, "testimonials") && (
-        <section className="py-20">
-          <div className={pageContainer}>
-            <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-terracota">Depoimentos</h2>
-            <div className="mt-8 grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
-              {content.collections.testimonials.map((t) => (
-                <Card key={t.id} className="border-l-4 border-l-terracota bg-fundo-off">
-                  <CardContent className="pt-6">
-                    <p className="font-corpo text-body italic text-cinza/85">"{t.text}"</p>
-                    <strong className="mt-3 block font-titulo text-label text-verde-musgo">{t.name}</strong>
-                    <p className="font-corpo text-sm-body text-cinza/70">{t.role}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {isVisible(visibility, "guarantee") && (
-        <section className="bg-fundo-off py-20">
-          <div className={pageContainer}>
-            <Card className="bg-fundo-off">
+          <div className={`${pageContainer}`}>
+            <Card>
               <CardContent className="pt-6">
-                <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-terracota">{guarantee?.title}</h2>
-                <p className="mt-3 max-w-3xl font-corpo text-body text-cinza/85">{guarantee?.text}</p>
+                <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-terracota">XX horas XX aulas</h2>
+                <p className="mt-4 max-w-3xl font-corpo text-body text-cinza/85">
+                  Compre o curso e ganhe um e-book com 10 projetos de entalhe.
+                </p>
+                <p className="mt-2 max-w-3xl font-corpo text-body text-cinza/85">
+                  Além disso, você vai poder interagir e tirar suas dúvidas no fórum de entalhe.
+                </p>
+
+                <div className="mt-6 flex min-h-56 items-center justify-center rounded-xl border border-dashed border-cinza/40 bg-fundo-off p-6 text-center">
+                  <p className="font-corpo text-sm-body text-cinza/70">
+                    [montagem capa do e-book, imagem mockup celular computador tablet]
+                  </p>
+                </div>
+
+                <p className="mt-6 max-w-3xl font-corpo text-body text-cinza/85">
+                  Disponível para celular, tablet e computador.
+                </p>
+                <p className="mt-2 max-w-3xl font-titulo text-h3 font-bold text-verde-musgo">
+                  ASSISTA NO SEU TEMPO, O CURSO FICA DISPONÍVEL DE FORMA VITALÍCIA.
+                </p>
+
+                <div className="mt-8 flex justify-center">
+                  <Button asChild>
+                    <Link href={hero?.cta_url ?? "#"}>QUERO ENTALHAR</Link>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           </div>
         </section>
       )}
+
+      {isVisible(visibility, "instructors") && (
+        <section className="py-20">
+          <div className={pageContainer}>
+            <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-terracota">MENTORAS</h2>
+            <div className="mt-6 overflow-hidden rounded-xl border border-cinza/20 bg-fundo-off">
+              <Image
+                src="/images/sections/7_mentoras(ATUALIZAR) (1).jpg"
+                alt="Mayra e Simone"
+                width={1024}
+                height={1024}
+                className="h-auto w-full object-cover"
+              />
+            </div>
+            <p className="mt-6 max-w-4xl font-corpo text-body text-cinza/85">
+              Somos Mayra e Simone, duas irmãs que compartilham das mesmas afinidades desde a infância. Cursamos
+              Arquitetura e Urbanismo e, há anos, decidimos trabalhar juntas na marcenaria. No meio do caminho, nos
+              apaixonamos pela técnica de entalhe e hoje criamos peças artísticas selecionadas e premiadas em Salões de
+              Arte.
+            </p>
+            <div className="mt-6 overflow-hidden rounded-xl border border-dashed border-cinza/40 bg-fundo-off p-6 text-center">
+              <p className="font-corpo text-sm-body text-cinza/70">
+                [imagem com nossas peças artísticas, para demonstrar onde os alunos podem chegar]
+              </p>
+            </div>
+            <p className="mt-6 max-w-4xl font-corpo text-body text-cinza/85">
+              Já compartilhamos o que aprendemos com mais de 700 pessoas pelo Brasil, despertando em muitas a paixão pelo
+              entalhe.
+            </p>
+            <div className="mt-8 flex justify-center">
+              <Button asChild>
+                <Link href={hero?.cta_url ?? "#"}>QUERO ENTALHAR</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="bg-fundo-off py-20">
+        <div className={pageContainer}>
+          <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-terracota">VALOR</h2>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            <Card>
+              <CardContent className="pt-6 text-center">
+                <h3 className="font-titulo text-h2 font-bold text-cinza">parcelado</h3>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="pt-6 text-center">
+                <h3 className="font-titulo text-h2 font-bold text-cinza">à vista</h3>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="mt-8 flex justify-center">
+            <Button asChild>
+              <Link href={hero?.cta_url ?? "#"}>QUERO ENTALHAR</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
 
       {isVisible(visibility, "faq") && (
         <section className="py-20">
