@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Footer from "@/components/Footer";
 import HeroParallaxBackground from "@/components/home/HeroParallaxBackground";
 import { getContent, getVisibility } from "@/lib/content/store";
@@ -100,6 +101,29 @@ export default function HomePage() {
               <div className="mt-6 flex min-h-56 items-center justify-center rounded-xl border border-dashed border-cinza/40 bg-fundo-off p-6 text-center">
                 <p className="font-corpo text-sm-body text-cinza/70">[imagem ferramentas para comecar a entalhar]</p>
               </div>
+            </div>
+
+            <div>
+              <h3 className="font-titulo text-h2 font-bold text-cinza">"AINDA NÃO TENHO NENHUMA FERRAMENTA..."</h3>
+              <p className="mt-3 font-corpo text-body text-cinza/85">
+                Preparamos kits para você iniciar e dar continuidade à prática do entalhe. Para te incentivar a começar
+                agora, você tem desconto se comprá-los junto com o curso.
+              </p>
+              <div className="mt-6 overflow-hidden rounded-xl border border-dashed border-cinza/40 bg-fundo-off">
+                <Image
+                  src="/images/sections/ferramentas-kit.png"
+                  alt="Kit de ferramentas para iniciantes no entalhe"
+                  width={1024}
+                  height={1024}
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+            </div>
+
+            <div className="flex justify-center pt-2">
+              <Button asChild>
+                <Link href={hero?.cta_url ?? "#"}>QUERO ENTALHAR</Link>
+              </Button>
             </div>
           </div>
         </section>
