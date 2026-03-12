@@ -1,0 +1,21 @@
+---
+description: Padrao de portugues (pt-BR) em todo o projeto
+alwaysApply: true
+---
+
+# Portugues padrao (pt-BR)
+
+- Sempre escreva e revise textos em portugues do Brasil correto.
+- Corrija automaticamente ortografia, acentuacao, cedilha, concordancia e pontuacao.
+- Mesmo que o usuario envie texto com erros, normalize para a forma correta antes de salvar.
+- Priorize clareza, naturalidade e consistencia de tom em toda a landing e no painel.
+
+## Escopo de aplicacao
+
+- Aplicar em todo texto exibido ao usuario (titulos, subtitulos, botoes, descricoes, FAQ, mensagens e placeholders).
+- Aplicar tambem em textos de documentacao interna do projeto, quando fizer sentido.
+
+## Cuidados tecnicos
+
+- Nao alterar nomes tecnicos, chaves de objeto, IDs, rotas, variaveis, campos de API ou contratos de dados apenas para "corrigir portugues".
+- Quando houver conflito entre correcao linguistica e compatibilidade tecnica, preserve a compatibilidade tecnica e ajuste apenas os textos de exibicao.

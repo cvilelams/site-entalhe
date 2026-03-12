@@ -26,6 +26,19 @@ export default function HomePage() {
     "[placeholder mosaico 4]",
     "[placeholder mosaico 5]",
   ];
+  const overviewCarouselUrls = [
+    overview?.carousel_image_1_url,
+    overview?.carousel_image_2_url,
+    overview?.carousel_image_3_url,
+    overview?.carousel_image_4_url,
+    overview?.carousel_image_5_url,
+  ].filter((url): url is string => Boolean(url && url.trim().length > 0));
+  const overviewCarouselCount = overviewCarouselUrls.length >= 5 ? 5 : 3;
+  const overviewCarouselItems = Array.from(
+    { length: overviewCarouselCount },
+    (_, index) => overviewCarouselUrls[index] ?? "",
+  );
+  const overviewGifUrl = overview?.gif_360_url?.trim() ?? "";
 
   return (
     <main>
@@ -57,9 +70,9 @@ export default function HomePage() {
                   Numa sociedade cada vez mais virtual, desconectar-se e trabalhar com as mãos é uma atividade preciosa.
                 </p>
                 <p className="mt-3 font-corpo text-body text-cinza/85">
-                  Quem já entalhou sabe como é uma atividade gostosa para a alma, e não só isso, o médico Drauzio Varella
-                  enfatiza como a manualidade ajuda evitar o declínio cognitivo, reduzir o estresse e aumentar a sensação
-                  de bem-estar.
+                  Quem já entalhou sabe como é uma atividade gostosa para a alma. E não só isso: o médico Drauzio
+                  Varella enfatiza como a manualidade ajuda a evitar o declínio cognitivo, reduzir o estresse e
+                  aumentar a sensação de bem-estar.
                 </p>
               </div>
               <div className="mt-6 overflow-hidden rounded-xl border border-dashed border-cinza/40 bg-fundo-off">
@@ -106,7 +119,7 @@ export default function HomePage() {
                 Basicamente com um pedaço de madeira e uma faca de entalhe já podemos esculpir.
               </p>
               <div className="mt-6 flex min-h-56 items-center justify-center rounded-xl border border-dashed border-cinza/40 bg-fundo-off p-6 text-center">
-                <p className="font-corpo text-sm-body text-cinza/70">[imagem ferramentas para comecar a entalhar]</p>
+                <p className="font-corpo text-sm-body text-cinza/70">[imagem ferramentas para começar a entalhar]</p>
               </div>
             </div>
 
@@ -149,8 +162,8 @@ export default function HomePage() {
                   <p className="mt-3 font-corpo text-body text-cinza/85">
                     Nós sabemos como maquinários e ferramentas ocupam espaço, e valorizamos muito a possibilidade de
                     entalhar de qualquer lugar. Seja em casa, apartamento ou kitnet, em um parque, durante uma
-                    viagem. A praticidade do entalhe, que envolve basicamente você ter um pedaço de madeira e uma faca
-                    de entalhe, torna a atividade extremamente acessível.
+                    viagem. A praticidade do entalhe, que envolve basicamente ter um pedaço de madeira e uma faca de
+                    entalhe, torna a atividade extremamente acessível.
                   </p>
                 </CardContent>
               </Card>
@@ -194,6 +207,50 @@ export default function HomePage() {
                 </Card>
               ))}
             </div>
+            <div className="mt-10 overflow-hidden pb-2">
+              <div className="carousel-track">
+                {overviewCarouselItems.map((imageUrl, index) => (
+                  <div
+                    key={`overview-carousel-${index}`}
+                    className="flex min-h-52 min-w-[280px] items-center justify-center overflow-hidden rounded-xl border border-dashed border-cinza/40 bg-fundo-off text-center"
+                  >
+                    {imageUrl ? (
+                      <Image
+                        src={imageUrl}
+                        alt={`Imagem do curso ${index + 1}`}
+                        width={1024}
+                        height={768}
+                        className="h-full min-h-52 w-full object-cover"
+                      />
+                    ) : (
+                      <p className="p-6 font-corpo text-sm-body text-cinza/70">
+                        {`[carrossel curso ${index + 1}]`}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <p className="mt-8 max-w-[760px] font-corpo text-body text-cinza/85">
+              Você vai absorver, na prática, todos esses fundamentos partindo de um bloco maciço que se transformará em
+              uma capivara.
+            </p>
+            {overviewGifUrl ? (
+              <div className="mt-6 overflow-hidden rounded-xl border border-dashed border-cinza/40 bg-fundo-off">
+                <Image
+                  src={overviewGifUrl}
+                  alt="Capivara em visualização 360 graus"
+                  width={1024}
+                  height={1024}
+                  className="h-auto w-full object-cover"
+                  unoptimized
+                />
+              </div>
+            ) : (
+              <div className="mt-6 flex min-h-56 items-center justify-center rounded-xl border border-dashed border-cinza/40 bg-fundo-off p-6 text-center">
+                <p className="font-corpo text-sm-body text-cinza/70">[gif 360 capivara]</p>
+              </div>
+            )}
           </div>
         </section>
       )}
