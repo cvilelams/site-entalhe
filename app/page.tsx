@@ -45,8 +45,9 @@ export default function HomePage() {
       )}
 
       {isVisible(visibility, "social_proof") && (
-        <section className="border-y border-[#e7dfd4] bg-fundo py-16">
-          <div className={`${pageContainer} space-y-12`}>
+        <>
+          <section className="border-y border-[#e7dfd4] bg-fundo py-16">
+            <div className={`${pageContainer} space-y-12`}>
             <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-terracota">POR QUE ENTALHAR COM FACA?</h2>
 
             <div>
@@ -61,8 +62,14 @@ export default function HomePage() {
                   de bem-estar.
                 </p>
               </div>
-              <div className="mt-6 flex min-h-56 items-center justify-center rounded-xl border border-dashed border-cinza/40 bg-fundo-off p-6 text-center">
-                <p className="font-corpo text-sm-body text-cinza/70">[imagem minha mãe entalhando]</p>
+              <div className="mt-6 overflow-hidden rounded-xl border border-dashed border-cinza/40 bg-fundo-off">
+                <Image
+                  src="/images/sections/minha-mae-entalhando.png"
+                  alt="Minha mãe entalhando madeira com faca"
+                  width={1024}
+                  height={1536}
+                  className="h-[420px] w-full object-cover object-center md:h-[520px]"
+                />
               </div>
             </div>
 
@@ -125,8 +132,50 @@ export default function HomePage() {
                 <Link href={hero?.cta_url ?? "#"}>QUERO ENTALHAR</Link>
               </Button>
             </div>
-          </div>
-        </section>
+
+            </div>
+          </section>
+
+          <section className="relative overflow-hidden bg-fundo-off py-16">
+            <div
+              className="absolute inset-0 bg-repeat opacity-20"
+              style={{ backgroundImage: "url('/images/sections/unnamed%20(1)%202.png')" }}
+              aria-hidden="true"
+            />
+            <div className={`${pageContainer} relative z-10`}>
+              <Card>
+                <CardContent className="pt-6">
+                  <h3 className="font-titulo text-h2 font-bold text-cinza">NÃO PRECISA DE ESPAÇO</h3>
+                  <p className="mt-3 font-corpo text-body text-cinza/85">
+                    Nós sabemos como maquinários e ferramentas ocupam espaço, e valorizamos muito a possibilidade de
+                    entalhar de qualquer lugar. Seja em casa, apartamento ou kitnet, em um parque, durante uma
+                    viagem. A praticidade do entalhe, que envolve basicamente você ter um pedaço de madeira e uma faca
+                    de entalhe, torna a atividade extremamente acessível.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="mt-6">
+                <CardContent className="pt-6">
+                  <h3 className="font-titulo text-h2 font-bold text-cinza">FONTE DE RENDA EXTRA</h3>
+                  <p className="mt-3 font-corpo text-body text-cinza/85">
+                    Temos alunos que já venderam suas peças em feiras, sendo super possível complementar a renda com
+                    suas próprias criações.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="mt-6">
+                <CardContent className="pt-6">
+                  <h3 className="font-titulo text-h2 font-bold text-cinza">SERÁ QUE ESSE CURSO É PARA MIM?</h3>
+                  <p className="mt-3 font-corpo text-body text-cinza/85">
+                    Nosso curso é para todos: quem nunca entalhou na vida (inclusive costumamos tranquilizar nossos
+                    alunos pois a esmagadora maioria de fato nunca praticou), e também para quem já praticou e quer
+                    desenvolver ainda mais suas técnicas.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+        </>
       )}
 
       {isVisible(visibility, "course_overview") && (
