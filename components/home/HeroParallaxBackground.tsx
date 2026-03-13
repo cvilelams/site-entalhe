@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { useHeroParallaxSettings } from "@/lib/hero-parallax-settings";
 
 type HeroParallaxBackgroundProps = {
   imageSrc: string;
@@ -11,6 +12,7 @@ export default function HeroParallaxBackground({ imageSrc }: HeroParallaxBackgro
   const containerRef = useRef<HTMLDivElement>(null);
   const rafIdRef = useRef<number | null>(null);
   const [translateY, setTranslateY] = useState(0);
+  const settings = useHeroParallaxSettings();
 
   useEffect(() => {
     const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -19,14 +21,16 @@ export default function HeroParallaxBackground({ imageSrc }: HeroParallaxBackgro
     const updatePosition = () => {
       if (!containerRef.current) return;
 
-      if (reduceMotionQuery.matches) {
+      const shouldReduceMotion = settings.respectReducedMotion && reduceMotionQuery.matches;
+
+      if (!settings.enabled || shouldReduceMotion) {
         setTranslateY(0);
         return;
       }
 
       const rect = containerRef.current.getBoundingClientRect();
-      const parallaxFactor = mobileQuery.matches ? 0.45 : 0.7;
-      const maxOffset = mobileQuery.matches ? 260 : 520;
+      const parallaxFactor = mobileQuery.matches ? settings.backgroundFactorMobile : settings.backgroundFactorDesktop;
+      const maxOffset = mobileQuery.matches ? settings.backgroundMaxOffsetMobile : settings.backgroundMaxOffsetDesktop;
       const rawTranslate = -rect.top * parallaxFactor;
       const clampedTranslate = Math.max(-maxOffset, Math.min(maxOffset, rawTranslate));
 
@@ -58,19 +62,31 @@ export default function HeroParallaxBackground({ imageSrc }: HeroParallaxBackgro
         window.cancelAnimationFrame(rafIdRef.current);
       }
     };
-  }, []);
+  }, [
+    settings.backgroundFactorDesktop,
+    settings.backgroundFactorMobile,
+    settings.backgroundMaxOffsetDesktop,
+    settings.backgroundMaxOffsetMobile,
+    settings.enabled,
+    settings.respectReducedMotion,
+  ]);
 
   return (
     <div ref={containerRef} className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center will-change-transform"
         style={{
-          transform: `translate3d(0, ${translateY}px, 0) scale(1.5)`,
+          transform: `translate3d(0, ${translateY}px, 0) scale(${settings.backgroundScale})`,
         }}
       >
         <Image src={imageSrc} alt="" fill priority sizes="100vw" className="object-cover object-center" />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/50" />
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, ${settings.overlayOpacityTop}), rgba(0, 0, 0, ${settings.overlayOpacityMiddle}), rgba(0, 0, 0, ${settings.overlayOpacityBottom}))`,
+        }}
+      />
     </div>
   );
 }
