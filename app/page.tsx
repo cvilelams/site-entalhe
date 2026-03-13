@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Footer from "@/components/Footer";
-import HeroParallaxBackground from "@/components/home/HeroParallaxBackground";
+import HeroSection from "@/components/home/HeroSection";
 import { getContent, getVisibility } from "@/lib/content/store";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,20 @@ import { Card, CardContent } from "@/components/ui/card";
 
 function isVisible(visibility: Array<{ section: string; is_visible: boolean }>, section: string) {
   return visibility.some((v) => v.section === section && v.is_visible);
+}
+
+function toSentenceCase(text: string | null | undefined) {
+  if (!text) return "";
+  const trimmed = text.trim();
+  if (!trimmed) return "";
+  const lowerCased = trimmed.toLowerCase();
+  const firstLetterIndex = lowerCased.search(/[a-zà-ÿ]/i);
+  if (firstLetterIndex === -1) return lowerCased;
+  return (
+    lowerCased.slice(0, firstLetterIndex) +
+    lowerCased.charAt(firstLetterIndex).toUpperCase() +
+    lowerCased.slice(firstLetterIndex + 1)
+  );
 }
 
 export default function HomePage() {
@@ -42,29 +56,29 @@ export default function HomePage() {
   return (
     <main>
       {isVisible(visibility, "hero") && (
-        <section className="relative grid min-h-[70vh] items-center overflow-hidden bg-cedro-gradient py-20 text-white">
-          <HeroParallaxBackground imageSrc="/images/hero/hero-bg-workshop-20260311.jpeg" />
-          <div className={`${pageContainer} relative z-10 flex flex-col items-center text-center`}>
-            <h1 className="mb-4 mt-2 max-w-4xl font-titulo text-display font-black uppercase tracking-tighter text-white">
-              {hero?.title}
-            </h1>
-            <p className="mx-auto max-w-[720px] font-corpo text-body text-white/90">{hero?.subtitle}</p>
-            <Button asChild className="mt-8 self-center">
-              <Link href={hero?.cta_url ?? "#"}>{hero?.cta_text ?? "Saiba mais"}</Link>
-            </Button>
-          </div>
-        </section>
+        <HeroSection
+          pageContainer={pageContainer}
+          title={hero?.title}
+          subtitle={hero?.subtitle}
+          ctaUrl={hero?.cta_url}
+          ctaText={hero?.cta_text}
+          imageSrc="/images/hero/hero-bg-workshop-20260311.jpeg"
+        />
       )}
 
       {isVisible(visibility, "social_proof") && (
         <>
           <section className="border-y border-[#e7dfd4] bg-fundo py-16">
             <div className={`${pageContainer} space-y-12`}>
-            <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-terracota">POR QUE ENTALHAR COM FACA?</h2>
+            <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-terracota">
+              {toSentenceCase("POR QUE ENTALHAR COM FACA?")}
+            </h2>
 
             <div>
               <div>
-                <h3 className="font-titulo text-h2 font-bold text-cinza">UMA PRÁTICA MANUAL PARA UMA VIDA MELHOR</h3>
+                <h3 className="font-titulo text-h2 font-bold text-cinza">
+                  {toSentenceCase("UMA PRÁTICA MANUAL PARA UMA VIDA MELHOR")}
+                </h3>
                 <p className="mt-3 font-corpo text-body text-cinza/85">
                   Numa sociedade cada vez mais virtual, desconectar-se e trabalhar com as mãos é uma atividade preciosa.
                 </p>
@@ -87,7 +101,9 @@ export default function HomePage() {
 
             <div>
               <div>
-                <h3 className="font-titulo text-h2 font-bold text-cinza">DESENVOLVER SUA CRIATIVIDADE</h3>
+                <h3 className="font-titulo text-h2 font-bold text-cinza">
+                  {toSentenceCase("DESENVOLVER SUA CRIATIVIDADE")}
+                </h3>
                 <p className="mt-3 font-corpo text-body text-cinza/85">
                   Após esculpir o famoso Davi de um enorme bloco de mármore, há quem diga que Michelangelo afirmou: "Eu
                   apenas tirei da pedra de mármore tudo que não era Davi". Isso se aplica a qualquer atividade de entalhe:
@@ -113,7 +129,9 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h3 className="font-titulo text-h2 font-bold text-cinza">COMECE COM POUCAS FERRAMENTAS</h3>
+              <h3 className="font-titulo text-h2 font-bold text-cinza">
+                {toSentenceCase("COMECE COM POUCAS FERRAMENTAS")}
+              </h3>
               <p className="mt-3 font-corpo text-body text-cinza/85">
                 Basicamente com um pedaço de madeira e uma faca de entalhe já podemos esculpir.
               </p>
@@ -123,7 +141,9 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h3 className="font-titulo text-h2 font-bold text-cinza">"AINDA NÃO TENHO NENHUMA FERRAMENTA..."</h3>
+              <h3 className="font-titulo text-h2 font-bold text-cinza">
+                {toSentenceCase("\"AINDA NÃO TENHO NENHUMA FERRAMENTA...\"")}
+              </h3>
               <p className="mt-3 font-corpo text-body text-cinza/85">
                 Preparamos kits para você iniciar e dar continuidade à prática do entalhe. Para te incentivar a começar
                 agora, você tem desconto se comprá-los junto com o curso.
@@ -157,7 +177,9 @@ export default function HomePage() {
             <div className={`${pageContainer} relative z-10`}>
               <Card>
                 <CardContent className="pt-6">
-                  <h3 className="font-titulo text-h2 font-bold text-cinza">NÃO PRECISA DE ESPAÇO</h3>
+                  <h3 className="font-titulo text-h2 font-bold text-cinza">
+                    {toSentenceCase("NÃO PRECISA DE ESPAÇO")}
+                  </h3>
                   <p className="mt-3 font-corpo text-body text-cinza/85">
                     Nós sabemos como maquinários e ferramentas ocupam espaço, e valorizamos muito a possibilidade de
                     entalhar de qualquer lugar. Seja em casa, apartamento ou kitnet, em um parque, durante uma
@@ -168,7 +190,9 @@ export default function HomePage() {
               </Card>
               <Card className="mt-6">
                 <CardContent className="pt-6">
-                  <h3 className="font-titulo text-h2 font-bold text-cinza">FONTE DE RENDA EXTRA</h3>
+                  <h3 className="font-titulo text-h2 font-bold text-cinza">
+                    {toSentenceCase("FONTE DE RENDA EXTRA")}
+                  </h3>
                   <p className="mt-3 font-corpo text-body text-cinza/85">
                     Temos alunos que já venderam suas peças em feiras, sendo super possível complementar a renda com
                     suas próprias criações.
@@ -177,7 +201,9 @@ export default function HomePage() {
               </Card>
               <Card className="mt-6">
                 <CardContent className="pt-6">
-                  <h3 className="font-titulo text-h2 font-bold text-cinza">SERÁ QUE ESSE CURSO É PARA MIM?</h3>
+                  <h3 className="font-titulo text-h2 font-bold text-cinza">
+                    {toSentenceCase("SERÁ QUE ESSE CURSO É PARA MIM?")}
+                  </h3>
                   <p className="mt-3 font-corpo text-body text-cinza/85">
                     Nosso curso é para todos: quem nunca entalhou na vida (inclusive costumamos tranquilizar nossos
                     alunos pois a esmagadora maioria de fato nunca praticou), e também para quem já praticou e quer
@@ -193,14 +219,16 @@ export default function HomePage() {
       {isVisible(visibility, "course_overview") && (
         <section className="py-20">
           <div className={pageContainer}>
-            <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-terracota">{overview?.title}</h2>
+            <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-terracota">
+              {toSentenceCase(overview?.title)}
+            </h2>
             <p className="mt-3 max-w-[760px] font-corpo text-body text-cinza/85">{overview?.description}</p>
             <div className="mt-8 grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
               {content.collections.modules.map((m) => (
                 <Card key={m.id}>
                   <CardContent className="pt-6">
                     <small className="text-base">{m.icon}</small>
-                    <h3 className="mt-1 font-titulo text-h3 font-bold text-cinza">{m.title}</h3>
+                    <h3 className="mt-1 font-titulo text-h3 font-bold text-cinza">{toSentenceCase(m.title)}</h3>
                     <p className="mt-2 font-corpo text-sm-body text-cinza/80">{m.description}</p>
                   </CardContent>
                 </Card>
@@ -259,7 +287,9 @@ export default function HomePage() {
           <div className={`${pageContainer}`}>
             <Card>
               <CardContent className="pt-6">
-                <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-terracota">XX horas XX aulas</h2>
+                <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-terracota">
+                  {toSentenceCase("XX horas XX aulas")}
+                </h2>
                 <p className="mt-4 max-w-3xl font-corpo text-body text-cinza/85">
                   Compre o curso e ganhe um e-book com 10 projetos de entalhe.
                 </p>
@@ -277,7 +307,7 @@ export default function HomePage() {
                   Disponível para celular, tablet e computador.
                 </p>
                 <p className="mt-2 max-w-3xl font-titulo text-h3 font-bold text-verde-musgo">
-                  ASSISTA NO SEU TEMPO, O CURSO FICA DISPONÍVEL DE FORMA VITALÍCIA.
+                  {toSentenceCase("ASSISTA NO SEU TEMPO, O CURSO FICA DISPONÍVEL DE FORMA VITALÍCIA.")}
                 </p>
 
                 <div className="mt-8 flex justify-center">
@@ -294,7 +324,9 @@ export default function HomePage() {
       {isVisible(visibility, "instructors") && (
         <section className="py-20">
           <div className={pageContainer}>
-            <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-terracota">MENTORAS</h2>
+            <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-terracota">
+              {toSentenceCase("MENTORAS")}
+            </h2>
             <div className="mt-6 overflow-hidden rounded-xl border border-cinza/20 bg-fundo-off">
               <Image
                 src="/images/sections/7_mentoras(ATUALIZAR) (1).jpg"
@@ -330,16 +362,18 @@ export default function HomePage() {
 
       <section className="bg-fundo-off py-20">
         <div className={pageContainer}>
-          <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-terracota">VALOR</h2>
+          <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-terracota">
+            {toSentenceCase("VALOR")}
+          </h2>
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             <Card>
               <CardContent className="pt-6 text-center">
-                <h3 className="font-titulo text-h2 font-bold text-cinza">parcelado</h3>
+                <h3 className="font-titulo text-h2 font-bold text-cinza">{toSentenceCase("parcelado")}</h3>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="pt-6 text-center">
-                <h3 className="font-titulo text-h2 font-bold text-cinza">à vista</h3>
+                <h3 className="font-titulo text-h2 font-bold text-cinza">{toSentenceCase("à vista")}</h3>
               </CardContent>
             </Card>
           </div>
@@ -370,11 +404,15 @@ export default function HomePage() {
       {isVisible(visibility, "final_cta") && (
         <section className="bg-verde-musgo py-20 text-white">
           <div className={pageContainer}>
-            <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-white">{finalCta?.title}</h2>
+            <h2 className="font-titulo text-h1 font-extrabold tracking-tight text-white">
+              {toSentenceCase(finalCta?.title)}
+            </h2>
             <p className="mt-3 max-w-3xl font-corpo text-body text-white/90">{finalCta?.subtitle}</p>
-            <Button asChild variant="outline" className="mt-5 border-white bg-white text-verde-musgo hover:bg-white/90">
-              <Link href={finalCta?.button_url ?? "#"}>{finalCta?.button_text}</Link>
-            </Button>
+            <div className="mt-5 flex justify-center">
+              <Button asChild variant="outline" className="border-white bg-white text-verde-musgo hover:bg-white/90">
+                <Link href={finalCta?.button_url ?? "#"}>{finalCta?.button_text}</Link>
+              </Button>
+            </div>
           </div>
         </section>
       )}

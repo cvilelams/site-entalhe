@@ -1,4 +1,4 @@
-﻿import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
@@ -20,10 +20,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        titulo: ["var(--font-montserrat)", "sans-serif"],
+        titulo: ["var(--font-inter)", "sans-serif"],
         corpo: ["var(--font-inter)", "sans-serif"],
         sans: ["var(--font-inter)", "sans-serif"],
-        serif: ["var(--font-montserrat)", "sans-serif"],
+        serif: ["var(--font-inter)", "sans-serif"],
       },
       fontSize: {
         label: ["0.68rem", { lineHeight: "1", letterSpacing: "0.22em", fontWeight: "700" }],
