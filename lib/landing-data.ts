@@ -113,18 +113,49 @@ export const landingData = {
   faq: [
     {
       id: "f1",
-      question: "Preciso de experiência prévia?",
-      answer: "Não. O curso foi desenhado para iniciantes e praticantes em nível básico.",
+      question: "Para fazer o curso, preciso ter algum conhecimento prévio?",
+      answer:
+        "Não! Todo o conteúdo é explicado de forma detalhada, voltado tanto para o público iniciante quanto para quem que já possui experiência e deseja aperfeiçoar a técnica.",
     },
     {
       id: "f2",
-      question: "Quais materiais são necessários?",
-      answer: "Você recebe uma lista simples com opções acessíveis para começar.",
+      question: "O curso é voltado para qual faixa etária?",
+      answer:
+        "De jovens a pessoas idosas! Nosso curso é completo e formulado para você fazer no seu ritmo, sempre respeitando seu corpo. Como existe a manipulação da faca de entalhe, recomendamos idade mínima de 16 anos, com a supervisão dos pais.",
     },
     {
       id: "f3",
-      question: "As aulas ficam gravadas?",
-      answer: "Sim, durante o período de acesso definido na turma.",
+      question: "Por quanto tempo eu tenho acesso ao curso?",
+      answer: "Seu acesso é vitalício! Você poderá acessá-lo sempre que quiser!",
+    },
+    {
+      id: "f4",
+      question: "Quanto tempo dura o curso?",
+      answer:
+        "São 32 vídeos, totalizando XX horas de conteúdo. Porém, cada pessoa deve seguir o seu próprio ritmo, podendo pausar o vídeo sempre que desejar para finalizar determinada etapa do entalhe.",
+    },
+    {
+      id: "f5",
+      question: "Preciso assistir às aulas em dias e horários específicos?",
+      answer:
+        "Você pode assistir quando, onde e quantas vezes quiser! Nosso curso é totalmente online, podendo ser acessado de um computador, tablet ou celular. Você pode rever as aulas sempre que tiver qualquer dúvida!",
+    },
+    {
+      id: "f6",
+      question: "Onde posso tirar dúvidas?",
+      answer:
+        "Você pode deixar sua dúvida em nosso Fórum de Entalhe ou em nossa Comunidade de Entalhe do WhatsApp! Semanalmente, iremos responder às dúvidas dos alunos.",
+    },
+    {
+      id: "f7",
+      question: "Posso comprar módulos separados?",
+      answer:
+        "Não, pois o curso foi articulado a partir de um percurso de aprendizagem. Mesmo que você possua experiência na prática, durante as aulas compartilhamos muita experiência e conhecimento que certamente irão agregar. Costumamos falar que, mesmo com anos de prática, nunca deixamos de aprender, pelo contrário! Nas trocas de experiências, seguimos acumulando conhecimento.",
+    },
+    {
+      id: "f8",
+      question: "Quais as formas de pagamento?",
+      answer: "Ver na Hotmart.",
     },
   ],
   finalCta: {
