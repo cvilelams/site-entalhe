@@ -1,6 +1,6 @@
 export const landingData = {
   hero: {
-    title: "EXPLORE O UNIVERSO DO ENTALHE EM MADEIRA",
+    title: "Explore o universo do entalhe em madeira",
     subtitle: "Do bloquinho de madeira à escultura, aprenda na prática ao entalhar uma capivara!",
     cta_text: "QUERO ENTALHAR",
     cta_url: "https://wa.me/5500000000000",
