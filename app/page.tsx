@@ -184,44 +184,42 @@ export default function HomePage() {
             style={{ background: "#FDF8F0" }}
           >
             <div className="mx-auto max-w-6xl space-y-16">
-              {/* Título da seção */}
-              <div>
-                <SectionLabel>A prática</SectionLabel>
-                <SectionTitle>
-                  Por que entalhar<br />
-                  <em>com faca?</em>
-                </SectionTitle>
-              </div>
-
-              {/* Bloco 1 */}
-              <div>
-                <h3
-                  className="font-titulo font-bold text-espresso"
-                  style={{ fontSize: "clamp(20px, 2vw, 26px)", lineHeight: 1.25, letterSpacing: "-0.02em", marginBottom: "16px" }}
-                >
-                  Uma prática manual para uma vida melhor
-                </h3>
-                <p
-                  className="font-corpo font-light"
-                  style={{ fontSize: "17px", lineHeight: 1.75, color: "#6B5344", maxWidth: "560px", marginBottom: "16px" }}
-                >
-                  Numa sociedade cada vez mais virtual, desconectar-se e trabalhar com as mãos é uma atividade preciosa.
-                </p>
-                <p
-                  className="font-corpo font-light"
-                  style={{ fontSize: "17px", lineHeight: 1.75, color: "#6B5344", maxWidth: "560px" }}
-                >
-                  Quem já entalhou sabe como é uma atividade gostosa para a alma. E não só isso: o médico Drauzio
-                  Varella enfatiza como a manualidade ajuda a evitar o declínio cognitivo, reduzir o estresse e
-                  aumentar a sensação de bem-estar.
-                </p>
-                <div className="mt-6 overflow-hidden">
+              {/* Bloco 1 — título + texto à esquerda, imagem à direita */}
+              <div className="grid grid-cols-1 md:grid-cols-2 md:items-start gap-10 md:gap-16">
+                <div>
+                  <SectionLabel>A prática</SectionLabel>
+                  <SectionTitle>
+                    Por que entalhar<br />
+                    <em>com faca?</em>
+                  </SectionTitle>
+                  <h3
+                    className="font-titulo font-bold text-espresso"
+                    style={{ fontSize: "clamp(20px, 2vw, 26px)", lineHeight: 1.25, letterSpacing: "-0.02em", marginBottom: "16px" }}
+                  >
+                    Uma prática manual para uma vida melhor
+                  </h3>
+                  <p
+                    className="font-corpo font-light"
+                    style={{ fontSize: "17px", lineHeight: 1.75, color: "#6B5344", marginBottom: "16px" }}
+                  >
+                    Numa sociedade cada vez mais virtual, desconectar-se e trabalhar com as mãos é uma atividade preciosa.
+                  </p>
+                  <p
+                    className="font-corpo font-light"
+                    style={{ fontSize: "17px", lineHeight: 1.75, color: "#6B5344" }}
+                  >
+                    Quem já entalhou sabe como é uma atividade gostosa para a alma. E não só isso: o médico Drauzio
+                    Varella enfatiza como a manualidade ajuda a evitar o declínio cognitivo, reduzir o estresse e
+                    aumentar a sensação de bem-estar.
+                  </p>
+                </div>
+                <div className="overflow-hidden">
                   <Image
                     src="/images/sections/minha-mae-entalhando.png"
                     alt="Minha mãe entalhando madeira com faca"
                     width={1024}
                     height={1536}
-                    className="h-[420px] w-full object-cover object-center md:h-[520px]"
+                    className="w-full object-cover"
                   />
                 </div>
               </div>
@@ -313,7 +311,7 @@ export default function HomePage() {
                 </p>
                 <div className="mt-6 overflow-hidden">
                   <Image
-                    src="/images/sections/ferramentas-kit.png"
+                    src="/images/sections/ferramentas-kit.jpg"
                     alt="Kit de ferramentas para iniciantes no entalhe"
                     width={1024}
                     height={1024}
