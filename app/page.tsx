@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroSection from "@/components/home/HeroSection";
 import MobileScrollCta from "@/components/home/MobileScrollCta";
+import InstructorStats from "@/components/home/InstructorStats";
 import { getContent, getVisibility } from "@/lib/content/store";
 import {
   Accordion,
@@ -12,6 +13,11 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Check } from "lucide-react";
+
+/* ── Previne viúvas tipográficas — substitui o último espaço por &nbsp; ── */
+function pw(text: string): string {
+  return text.replace(/\s(\S+)\s*$/, "\u00A0$1");
+}
 
 /* ── helpers de visibilidade ── */
 function isVisible(
@@ -37,8 +43,7 @@ function SectionLabel({
         style={{ display: "block", width: "24px", height: "1px", background: color, flexShrink: 0 }}
       />
       <span
-        className="font-corpo font-medium uppercase"
-        style={{ fontSize: "11px", letterSpacing: "0.18em" }}
+        className="font-corpo font-medium uppercase text-label"
       >
         {children}
       </span>
@@ -102,7 +107,6 @@ export default function HomePage() {
   const ctaUrl = hero?.cta_url ?? "#";
   const ctaText = hero?.cta_text ?? "QUERO ENTALHAR";
 
-  const mosaicSlots = [1, 2, 3, 4, 5];
   const overviewCarouselUrls = [
     overview?.carousel_image_1_url,
     overview?.carousel_image_2_url,
@@ -184,8 +188,8 @@ export default function HomePage() {
             style={{ background: "#FDF8F0" }}
           >
             <div className="mx-auto max-w-6xl space-y-16">
-              {/* Bloco 1 — título + texto à esquerda, imagem à direita */}
-              <div className="grid grid-cols-1 md:grid-cols-2 md:items-start gap-10 md:gap-16">
+              {/* Bloco 1 — título + texto, imagem abaixo */}
+              <div className="space-y-8">
                 <div>
                   <SectionLabel>A prática</SectionLabel>
                   <SectionTitle>
@@ -199,126 +203,198 @@ export default function HomePage() {
                     Uma prática manual para uma vida melhor
                   </h3>
                   <p
-                    className="font-corpo font-light"
-                    style={{ fontSize: "17px", lineHeight: 1.75, color: "#6B5344", marginBottom: "16px" }}
+                    className="font-corpo font-light text-body"
+                    style={{ color: "#6B5344", marginBottom: "16px" }}
                   >
-                    Numa sociedade cada vez mais virtual, desconectar-se e trabalhar com as mãos é uma atividade preciosa.
+                    {pw("Numa sociedade cada vez mais virtual, desconectar-se e trabalhar com as mãos é uma atividade preciosa.")}
                   </p>
                   <p
-                    className="font-corpo font-light"
-                    style={{ fontSize: "17px", lineHeight: 1.75, color: "#6B5344" }}
+                    className="font-corpo font-light text-body"
+                    style={{ color: "#6B5344" }}
                   >
-                    Quem já entalhou sabe como é uma atividade gostosa para a alma. E não só isso: o médico Drauzio
-                    Varella enfatiza como a manualidade ajuda a evitar o declínio cognitivo, reduzir o estresse e
-                    aumentar a sensação de bem-estar.
+                    {pw("Quem já entalhou sabe como é uma atividade gostosa para a alma. E não só isso: o médico Drauzio Varella enfatiza como a manualidade ajuda a evitar o declínio cognitivo, reduzir o estresse e aumentar a sensação de bem-estar.")}
                   </p>
                 </div>
-                <div className="overflow-hidden">
+                <div className="overflow-hidden rounded-lg">
                   <Image
-                    src="/images/sections/minha-mae-entalhando.png"
-                    alt="Minha mãe entalhando madeira com faca"
-                    width={1024}
-                    height={1536}
+                    src="/images/sections/mae-entalhando-oficina.webp"
+                    alt="Mãe e filha entalhando juntas na oficina"
+                    width={1095}
+                    height={730}
                     className="w-full object-cover"
                   />
                 </div>
               </div>
 
               {/* Bloco 2 */}
-              <div>
-                <h3
-                  className="font-titulo font-bold text-espresso"
-                  style={{ fontSize: "clamp(20px, 2vw, 26px)", lineHeight: 1.25, letterSpacing: "-0.02em", marginBottom: "16px" }}
-                >
-                  Desenvolver sua criatividade
-                </h3>
-                <p
-                  className="font-corpo font-light"
-                  style={{ fontSize: "17px", lineHeight: 1.75, color: "#6B5344", maxWidth: "560px", marginBottom: "16px" }}
-                >
-                  Após esculpir o famoso Davi de um enorme bloco de mármore, há quem diga que Michelangelo afirmou:
-                  "Eu apenas tirei da pedra de mármore tudo que não era Davi". Isso se aplica a qualquer atividade de
-                  entalhe: a retirada do que não importa para se revelar o que sempre esteve lá.
-                </p>
-                <p
-                  className="font-corpo font-light"
-                  style={{ fontSize: "17px", lineHeight: 1.75, color: "#6B5344", maxWidth: "560px" }}
-                >
-                  É muito satisfatório começar a entender um bloco rígido como uma potencial peça escultural,
-                  estimulando naturalmente diversas habilidades criativas e praticando sua expressão.
-                </p>
-                <div className="mt-6 overflow-hidden pb-2">
-                  <div className="carousel-track">
-                    {[...mosaicSlots, ...mosaicSlots].map((slot, index) => (
-                      <div
-                        key={`mosaic-${slot}-${index}`}
-                        className="flex min-h-52 min-w-[220px] overflow-hidden"
-                        style={{ background: "#F0E8DC" }}
-                      >
-                        <div
-                          className="h-full min-h-40 w-full"
-                          style={{ background: "linear-gradient(135deg, #FDF8F0 0%, #F0E8DC 50%, #E4D8C8 100%)" }}
-                          aria-hidden="true"
-                        />
-                        <span className="sr-only">Imagem artística da galeria</span>
-                      </div>
-                    ))}
+              <div className="space-y-8">
+                <div>
+                  <h3
+                    className="font-titulo font-bold text-espresso"
+                    style={{ fontSize: "clamp(20px, 2vw, 26px)", lineHeight: 1.25, letterSpacing: "-0.02em", marginBottom: "16px" }}
+                  >
+                    Desenvolver sua criatividade
+                  </h3>
+                  <p
+                    className="font-corpo font-light text-body"
+                    style={{ color: "#6B5344", marginBottom: "16px" }}
+                  >
+                    {pw("Após esculpir o famoso Davi de um enorme bloco de mármore, há quem diga que Michelangelo afirmou: \"Eu apenas tirei da pedra de mármore tudo que não era Davi\". Isso se aplica a qualquer atividade de entalhe: a retirada do que não importa para se revelar o que sempre esteve lá.")}
+                  </p>
+                  <p
+                    className="font-corpo font-light text-body"
+                    style={{ color: "#6B5344" }}
+                  >
+                    {pw("É muito satisfatório começar a entender um bloco rígido como uma potencial peça escultural, estimulando naturalmente diversas habilidades criativas e praticando sua expressão.")}
+                  </p>
+                </div>
+              </div>
+
+              {/* Bento grid — criações da oficina */}
+              <div
+                className="grid grid-cols-2 md:grid-cols-3 gap-2"
+                style={{ gridAutoRows: "260px" }}
+              >
+                {/* A — pomba (1 col) */}
+                <div className="relative overflow-hidden rounded-lg">
+                  <Image
+                    src="/images/sections/bento-pomba.webp"
+                    alt="Pomba entalhada e pintada com detalhes realistas"
+                    fill
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                  />
+                </div>
+
+                {/* B — baleias (2 cols desktop, 1 col mobile) */}
+                <div className="md:col-span-2 relative overflow-hidden rounded-lg">
+                  <Image
+                    src="/images/sections/bento-baleias.webp"
+                    alt="Duas baleias entalhadas em madeira, pintadas de azul"
+                    fill
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    sizes="(max-width: 768px) 50vw, 67vw"
+                  />
+                </div>
+
+                {/* C — ensaios (2 cols desktop, 1 col mobile) */}
+                <div className="md:col-span-2 relative overflow-hidden rounded-lg">
+                  <Image
+                    src="/images/sections/bento-ensaios.webp"
+                    alt="Suportes de tubos de ensaio entalhados em madeira com plantas"
+                    fill
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    sizes="(max-width: 768px) 50vw, 67vw"
+                  />
+                </div>
+
+                {/* D — fruta (1 col) */}
+                <div className="relative overflow-hidden rounded-lg">
+                  <Image
+                    src="/images/sections/bento-fruta.webp"
+                    alt="Melancia entalhada e pintada com expressão divertida"
+                    fill
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                  />
+                </div>
+
+                {/* E — dino (1 col) */}
+                <div className="relative overflow-hidden rounded-lg">
+                  <Image
+                    src="/images/sections/bento-dino.webp"
+                    alt="Dinossauro entalhado em madeira natural"
+                    fill
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                  />
+                </div>
+
+                {/* F — geek (2 cols desktop, 1 col mobile) */}
+                <div className="md:col-span-2 relative overflow-hidden rounded-lg">
+                  <Image
+                    src="/images/sections/bento-geek.webp"
+                    alt="Mago entalhado em madeira, personagem de fantasia"
+                    fill
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    sizes="(max-width: 768px) 50vw, 67vw"
+                  />
+                </div>
+              </div>
+
+              {/* Bloco 3 + Bloco 4 — ferramentas */}
+              <div className="space-y-4">
+                {/* Bloco 3 — texto introdutório */}
+                <div>
+                  <h3
+                    className="font-titulo font-bold text-espresso"
+                    style={{ fontSize: "clamp(20px, 2vw, 26px)", lineHeight: 1.25, letterSpacing: "-0.02em", marginBottom: "16px" }}
+                  >
+                    Comece com poucas ferramentas
+                  </h3>
+                  <p
+                    className="font-corpo font-light text-body"
+                    style={{ color: "#6B5344", maxWidth: "560px" }}
+                  >
+                    {pw("Basicamente com um pedaço de madeira e uma faca de entalhe já podemos esculpir.")}
+                  </p>
+                </div>
+
+                <div className="overflow-hidden rounded-lg">
+                  <Image
+                    src="/images/sections/capivarinha.webp"
+                    alt="Bloco de madeira, faca de entalhe e capivara esculpida — do início ao resultado"
+                    width={1024}
+                    height={683}
+                    className="w-full object-cover"
+                  />
+                </div>
+
+                {/* Bloco 4 — card: kit de ferramentas */}
+                <div className="bg-cream-2 hover:bg-cream-3 transition-colors duration-200 overflow-hidden">
+                <div style={{ padding: "40px 36px" }}>
+                  <h3
+                    className="font-titulo font-bold text-espresso"
+                    style={{ fontSize: "clamp(20px, 2vw, 26px)", lineHeight: 1.25, letterSpacing: "-0.02em", marginBottom: "16px" }}
+                  >
+                    Ainda não tenho nenhuma ferramenta…
+                  </h3>
+                  <p
+                    className="font-corpo font-light text-body"
+                    style={{ color: "#6B5344", maxWidth: "560px" }}
+                  >
+                    {pw("Preparamos kits para você iniciar e dar continuidade à prática do entalhe. Para te incentivar a começar agora, você tem desconto se comprá-los junto com o curso.")}
+                  </p>
+                  <div style={{ marginTop: "28px" }}>
+                    <Link
+                      href="#"
+                      className="font-corpo font-medium uppercase inline-block transition-all duration-200 hover:-translate-y-px"
+                      style={{
+                        border: "1px solid #C4622D",
+                        color: "#C4622D",
+                        background: "transparent",
+                        padding: "14px 32px",
+                        borderRadius: "2px",
+                        fontSize: "13px",
+                        letterSpacing: "0.08em",
+                      }}
+                    >
+                      Comprar kit
+                    </Link>
                   </div>
                 </div>
+
+                {/* Imagem sangrada — full-width, sem padding lateral */}
+                <Image
+                  src="/images/sections/ferramentas-kit.jpg"
+                  alt="Kit de ferramentas para iniciantes no entalhe"
+                  width={1024}
+                  height={1024}
+                  className="w-full object-cover"
+                />
               </div>
 
-              {/* Bloco 3 */}
-              <div>
-                <h3
-                  className="font-titulo font-bold text-espresso"
-                  style={{ fontSize: "clamp(20px, 2vw, 26px)", lineHeight: 1.25, letterSpacing: "-0.02em", marginBottom: "16px" }}
-                >
-                  Comece com poucas ferramentas
-                </h3>
-                <p
-                  className="font-corpo font-light"
-                  style={{ fontSize: "17px", lineHeight: 1.75, color: "#6B5344", maxWidth: "560px" }}
-                >
-                  Basicamente com um pedaço de madeira e uma faca de entalhe já podemos esculpir.
-                </p>
-                <div
-                  className="mt-6 overflow-hidden"
-                  style={{ background: "#F0E8DC", minHeight: "224px" }}
-                >
-                  <div
-                    className="h-full min-h-56 w-full"
-                    style={{ background: "linear-gradient(135deg, #FDF8F0 0%, #F0E8DC 50%, #E4D8C8 100%)" }}
-                    aria-hidden="true"
-                  />
-                  <span className="sr-only">Imagem de ferramentas para começar a entalhar</span>
-                </div>
-              </div>
-
-              {/* Bloco 4 */}
-              <div>
-                <h3
-                  className="font-titulo font-bold text-espresso"
-                  style={{ fontSize: "clamp(20px, 2vw, 26px)", lineHeight: 1.25, letterSpacing: "-0.02em", marginBottom: "16px" }}
-                >
-                  Ainda não tenho nenhuma ferramenta…
-                </h3>
-                <p
-                  className="font-corpo font-light"
-                  style={{ fontSize: "17px", lineHeight: 1.75, color: "#6B5344", maxWidth: "560px" }}
-                >
-                  Preparamos kits para você iniciar e dar continuidade à prática do entalhe. Para te incentivar a
-                  começar agora, você tem desconto se comprá-los junto com o curso.
-                </p>
-                <div className="mt-6 overflow-hidden">
-                  <Image
-                    src="/images/sections/ferramentas-kit.jpg"
-                    alt="Kit de ferramentas para iniciantes no entalhe"
-                    width={1024}
-                    height={1024}
-                    className="h-auto w-full object-cover"
-                  />
-                </div>
-              </div>
+              </div>{/* fim: Bloco 3 + Bloco 4 */}
 
               <div>
                 <CtaLink href={ctaUrl}>{ctaText}</CtaLink>
@@ -326,53 +402,66 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* Cards de features — gap:2px */}
-          <div
-            className="grid grid-cols-1 md:grid-cols-3"
-            style={{ gap: "2px" }}
-          >
-            {[
-              {
-                num: "01",
-                title: "Não precisa de espaço",
-                desc: "Entalhe em qualquer lugar: casa, apartamento, parque ou viagem. Basicamente um pedaço de madeira e uma faca de entalhe.",
-              },
-              {
-                num: "02",
-                title: "Fonte de renda extra",
-                desc: "Temos alunos que já venderam suas peças em feiras, sendo possível complementar a renda com suas próprias criações.",
-              },
-              {
-                num: "03",
-                title: "É para mim?",
-                desc: "Para todos: quem nunca entalhou e quem quer evoluir nas técnicas. A esmagadora maioria dos nossos alunos começou do zero.",
-              },
-            ].map((item) => (
-              <div
-                key={item.num}
-                className="bg-cream-2 hover:bg-cream-3 transition-colors duration-200"
-                style={{ padding: "40px 36px" }}
-              >
-                <p
-                  className="font-corpo font-medium uppercase mb-3"
-                  style={{ fontSize: "11px", letterSpacing: "0.18em", color: "#9C7E6A" }}
+          {/* Cards de features — grade 2 colunas + banner full-width */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+            {/* Cards 01 e 02 — lado a lado */}
+            <div
+              className="grid grid-cols-1 md:grid-cols-2"
+              style={{ gap: "2px" }}
+            >
+              {[
+                {
+                  num: "01",
+                  title: "Não precisa de espaço",
+                  desc: "Nós sabemos como maquinários e ferramentas ocupam espaço, e valorizamos muito a possibilidade de entalhar de qualquer lugar. Seja em casa, apartamento ou kitnet, em um parque, durante uma viagem. A praticidade do entalhe, que envolve basicamente você ter um pedaço de madeira e uma faca de entalhe, torna a atividade extremamente acessível.",
+                },
+                {
+                  num: "02",
+                  title: "Fonte de renda extra",
+                  desc: "Temos alunos que já venderam suas peças em feiras, sendo super possível complementar a renda com suas próprias criações.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.num}
+                  className="bg-cream-2 hover:bg-cream-3 transition-colors duration-200"
+                  style={{ padding: "40px 36px" }}
                 >
-                  {item.num}
-                </p>
+                  <h3
+                    className="font-titulo font-bold text-espresso mb-4"
+                    style={{ fontSize: "20px", lineHeight: 1.25, letterSpacing: "-0.02em" }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p
+                    className="font-corpo font-light text-sm-body"
+                    style={{ color: "#6B5344" }}
+                  >
+                    {pw(item.desc)}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Card 03 — banner full-width com layout horizontal */}
+            <div
+              className="bg-cream-2 hover:bg-cream-3 transition-colors duration-200 flex flex-col md:flex-row md:items-center"
+              style={{ padding: "40px 36px", gap: "36px" }}
+            >
+              <div className="md:w-1/3 shrink-0">
                 <h3
-                  className="font-titulo font-bold text-espresso mb-4"
+                  className="font-titulo font-bold text-espresso"
                   style={{ fontSize: "20px", lineHeight: 1.25, letterSpacing: "-0.02em" }}
                 >
-                  {item.title}
+                  Será que esse curso é para mim?
                 </h3>
-                <p
-                  className="font-corpo font-light"
-                  style={{ fontSize: "14px", lineHeight: 1.65, color: "#6B5344" }}
-                >
-                  {item.desc}
-                </p>
               </div>
-            ))}
+              <p
+                className="font-corpo font-light text-sm-body md:w-2/3"
+                style={{ color: "#6B5344" }}
+              >
+                {pw("Nosso curso é para todos: quem nunca entalhou na vida (inclusive costumamos tranquilizar nossos alunos pois a esmagadora maioria de fato nunca praticou), e também para quem já praticou e quer desenvolver ainda mais suas técnicas.")}
+              </p>
+            </div>
           </div>
         </>
       )}
@@ -380,6 +469,7 @@ export default function HomePage() {
       {/* ── VISÃO GERAL DO CURSO ── */}
       {isVisible(visibility, "course_overview") && (
         <section
+          id="modulos"
           className={sectionPadding}
           style={{ background: "#FDF8F0" }}
         >
@@ -387,10 +477,8 @@ export default function HomePage() {
             <SectionLabel>O curso</SectionLabel>
             <SectionTitle>{overview?.title}</SectionTitle>
             <p
-              className="font-corpo font-light"
+              className="font-corpo font-light text-body"
               style={{
-                fontSize: "17px",
-                lineHeight: 1.75,
                 color: "#6B5344",
                 maxWidth: "560px",
                 marginBottom: "64px",
@@ -429,8 +517,8 @@ export default function HomePage() {
                     {m.title}
                   </h3>
                   <p
-                    className="font-corpo font-light"
-                    style={{ fontSize: "14px", lineHeight: 1.65, color: "#6B5344" }}
+                    className="font-corpo font-light text-sm-body"
+                    style={{ color: "#6B5344" }}
                   >
                     {m.description}
                   </p>
@@ -471,23 +559,35 @@ export default function HomePage() {
             </div>
 
             <p
-              className="font-corpo font-light mt-10"
-              style={{ fontSize: "17px", lineHeight: 1.75, color: "#6B5344", maxWidth: "560px" }}
+              className="font-corpo font-light mt-10 text-body"
+              style={{ color: "#6B5344", maxWidth: "560px" }}
             >
-              Você vai absorver, na prática, todos esses fundamentos partindo de um bloco maciço que se
-              transformará em uma capivara.
+              {pw("Você vai absorver, na prática, todos esses fundamentos partindo de um bloco maciço que se transformará em uma capivara.")}
             </p>
 
             {overviewGifUrl ? (
-              <div className="mt-6 overflow-hidden">
-                <Image
-                  src={overviewGifUrl}
-                  alt="Capivara em visualização 360 graus"
-                  width={1024}
-                  height={1024}
-                  className="h-auto w-full object-cover"
-                  unoptimized
-                />
+              <div className="mt-6 overflow-hidden rounded-lg">
+                {overviewGifUrl.endsWith(".webm") || overviewGifUrl.endsWith(".mp4") ? (
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="h-auto w-full object-cover"
+                    aria-label="Capivara em visualização 360 graus"
+                  >
+                    <source src={overviewGifUrl} type="video/webm" />
+                  </video>
+                ) : (
+                  <Image
+                    src={overviewGifUrl}
+                    alt="Capivara em visualização 360 graus"
+                    width={1024}
+                    height={1024}
+                    className="h-auto w-full object-cover"
+                    unoptimized
+                  />
+                )}
               </div>
             ) : (
               <div
@@ -519,20 +619,20 @@ export default function HomePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 md:items-start" style={{ gap: "64px", marginTop: "40px" }}>
               <div>
                 <p
-                  className="font-corpo font-light"
-                  style={{ fontSize: "17px", lineHeight: 1.75, color: "#6B5344", marginBottom: "24px" }}
+                  className="font-corpo font-light text-body"
+                  style={{ color: "#6B5344", marginBottom: "24px" }}
                 >
                   Compre o curso e ganhe um e-book com 10 projetos de entalhe.
                 </p>
                 <p
-                  className="font-corpo font-light"
-                  style={{ fontSize: "17px", lineHeight: 1.75, color: "#6B5344", marginBottom: "24px" }}
+                  className="font-corpo font-light text-body"
+                  style={{ color: "#6B5344", marginBottom: "24px" }}
                 >
                   Além disso, você vai poder interagir e tirar suas dúvidas no fórum de entalhe.
                 </p>
                 <p
-                  className="font-corpo font-light"
-                  style={{ fontSize: "17px", lineHeight: 1.75, color: "#6B5344", marginBottom: "24px" }}
+                  className="font-corpo font-light text-body"
+                  style={{ color: "#6B5344", marginBottom: "24px" }}
                 >
                   Disponível para celular, tablet e computador.
                 </p>
@@ -573,35 +673,21 @@ export default function HomePage() {
       {isVisible(visibility, "instructors") && (
         <section
           id="instrutor"
-          className="grid grid-cols-1 md:grid-cols-2"
           style={{ background: "#0D0705" }}
         >
-          {/* Placeholder visual (lado esquerdo) */}
+          {/* Faixa decorativa no topo */}
           <div
-            className="relative overflow-hidden min-h-[400px] md:min-h-[600px]"
-            style={{ background: "linear-gradient(135deg, #5C3520 0%, #3A1F0E 50%, #1E0E05 100%)" }}
-          >
-            <span
-              className="absolute font-titulo font-black"
-              aria-hidden="true"
-              style={{
-                bottom: 48,
-                left: 48,
-                fontSize: "120px",
-                fontWeight: 900,
-                color: "rgba(253,248,240,0.06)",
-                letterSpacing: "-0.05em",
-                lineHeight: 1,
-              }}
-            >
-              MS
-            </span>
-          </div>
+            aria-hidden="true"
+            style={{
+              height: "4px",
+              background: "linear-gradient(90deg, #3A1F0E 0%, #E8956A 50%, #3A1F0E 100%)",
+            }}
+          />
 
-          {/* Conteúdo (lado direito) */}
+          {/* Conteúdo centralizado */}
           <div
-            className="flex flex-col justify-center"
-            style={{ padding: "96px 80px" }}
+            className="mx-auto max-w-3xl flex flex-col px-6 md:px-10"
+            style={{ paddingTop: "96px", paddingBottom: "96px" }}
           >
             <SectionLabel dark>Quem ensina</SectionLabel>
 
@@ -629,14 +715,17 @@ export default function HomePage() {
               Mayra e Simone — Arquitetura &amp; Entalhe
             </div>
 
-            <div className="overflow-hidden mb-8" style={{ maxHeight: "50vh" }}>
+            <div
+              className="overflow-hidden mb-8"
+              style={{ maxHeight: "56vh", borderRadius: "2px" }}
+            >
               <Image
-                src="/images/sections/7_mentoras(ATUALIZAR) (1).jpg"
+                src="/images/sections/mentoras.jpg"
                 alt="Mayra e Simone"
                 width={1024}
                 height={1024}
                 className="w-full object-cover object-top"
-                style={{ maxHeight: "50vh" }}
+                style={{ maxHeight: "56vh" }}
               />
             </div>
 
@@ -649,44 +738,10 @@ export default function HomePage() {
                 marginBottom: "48px",
               }}
             >
-              Somos Mayra e Simone, duas irmãs que compartilham das mesmas afinidades desde a infância.
-              Cursamos Arquitetura e Urbanismo e, há anos, decidimos trabalhar juntas na marcenaria. No meio
-              do caminho, nos apaixonamos pela técnica de entalhe e hoje criamos peças artísticas selecionadas
-              e premiadas em Salões de Arte.
+              {pw("Somos Mayra e Simone, duas irmãs que compartilham das mesmas afinidades desde a infância. Cursamos Arquitetura e Urbanismo e, há anos, decidimos trabalhar juntas na marcenaria. No meio do caminho, nos apaixonamos pela técnica de entalhe e hoje criamos peças artísticas selecionadas e premiadas em Salões de Arte.")}
             </p>
 
-            {/* Stats */}
-            <div
-              className="flex gap-12 flex-wrap"
-              style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "40px" }}
-            >
-              {[
-                { n: "700+", l: "Alunos formados" },
-                { n: "4",    l: "Turmas" },
-                { n: "98%",  l: "Satisfação" },
-              ].map((stat) => (
-                <div key={stat.l}>
-                  <span
-                    className="font-titulo font-black block"
-                    style={{ fontSize: "38px", color: "#FDF8F0", letterSpacing: "-0.03em", lineHeight: 1 }}
-                  >
-                    {stat.n}
-                  </span>
-                  <span
-                    className="font-corpo block"
-                    style={{
-                      fontSize: "11px",
-                      color: "rgba(253,248,240,0.45)",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.12em",
-                      marginTop: "6px",
-                    }}
-                  >
-                    {stat.l}
-                  </span>
-                </div>
-              ))}
-            </div>
+            <InstructorStats />
 
             <div style={{ marginTop: "40px" }}>
               <CtaLink href={ctaUrl}>{ctaText}</CtaLink>
@@ -762,10 +817,8 @@ export default function HomePage() {
             <em>ritmo</em>
           </SectionTitle>
           <p
-            className="font-corpo font-light"
+            className="font-corpo font-light text-body"
             style={{
-              fontSize: "17px",
-              lineHeight: 1.75,
               color: "#6B5344",
               maxWidth: "560px",
               marginBottom: "64px",
@@ -800,8 +853,8 @@ export default function HomePage() {
                 {["Acesso vitalício", "Suporte no fórum", "E-book bônus"].map((item) => (
                   <li
                     key={item}
-                    className="flex items-center gap-[10px] font-corpo font-light"
-                    style={{ fontSize: "14px", color: "#6B5344" }}
+                    className="flex items-center gap-[10px] font-corpo font-light text-sm-body"
+                    style={{ color: "#6B5344" }}
                   >
                     <Check className="h-4 w-4 shrink-0" style={{ color: "#C4622D" }} />
                     {item}
@@ -852,8 +905,8 @@ export default function HomePage() {
                 {["Acesso vitalício", "Suporte no fórum", "E-book bônus"].map((item) => (
                   <li
                     key={item}
-                    className="flex items-center gap-[10px] font-corpo font-light"
-                    style={{ fontSize: "14px", color: "rgba(253,248,240,0.7)" }}
+                    className="flex items-center gap-[10px] font-corpo font-light text-sm-body"
+                    style={{ color: "rgba(253,248,240,0.7)" }}
                   >
                     <Check className="h-4 w-4 shrink-0" style={{ color: "#E8956A" }} />
                     {item}

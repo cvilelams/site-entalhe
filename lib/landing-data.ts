@@ -24,7 +24,7 @@ export const landingData = {
     carousel_image_3_url: "/images/curso/3.jpg",
     carousel_image_4_url: "/images/curso/4.jpg",
     carousel_image_5_url: "/images/curso/5.jpg",
-    gif_360_url: "/images/curso/capivara-360.gif",
+    gif_360_url: "/images/sections/ezgif-46bd4b2ef8138065.webm",
   },
   modules: [
     {
@@ -68,6 +68,12 @@ export const landingData = {
       title: "Acabamento",
       description: "Finalização da peça para proteger a madeira e ressaltar sua beleza natural.",
       icon: "07",
+    },
+    {
+      id: "m8",
+      title: "Fórum",
+      description: "Espaço exclusivo para tirar dúvidas, compartilhar avanços e trocar experiências com outros alunos do curso.",
+      icon: "08",
     },
   ],
   instructors: [

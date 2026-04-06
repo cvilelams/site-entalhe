@@ -67,14 +67,18 @@ export default function Footer() {
             Curso
           </span>
           <ul className="flex flex-col gap-3 list-none">
-            {["O método", "Módulos", "Quem ensina", "Depoimentos"].map((item) => (
-              <li key={item}>
+            {[
+              { label: "O método",    href: "#curso" },
+              { label: "Módulos",     href: "#modulos" },
+              { label: "Quem ensina", href: "#instrutor" },
+            ].map(({ label, href }) => (
+              <li key={label}>
                 <a
-                  href="#"
+                  href={href}
                   className="font-corpo font-light transition-colors hover:text-cream"
                   style={{ fontSize: "14px", color: "rgba(253,248,240,0.55)" }}
                 >
-                  {item}
+                  {label}
                 </a>
               </li>
             ))}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import HeroParallaxBackground from "@/components/home/HeroParallaxBackground";
 
 type HeroSectionProps = {
   title?: string | null;
@@ -13,7 +13,7 @@ function renderTitleWithAccent(title: string) {
   const parts = title.split(/\b(entalhe)\b/i);
   return parts.map((part, i) =>
     part.toLowerCase() === "entalhe" ? (
-      <em key={i} style={{ fontStyle: "italic", color: "#C4622D" }}>
+      <em key={i} style={{ fontStyle: "italic", color: "#E07840" }}>
         {part}
       </em>
     ) : (
@@ -31,17 +31,13 @@ export default function HeroSection({
 }: HeroSectionProps) {
   return (
     <section
-      className="grid min-h-screen max-md:grid-cols-1 lg:grid-cols-2"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
       style={{ paddingTop: "88px" }}
     >
-      {/* Coluna esquerda — tipografia e CTA */}
-      <div
-        className="flex flex-col justify-center"
-        style={{
-          background: "#FDF8F0",
-          padding: "96px 64px",
-        }}
-      >
+      <HeroParallaxBackground imageSrc={imageSrc} />
+
+      {/* Conteúdo centralizado */}
+      <div className="relative z-10 flex flex-col items-center text-center px-6 py-16 w-full max-w-3xl">
         {/* Label de seção */}
         <div
           className="flex items-center gap-3 mb-8"
@@ -53,20 +49,25 @@ export default function HeroSection({
           />
           <span
             className="font-corpo font-medium uppercase"
-            style={{ fontSize: "11px", letterSpacing: "0.18em" }}
+            style={{ fontSize: "11px", letterSpacing: "0.18em", color: "#FDF8F0" }}
           >
             Curso de Entalhe em Madeira
           </span>
+          <span
+            aria-hidden="true"
+            style={{ display: "block", width: "32px", height: "1px", background: "#C4622D", flexShrink: 0 }}
+          />
         </div>
 
         {/* Headline */}
         <h1
-          className="font-titulo font-black text-espresso"
+          className="font-titulo font-black"
           style={{
             fontSize: "clamp(52px, 6vw, 80px)",
             lineHeight: 1.0,
             letterSpacing: "-0.03em",
             marginBottom: "40px",
+            color: "#FDF8F0",
           }}
         >
           {title ? renderTitleWithAccent(title) : "Aprenda a\u00a0entalhar\u00a0madeira"}
@@ -76,10 +77,10 @@ export default function HeroSection({
         <p
           className="font-corpo font-light"
           style={{
-            fontSize: "17px",
+            fontSize: "20px",
             lineHeight: 1.75,
-            color: "#6B5344",
-            maxWidth: "420px",
+            color: "rgba(253, 248, 240, 0.88)",
+            maxWidth: "540px",
             marginBottom: "48px",
           }}
         >
@@ -87,56 +88,22 @@ export default function HeroSection({
         </p>
 
         {/* Ações */}
-        <div className="flex items-center gap-8 flex-wrap">
+        <div className="flex justify-center">
           <Link
             href={ctaUrl ?? "#"}
             className="font-corpo font-medium uppercase inline-block transition-all hover:-translate-y-px hover:bg-espresso"
             style={{
               background: "#C4622D",
               color: "#FDF8F0",
-              padding: "16px 36px",
+              padding: "20px 72px",
               borderRadius: "2px",
-              fontSize: "13px",
+              fontSize: "15px",
               letterSpacing: "0.08em",
             }}
           >
             {ctaText ?? "Começar agora"}
           </Link>
-          <a
-            href="#curso"
-            className="font-corpo transition-colors hover:text-espresso hover:border-espresso"
-            style={{
-              fontSize: "13px",
-              color: "#9C7E6A",
-              fontWeight: 400,
-              borderBottom: "1px solid #D4C4B0",
-              paddingBottom: "2px",
-            }}
-          >
-            Ver o programa
-          </a>
         </div>
-      </div>
-
-      {/* Coluna direita — foto */}
-      <div className="relative overflow-hidden max-md:min-h-[50vh]" style={{ background: "#1A0F0A" }}>
-        <Image
-          src={imageSrc}
-          alt="Workshop de entalhe em madeira"
-          fill
-          priority
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          className="object-cover object-center"
-        />
-        {/* Overlay com gradiente sutil na base */}
-        <div
-          className="absolute inset-x-0 bottom-0"
-          style={{
-            height: "40%",
-            background: "linear-gradient(to top, rgba(13,7,5,0.65) 0%, transparent 100%)",
-            pointerEvents: "none",
-          }}
-        />
       </div>
     </section>
   );
