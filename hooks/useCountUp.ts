@@ -10,7 +10,7 @@ type UseCountUpOptions = {
 
 type UseCountUpResult = {
   display: string;
-  ref: React.RefObject<HTMLDivElement | null>;
+  ref: React.RefObject<HTMLDivElement>;
 };
 
 function easeOutQuart(t: number): number {
