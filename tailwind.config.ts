@@ -19,7 +19,10 @@ const config: Config = {
           DEFAULT: "#6B5344",
           lt: "#9C7E6A",
         },
-        terracota: "#C4622D",
+        terracota: {
+          DEFAULT: "#C4622D",
+          dark: "#8B3D18",
+        },
         "terra-lt": "#E8956A",
         dark: "#0D0705",
         rule: "#D4C4B0",
@@ -39,7 +42,7 @@ const config: Config = {
         serif: ["var(--font-playfair)", "Georgia", "serif"],
       },
       fontSize: {
-        label:   ["11px",  { lineHeight: "1",    letterSpacing: "0.18em", fontWeight: "500" }],
+        label:   ["13px",  { lineHeight: "1",    letterSpacing: "0.16em", fontWeight: "500" }],
         caption: ["12px",  { lineHeight: "1.65", letterSpacing: "0.05em" }],
         "sm-body":["14px", { lineHeight: "1.65" }],
         body:    ["17px",  { lineHeight: "1.75" }],

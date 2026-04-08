@@ -1,5 +1,5 @@
-import Link from "next/link";
 import HeroParallaxBackground from "@/components/home/HeroParallaxBackground";
+import LandingPrimaryCtaLink from "@/components/home/LandingPrimaryCtaLink";
 
 type HeroSectionProps = {
   title?: string | null;
@@ -48,8 +48,8 @@ export default function HeroSection({
             style={{ display: "block", width: "32px", height: "1px", background: "#C4622D", flexShrink: 0 }}
           />
           <span
-            className="font-corpo font-medium uppercase"
-            style={{ fontSize: "11px", letterSpacing: "0.18em", color: "#FDF8F0" }}
+            className="font-corpo font-medium uppercase text-label"
+            style={{ color: "#FDF8F0" }}
           >
             Curso de Entalhe em Madeira
           </span>
@@ -89,20 +89,9 @@ export default function HeroSection({
 
         {/* Ações */}
         <div className="flex justify-center">
-          <Link
-            href={ctaUrl ?? "#"}
-            className="font-corpo font-medium uppercase inline-block transition-all hover:-translate-y-px hover:bg-espresso"
-            style={{
-              background: "#C4622D",
-              color: "#FDF8F0",
-              padding: "20px 72px",
-              borderRadius: "2px",
-              fontSize: "15px",
-              letterSpacing: "0.08em",
-            }}
-          >
+          <LandingPrimaryCtaLink href={ctaUrl ?? "#"} variant="filled">
             {ctaText ?? "Começar agora"}
-          </Link>
+          </LandingPrimaryCtaLink>
         </div>
       </div>
     </section>

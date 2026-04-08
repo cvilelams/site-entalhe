@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import LandingPrimaryCtaLink from "@/components/home/LandingPrimaryCtaLink";
 import { useEffect, useState } from "react";
 
 type MobileScrollCtaProps = {
@@ -54,22 +54,14 @@ export default function MobileScrollCta({
         >
           Pronta para começar a entalhar hoje?
         </p>
-        <Link
-          href={ctaUrl}
-          className="block w-full text-center font-corpo font-medium uppercase tracking-[0.08em] transition-all hover:bg-espresso"
-          style={{
-            background: "#C4622D",
-            color: "#FDF8F0",
-            padding: "14px 24px",
-            borderRadius: "2px",
-            fontSize: "13px",
-          }}
-        >
-          {ctaText}
-        </Link>
+        <div className="flex justify-center">
+          <LandingPrimaryCtaLink href={ctaUrl} variant="filled">
+            {ctaText}
+          </LandingPrimaryCtaLink>
+        </div>
         <p
-          className="mt-2 text-center font-corpo font-light"
-          style={{ fontSize: "11px", color: "rgba(253,248,240,0.5)" }}
+          className="mt-2 text-center font-corpo text-label"
+          style={{ color: "rgba(253,248,240,0.5)" }}
         >
           Acesso vitalício e suporte no fórum
         </p>

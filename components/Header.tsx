@@ -62,7 +62,7 @@ export default function Header({ ctaUrl, ctaText }: HeaderProps) {
         {/* CTA */}
         <Link
           href={ctaUrl}
-          className="font-corpo text-[13px] font-medium uppercase tracking-[0.06em] text-cream bg-terracota px-6 py-[10px] transition-all hover:bg-espresso hover:-translate-y-px"
+          className="font-corpo text-[13px] font-medium uppercase tracking-[0.06em] text-cream bg-terracota px-6 py-[10px] transition-all hover:bg-terracota-dark hover:-translate-y-px"
           style={{ borderRadius: "2px" }}
         >
           {ctaText}

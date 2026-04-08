@@ -36,8 +36,8 @@ export default function Footer() {
         {/* Coluna comunidade */}
         <div>
           <span
-            className="font-corpo font-medium uppercase tracking-[0.16em] mb-5 block"
-            style={{ fontSize: "11px", color: "rgba(253,248,240,0.3)" }}
+            className="font-corpo font-medium uppercase text-label mb-5 block"
+            style={{ color: "rgba(253,248,240,0.3)" }}
           >
             Comunidade
           </span>
@@ -61,8 +61,8 @@ export default function Footer() {
         {/* Coluna curso */}
         <div>
           <span
-            className="font-corpo font-medium uppercase tracking-[0.16em] mb-5 block"
-            style={{ fontSize: "11px", color: "rgba(253,248,240,0.3)" }}
+            className="font-corpo font-medium uppercase text-label mb-5 block"
+            style={{ color: "rgba(253,248,240,0.3)" }}
           >
             Curso
           </span>

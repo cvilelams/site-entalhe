@@ -16,14 +16,13 @@ export const landingData = {
     item3_label: "satisfação",
   },
   courseOverview: {
-    title: "COMO É O CURSO?",
+    title: "Como é o curso?",
     description:
       "Vamos abordar os principais fundamentos do entalhe para você construir uma base sólida de prática. Partindo de um bloco maciço, você vai entalhar uma capivara completa, com passo a passo detalhado.",
-    carousel_image_1_url: "/images/curso/1.jpg",
-    carousel_image_2_url: "/images/curso/2.jpg",
-    carousel_image_3_url: "/images/curso/3.jpg",
-    carousel_image_4_url: "/images/curso/4.jpg",
-    carousel_image_5_url: "/images/curso/5.jpg",
+    making_of_1_url: "/images/sections/ezgif-2416448afc7a434d.webp",
+    making_of_2_url: "/images/sections/ezgif-281e3d8fb117deac.webp",
+    making_of_3_url: "/images/sections/ezgif-2fe7c49510ad0aaa.webp",
+    making_of_4_url: "/images/sections/ezgif-2c2a92825dca83a7.webp",
     gif_360_url: "/images/sections/ezgif-46bd4b2ef8138065.webm",
   },
   modules: [

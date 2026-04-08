@@ -8,7 +8,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default:  "bg-terracota text-cream hover:-translate-y-px hover:bg-espresso",
+        default:  "bg-terracota text-cream hover:-translate-y-px hover:bg-terracota-dark",
         secondary:"bg-terra-lt text-cream hover:-translate-y-px hover:bg-terracota",
         outline:  "border border-rule bg-transparent text-espresso hover:bg-cream-3 hover:border-brown-lt",
         ghost:    "border border-rule bg-transparent text-espresso hover:bg-cream-3",
