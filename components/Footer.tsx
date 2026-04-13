@@ -8,13 +8,13 @@ export default function Footer() {
     <>
       {/* Corpo do footer */}
       <footer
-        className="grid gap-12 max-md:grid-cols-2 max-sm:grid-cols-1"
-        style={{
-          background: "#0D0705",
-          padding: "64px",
-          gridTemplateColumns: "2fr 1fr 1fr",
-        }}
+        className="px-6 py-16 md:px-16"
+        style={{ background: "#0D0705" }}
       >
+        <div
+          className="mx-auto max-w-6xl grid gap-12 max-md:grid-cols-2 max-sm:grid-cols-1"
+          style={{ gridTemplateColumns: "2fr 1fr 1fr" }}
+        >
         {/* Coluna da marca */}
         <div>
           <Link
@@ -84,29 +84,31 @@ export default function Footer() {
             ))}
           </ul>
         </div>
+        </div>
       </footer>
 
       {/* Linha inferior */}
       <div
-        className="flex justify-between items-center max-sm:flex-col max-sm:gap-2 max-md:px-6"
+        className="px-6 py-6 md:px-16"
         style={{
           background: "#0D0705",
           borderTop: "1px solid rgba(255,255,255,0.06)",
-          padding: "24px 64px",
         }}
       >
-        <span
-          className="font-corpo font-light"
-          style={{ fontSize: "12px", color: "rgba(253,248,240,0.25)" }}
-        >
-          © {year} {landingData.footer.copyright}. Todos os direitos reservados.
-        </span>
-        <span
-          className="font-corpo font-light"
-          style={{ fontSize: "12px", color: "rgba(253,248,240,0.25)" }}
-        >
-          Feito com atenção ao detalhe.
-        </span>
+        <div className="mx-auto max-w-6xl flex justify-between items-center max-sm:flex-col max-sm:gap-2">
+          <span
+            className="font-corpo font-light"
+            style={{ fontSize: "12px", color: "rgba(253,248,240,0.25)" }}
+          >
+            © {year} {landingData.footer.copyright}. Todos os direitos reservados.
+          </span>
+          <span
+            className="font-corpo font-light"
+            style={{ fontSize: "12px", color: "rgba(253,248,240,0.25)" }}
+          >
+            Feito com atenção ao detalhe.
+          </span>
+        </div>
       </div>
     </>
   );

@@ -2,36 +2,36 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { extOf, isVideoUrl, videoSourcesFromUrls } from "@/lib/media-url";
 
 type OverviewFinalMediaProps = {
   url: string;
+  /** Segunda URL de vídeo (ex.: MP4 quando `url` é WebM) para fallback em Safari/iOS. */
+  videoFallbackUrl?: string;
   ariaLabel: string;
 };
-
-function extOf(url: string): string {
-  const clean = url.split("?")[0] ?? url;
-  const i = clean.lastIndexOf(".");
-  return i >= 0 ? clean.slice(i + 1).toLowerCase() : "";
-}
-
-function isVideoUrl(url: string): boolean {
-  const u = url.toLowerCase();
-  return u.endsWith(".webm") || u.endsWith(".mp4");
-}
 
 /**
  * Mídia final da seção "Como é o curso" (WebM/MP4, GIF/WebP animado ou imagem).
  * Vídeo: autoplay com muted/playsInline; botão só se o navegador bloquear play().
  */
-export function OverviewFinalMedia({ url, ariaLabel }: OverviewFinalMediaProps) {
+export function OverviewFinalMedia({ url, videoFallbackUrl, ariaLabel }: OverviewFinalMediaProps) {
   const trimmed = url.trim();
+  const trimmedFallback = videoFallbackUrl?.trim() ?? "";
+  const videoSources =
+    trimmed && isVideoUrl(trimmed)
+      ? videoSourcesFromUrls(trimmed, trimmedFallback || undefined)
+      : trimmedFallback && isVideoUrl(trimmedFallback)
+        ? videoSourcesFromUrls(trimmedFallback, undefined)
+        : [];
+  const videoKey = videoSources.map((s) => s.src).join("|");
   const videoRef = useRef<HTMLVideoElement>(null);
   const [needsPlayButton, setNeedsPlayButton] = useState(false);
 
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    if (!isVideoUrl(trimmed)) return;
+    if (videoSources.length === 0) return;
 
     v.muted = true;
     v.defaultMuted = true;
@@ -55,7 +55,7 @@ export function OverviewFinalMedia({ url, ariaLabel }: OverviewFinalMediaProps) 
       v.removeEventListener("canplay", onReady);
       v.removeEventListener("loadeddata", onReady);
     };
-  }, [trimmed]);
+  }, [videoKey]);
 
   const onPlayClick = useCallback(() => {
     const v = videoRef.current;
@@ -64,29 +64,11 @@ export function OverviewFinalMedia({ url, ariaLabel }: OverviewFinalMediaProps) 
     void v.play().then(() => setNeedsPlayButton(false)).catch(() => {});
   }, []);
 
-  if (!trimmed) {
-    return (
-      <>
-        <div
-          className="min-h-56 w-full"
-          style={{
-            background: "linear-gradient(135deg, #FDF8F0 0%, #F0E8DC 50%, #E4D8C8 100%)",
-          }}
-          aria-hidden
-        />
-        <span className="sr-only">{ariaLabel}</span>
-      </>
-    );
-  }
-
-  const isVideo = isVideoUrl(trimmed);
-
-  if (isVideo) {
-    const lower = trimmed.toLowerCase();
+  if (videoSources.length > 0) {
     return (
       <div className="relative w-full">
         <video
-          key={trimmed}
+          key={videoKey}
           ref={videoRef}
           autoPlay
           loop
@@ -96,7 +78,9 @@ export function OverviewFinalMedia({ url, ariaLabel }: OverviewFinalMediaProps) 
           className="h-auto w-full object-cover"
           aria-label={ariaLabel}
         >
-          <source src={trimmed} type={lower.endsWith(".mp4") ? "video/mp4" : "video/webm"} />
+          {videoSources.map((s) => (
+            <source key={s.src} src={s.src} type={s.type} />
+          ))}
         </video>
         {needsPlayButton && (
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[#1A0F0A]/20">
@@ -110,6 +94,21 @@ export function OverviewFinalMedia({ url, ariaLabel }: OverviewFinalMediaProps) 
           </div>
         )}
       </div>
+    );
+  }
+
+  if (!trimmed) {
+    return (
+      <>
+        <div
+          className="min-h-56 w-full"
+          style={{
+            background: "linear-gradient(135deg, #FDF8F0 0%, #F0E8DC 50%, #E4D8C8 100%)",
+          }}
+          aria-hidden
+        />
+        <span className="sr-only">{ariaLabel}</span>
+      </>
     );
   }
 

@@ -6,6 +6,7 @@ import HeroSection from "@/components/home/HeroSection";
 import { CourseOverviewBento } from "@/components/home/CourseOverviewBento";
 import MobileScrollCta from "@/components/home/MobileScrollCta";
 import LandingPrimaryCtaLink from "@/components/home/LandingPrimaryCtaLink";
+import InstructorCarousel from "@/components/home/InstructorCarousel";
 import { getContent, getVisibility } from "@/lib/content/store";
 import {
   Accordion,
@@ -148,14 +149,14 @@ export default function HomePage() {
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-[2px]">
+                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                     <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
                       <Image
                         src={`/images/sections/${encodeURIComponent("1_mãeentalhando (2).webp")}`}
                         alt="Mãe concentrada no entalhe à mesa, com ferramentas e madeira"
                         fill
                         className="object-cover transition-transform duration-500 motion-safe:hover:scale-105"
-                        sizes="(max-width: 768px) 50vw, 25vw"
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 25vw"
                       />
                     </div>
                     <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
@@ -164,16 +165,16 @@ export default function HomePage() {
                         alt="Mãe e criança entalhando madeira juntas em ambiente acolhedor"
                         fill
                         className="object-cover transition-transform duration-500 motion-safe:hover:scale-105"
-                        sizes="(max-width: 768px) 50vw, 25vw"
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 25vw"
                       />
                     </div>
-                    <div className="relative col-span-2 aspect-[16/9] min-h-[200px] overflow-hidden rounded-lg md:aspect-[2/1] md:min-h-[240px]">
+                    <div className="relative col-span-1 aspect-[3/2] overflow-hidden rounded-lg sm:col-span-2 sm:aspect-[16/9] md:aspect-[2/1]">
                       <Image
                         src="/images/sections/mae-entalhando-oficina.webp"
                         alt="Mãe e filha entalhando juntas na oficina"
                         fill
                         className="object-cover transition-transform duration-500 motion-safe:hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, 50vw"
+                        sizes="(max-width: 640px) 100vw, 50vw"
                       />
                     </div>
                   </div>
@@ -321,7 +322,7 @@ export default function HomePage() {
                     >
                       {pw("Preparamos kits para você iniciar e dar continuidade à prática do entalhe. Para te incentivar a começar agora, você tem desconto se comprá-los junto com o curso.")}
                     </p>
-                    <div className="mt-7">
+                    <div className="mt-7 flex justify-center">
                       <Link
                         href="#"
                         className="font-corpo font-medium uppercase inline-block transition-all duration-200 hover:-translate-y-px"
@@ -362,66 +363,70 @@ export default function HomePage() {
           </section>
 
           {/* Cards de features — grade 2 colunas + banner full-width */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-            {/* Cards 01 e 02 — lado a lado */}
-            <div
-              className="grid grid-cols-1 md:grid-cols-2"
-              style={{ gap: "2px" }}
-            >
-              {[
-                {
-                  num: "01",
-                  title: "Não precisa de espaço",
-                  desc: "Nós sabemos como maquinários e ferramentas ocupam espaço, e valorizamos muito a possibilidade de entalhar de qualquer lugar. Seja em casa, apartamento ou kitnet, em um parque, durante uma viagem. A praticidade do entalhe, que envolve basicamente você ter um pedaço de madeira e uma faca de entalhe, torna a atividade extremamente acessível.",
-                },
-                {
-                  num: "02",
-                  title: "Fonte de renda extra",
-                  desc: "Temos alunos que já venderam suas peças em feiras, sendo super possível complementar a renda com suas próprias criações.",
-                },
-              ].map((item) => (
+          <section className={sectionPaddingMd} style={{ background: "#FDF8F0" }}>
+            <div className="mx-auto max-w-6xl">
+              <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+                {/* Cards 01 e 02 — lado a lado */}
                 <div
-                  key={item.num}
-                  className="bg-cream-2 hover:bg-cream-3 transition-colors duration-200"
-                  style={{ padding: "40px 36px" }}
+                  className="grid grid-cols-1 md:grid-cols-2"
+                  style={{ gap: "2px" }}
                 >
-                  <h3
-                    className="font-titulo font-bold text-espresso mb-4"
-                    style={{ fontSize: "20px", lineHeight: 1.25, letterSpacing: "-0.02em" }}
-                  >
-                    {item.title}
-                  </h3>
+                  {[
+                    {
+                      num: "01",
+                      title: "Não precisa de espaço",
+                      desc: "Nós sabemos como maquinários e ferramentas ocupam espaço, e valorizamos muito a possibilidade de entalhar de qualquer lugar. Seja em casa, apartamento ou kitnet, em um parque, durante uma viagem. A praticidade do entalhe, que envolve basicamente você ter um pedaço de madeira e uma faca de entalhe, torna a atividade extremamente acessível.",
+                    },
+                    {
+                      num: "02",
+                      title: "Fonte de renda extra",
+                      desc: "Temos alunos que já venderam suas peças em feiras, sendo super possível complementar a renda com suas próprias criações.",
+                    },
+                  ].map((item) => (
+                    <div
+                      key={item.num}
+                      className="bg-cream-2 hover:bg-cream-3 transition-colors duration-200"
+                      style={{ padding: "40px 36px" }}
+                    >
+                      <h3
+                        className="font-titulo font-bold text-espresso mb-4"
+                        style={{ fontSize: "20px", lineHeight: 1.25, letterSpacing: "-0.02em" }}
+                      >
+                        {item.title}
+                      </h3>
+                      <p
+                        className="font-corpo font-light text-sm-body"
+                        style={{ color: "#6B5344" }}
+                      >
+                        {pw(item.desc)}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Card 03 — banner full-width com layout horizontal */}
+                <div
+                  className="bg-cream-2 hover:bg-cream-3 transition-colors duration-200 flex flex-col md:flex-row md:items-center"
+                  style={{ padding: "40px 36px", gap: "36px" }}
+                >
+                  <div className="md:w-1/3 shrink-0">
+                    <h3
+                      className="font-titulo font-bold text-espresso"
+                      style={{ fontSize: "20px", lineHeight: 1.25, letterSpacing: "-0.02em" }}
+                    >
+                      Será que esse curso é para mim?
+                    </h3>
+                  </div>
                   <p
-                    className="font-corpo font-light text-sm-body"
+                    className="font-corpo font-light text-sm-body md:w-2/3"
                     style={{ color: "#6B5344" }}
                   >
-                    {pw(item.desc)}
+                    {pw("Nosso curso é para todos: quem nunca entalhou na vida (inclusive costumamos tranquilizar nossos alunos pois a esmagadora maioria de fato nunca praticou), e também para quem já praticou e quer desenvolver ainda mais suas técnicas.")}
                   </p>
                 </div>
-              ))}
-            </div>
-
-            {/* Card 03 — banner full-width com layout horizontal */}
-            <div
-              className="bg-cream-2 hover:bg-cream-3 transition-colors duration-200 flex flex-col md:flex-row md:items-center"
-              style={{ padding: "40px 36px", gap: "36px" }}
-            >
-              <div className="md:w-1/3 shrink-0">
-                <h3
-                  className="font-titulo font-bold text-espresso"
-                  style={{ fontSize: "20px", lineHeight: 1.25, letterSpacing: "-0.02em" }}
-                >
-                  Será que esse curso é para mim?
-                </h3>
               </div>
-              <p
-                className="font-corpo font-light text-sm-body md:w-2/3"
-                style={{ color: "#6B5344" }}
-              >
-                {pw("Nosso curso é para todos: quem nunca entalhou na vida (inclusive costumamos tranquilizar nossos alunos pois a esmagadora maioria de fato nunca praticou), e também para quem já praticou e quer desenvolver ainda mais suas técnicas.")}
-              </p>
             </div>
-          </div>
+          </section>
         </>
       )}
 
@@ -596,6 +601,8 @@ export default function HomePage() {
             >
               {pw("Somos Mayra e Simone, duas irmãs que compartilham das mesmas afinidades desde a infância. Cursamos Arquitetura e Urbanismo e, há anos, decidimos trabalhar juntas na marcenaria. No meio do caminho, nos apaixonamos pela técnica de entalhe e hoje criamos peças artísticas selecionadas e premiadas em Salões de Arte.")}
             </p>
+
+            <InstructorCarousel />
 
             <div className="flex justify-center" style={{ marginTop: "40px" }}>
               <LandingPrimaryCtaLink href={ctaUrl} variant="filled">
@@ -834,32 +841,34 @@ export default function HomePage() {
       {/* ── FAIXA CTA TERRACOTA ── */}
       {isVisible(visibility, "final_cta") && (
         <div
-          className="grid grid-cols-1 gap-10 items-center md:gap-16 px-6 py-[72px] md:px-16 md:py-[96px] md:grid-cols-[1fr_auto]"
+          className="px-6 py-[72px] md:px-16 md:py-[96px]"
           style={{ background: "#C4622D" }}
         >
-          <div>
-            <h2
-              className="font-titulo font-black"
-              style={{
-                fontSize: "clamp(36px, 4vw, 52px)",
-                lineHeight: 1.05,
-                letterSpacing: "-0.025em",
-                color: "#FDF8F0",
-              }}
-            >
-              {finalCta?.title}
-            </h2>
-            <p
-              className="font-corpo font-light mt-4"
-              style={{ fontSize: "16px", color: "rgba(253,248,240,0.7)", lineHeight: 1.6 }}
-            >
-              {finalCta?.subtitle}
-            </p>
-          </div>
-          <div className="flex w-full justify-center shrink-0">
-            <LandingPrimaryCtaLink href={finalCta?.button_url ?? "#"} variant="inverted">
-              {finalCta?.button_text}
-            </LandingPrimaryCtaLink>
+          <div className="mx-auto max-w-6xl grid grid-cols-1 gap-10 items-center md:gap-16 md:grid-cols-[1fr_auto]">
+            <div>
+              <h2
+                className="font-titulo font-black"
+                style={{
+                  fontSize: "clamp(36px, 4vw, 52px)",
+                  lineHeight: 1.05,
+                  letterSpacing: "-0.025em",
+                  color: "#FDF8F0",
+                }}
+              >
+                {finalCta?.title}
+              </h2>
+              <p
+                className="font-corpo font-light mt-4"
+                style={{ fontSize: "16px", color: "rgba(253,248,240,0.7)", lineHeight: 1.6 }}
+              >
+                {finalCta?.subtitle}
+              </p>
+            </div>
+            <div className="flex w-full justify-center shrink-0">
+              <LandingPrimaryCtaLink href={finalCta?.button_url ?? "#"} variant="inverted">
+                {finalCta?.button_text}
+              </LandingPrimaryCtaLink>
+            </div>
           </div>
         </div>
       )}

@@ -19,11 +19,12 @@ export const landingData = {
     title: "Como é o curso?",
     description:
       "Vamos abordar os principais fundamentos do entalhe para você construir uma base sólida de prática. Partindo de um bloco maciço, você vai entalhar uma capivara completa, com passo a passo detalhado.",
-    making_of_1_url: "/images/sections/ezgif-2416448afc7a434d.webp",
-    making_of_2_url: "/images/sections/ezgif-281e3d8fb117deac.webp",
-    making_of_3_url: "/images/sections/ezgif-2fe7c49510ad0aaa.webp",
-    making_of_4_url: "/images/sections/ezgif-2c2a92825dca83a7.webp",
-    gif_360_url: "/images/sections/ezgif-46bd4b2ef8138065.webm",
+    making_of_1_url: "/images/sections/GIF-Entalhe1.gif",
+    making_of_2_url: "/images/sections/GIF-Entalhe2.gif",
+    making_of_3_url: "/images/sections/GIF-Entalhe3.gif",
+    making_of_4_url: "/images/sections/GIF-Entalhe4.gif",
+    /** Vídeo em loop (WebM ou MP4). Opcional: `gif_360_mp4_url` como segunda faixa (ex.: MP4 se a principal for WebM). */
+    gif_360_url: "/images/sections/Capivara360-_1_.mp4",
   },
   modules: [
     {
