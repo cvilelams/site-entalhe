@@ -8,15 +8,16 @@
   }
 
   :focus-visible {
-    outline: 2px solid #C4622D;
+    outline: 2px solid theme("colors.terracota.DEFAULT");
     outline-offset: 3px;
     border-radius: 2px;
   }
 
   body {
     font-family: var(--font-jost), system-ui, sans-serif;
-    background: #FDF8F0;
-    color: #1A0F0A;
+    /* Alinha ao token Tailwind `cream` / `espresso` */
+    background: theme("colors.cream.DEFAULT");
+    color: theme("colors.espresso");
     font-size: 17px;
     font-weight: 300;
     line-height: 1.75;

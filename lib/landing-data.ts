@@ -19,12 +19,12 @@ export const landingData = {
     title: "Como é o curso?",
     description:
       "Vamos abordar os principais fundamentos do entalhe para você construir uma base sólida de prática. Partindo de um bloco maciço, você vai entalhar uma capivara completa, com passo a passo detalhado.",
-    making_of_1_url: "/images/sections/GIF-Entalhe1.gif",
-    making_of_2_url: "/images/sections/GIF-Entalhe2.gif",
-    making_of_3_url: "/images/sections/GIF-Entalhe3.gif",
-    making_of_4_url: "/images/sections/GIF-Entalhe4.gif",
+    making_of_1_url: "/images/sections/video1.mp4",
+    making_of_2_url: "/images/sections/video2.mp4",
+    making_of_3_url: "/images/sections/video3.mp4",
+    making_of_4_url: "/images/sections/video4.mp4",
     /** Vídeo em loop (WebM ou MP4). Opcional: `gif_360_mp4_url` como segunda faixa (ex.: MP4 se a principal for WebM). */
-    gif_360_url: "/images/sections/Capivara360-_1_.mp4",
+    gif_360_url: "/images/sections/capi360.mp4",
   },
   modules: [
     {
@@ -72,7 +72,7 @@ export const landingData = {
     {
       id: "m8",
       title: "Fórum",
-      description: "Espaço exclusivo para tirar dúvidas, compartilhar avanços e trocar experiências com outros alunos do curso.",
+      description: "Um espaço dedicado para você compartilhar seus projetos, tirar dúvidas e trocar experiências com outros alunos do curso.",
       icon: "08",
     },
   ],
@@ -132,7 +132,7 @@ export const landingData = {
     {
       id: "f3",
       question: "Por quanto tempo eu tenho acesso ao curso?",
-      answer: "Seu acesso é vitalício! Você poderá acessá-lo sempre que quiser!",
+      answer: "Seu acesso é válido por 3 anos! Durante esse período, você poderá acessá-lo sempre que quiser!",
     },
     {
       id: "f4",
@@ -165,8 +165,8 @@ export const landingData = {
     },
   ],
   finalCta: {
-    title: "Comece a entalhar com intenção",
-    subtitle: "Entre para a próxima turma e construa sua primeira peça.",
+    title: "Comece a entalhar com autonomia.",
+    subtitle: "Faça parte dessa comunidade e entalhe sua primeira peça de muitas!",
     button_text: "Quero fazer o curso",
     button_url: "https://wa.me/5500000000000",
   },

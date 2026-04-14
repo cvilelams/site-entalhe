@@ -61,6 +61,7 @@ export function MakingOfTileMedia({ src, videoFallbackUrl, ariaLabel }: MakingOf
   }, []);
 
   const mediaClass = "block h-full w-full object-cover";
+  const imageClass = `${mediaClass} transition-transform duration-500 motion-safe:hover:scale-105`;
 
   if (videoSources.length > 0) {
     return (
@@ -81,7 +82,7 @@ export function MakingOfTileMedia({ src, videoFallbackUrl, ariaLabel }: MakingOf
           ))}
         </video>
         {needsPlayButton && (
-          <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-[#1A0F0A]/15">
+          <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-espresso/15">
             <button
               type="button"
               onClick={onPlayClick}
@@ -103,7 +104,7 @@ export function MakingOfTileMedia({ src, videoFallbackUrl, ariaLabel }: MakingOf
         <img
           src={trimmed}
           alt={ariaLabel}
-          className={mediaClass}
+          className={imageClass}
           loading="lazy"
         />
       </>
@@ -113,7 +114,7 @@ export function MakingOfTileMedia({ src, videoFallbackUrl, ariaLabel }: MakingOf
   return (
     <>
       {/* eslint-disable-next-line @next/next/no-img-element -- JPG/PNG etc. */}
-      <img src={trimmed} alt={ariaLabel} className={mediaClass} loading="lazy" />
+      <img src={trimmed} alt={ariaLabel} className={imageClass} loading="lazy" />
     </>
   );
 }

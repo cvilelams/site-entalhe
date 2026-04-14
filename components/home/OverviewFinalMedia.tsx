@@ -83,7 +83,7 @@ export function OverviewFinalMedia({ url, videoFallbackUrl, ariaLabel }: Overvie
           ))}
         </video>
         {needsPlayButton && (
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[#1A0F0A]/20">
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-espresso/20">
             <button
               type="button"
               onClick={onPlayClick}
@@ -101,10 +101,7 @@ export function OverviewFinalMedia({ url, videoFallbackUrl, ariaLabel }: Overvie
     return (
       <>
         <div
-          className="min-h-56 w-full"
-          style={{
-            background: "linear-gradient(135deg, #FDF8F0 0%, #F0E8DC 50%, #E4D8C8 100%)",
-          }}
+          className="min-h-56 w-full bg-gradient-to-br from-cream via-cream-2 to-cream-3"
           aria-hidden
         />
         <span className="sr-only">{ariaLabel}</span>
@@ -119,7 +116,7 @@ export function OverviewFinalMedia({ url, videoFallbackUrl, ariaLabel }: Overvie
       <img
         src={trimmed}
         alt={ariaLabel}
-        className="h-auto w-full object-cover"
+        className="h-auto w-full object-cover transition-transform duration-500 motion-safe:hover:scale-105"
         loading="lazy"
       />
     );
@@ -131,7 +128,7 @@ export function OverviewFinalMedia({ url, videoFallbackUrl, ariaLabel }: Overvie
       alt={ariaLabel}
       width={1024}
       height={1024}
-      className="h-auto w-full object-cover"
+      className="h-auto w-full object-cover transition-transform duration-500 motion-safe:hover:scale-105"
       unoptimized
     />
   );

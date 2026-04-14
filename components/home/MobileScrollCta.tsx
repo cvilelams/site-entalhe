@@ -40,18 +40,9 @@ export default function MobileScrollCta({
   if (!isVisible) return null;
 
   return (
-    <div
-      className="fixed inset-x-0 bottom-0 z-40 p-3 pb-4 backdrop-blur md:hidden"
-      style={{
-        background: "rgba(26,15,10,0.95)",
-        borderTop: "1px solid rgba(212,196,176,0.2)",
-      }}
-    >
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-rule/20 bg-espresso/95 p-3 pb-4 backdrop-blur md:hidden">
       <div className="mx-auto w-full max-w-lg px-2">
-        <p
-          className="mb-2 text-center font-corpo font-light"
-          style={{ fontSize: "12px", color: "rgba(253,248,240,0.7)" }}
-        >
+        <p className="font-corpo mb-2 text-center text-caption font-light text-cream/70">
           Pronta para começar a entalhar hoje?
         </p>
         <div className="flex justify-center">
@@ -59,11 +50,8 @@ export default function MobileScrollCta({
             {ctaText}
           </LandingPrimaryCtaLink>
         </div>
-        <p
-          className="mt-2 text-center font-corpo text-label"
-          style={{ color: "rgba(253,248,240,0.5)" }}
-        >
-          Acesso vitalício e suporte no fórum
+        <p className="font-corpo text-label mt-2 text-center text-cream/50">
+          Acesso por 3 anos e suporte no fórum
         </p>
       </div>
     </div>

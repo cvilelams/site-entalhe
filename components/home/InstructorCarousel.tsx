@@ -29,17 +29,9 @@ const IMAGES = [
 
 export default function InstructorCarousel() {
   return (
-    <div style={{ marginTop: "48px", marginBottom: "48px" }}>
+    <div className="my-12">
       {/* Label */}
-      <div
-        className="font-corpo font-light uppercase"
-        style={{
-          fontSize: "11px",
-          color: "#E8956A",
-          letterSpacing: "0.18em",
-          marginBottom: "20px",
-        }}
-      >
+      <div className="font-corpo mb-5 text-[11px] font-light uppercase tracking-[0.18em] text-terra-lt">
         Galeria
       </div>
 
@@ -47,22 +39,12 @@ export default function InstructorCarousel() {
       <div
         role="region"
         aria-label="Galeria de peças das mentoras"
-        style={{
-          columns: 2,
-          columnGap: "8px",
-        }}
+        className="columns-1 gap-2 sm:columns-2"
       >
         {IMAGES.map((image) => (
           <div
             key={image.src}
-            className="transition-opacity duration-200 hover:opacity-85"
-            style={{
-              breakInside: "avoid",
-              marginBottom: "8px",
-              borderRadius: "2px",
-              overflow: "hidden",
-              lineHeight: 0,
-            }}
+            className="mb-2 overflow-hidden rounded-sm leading-none break-inside-avoid"
           >
             <Image
               src={image.src}
@@ -70,7 +52,7 @@ export default function InstructorCarousel() {
               width={0}
               height={0}
               sizes="(max-width: 768px) 100vw, 336px"
-              style={{ width: "100%", height: "auto", display: "block" }}
+              className="block h-auto w-full transition-transform duration-500 motion-safe:hover:scale-105"
             />
           </div>
         ))}

@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { SITE_NAME } from "@/lib/constants";
 
 type HeaderProps = {
   ctaUrl: string;
@@ -21,22 +21,21 @@ export default function Header({ ctaUrl, ctaText }: HeaderProps) {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 border-b border-rule/40 bg-cream transition-all duration-300 ${
         scrolled ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       }`}
-      style={{
-        background: "rgba(253,248,240,0.92)",
-        backdropFilter: "blur(12px)",
-        borderBottom: "1px solid rgba(212,196,176,0.4)",
-      }}
     >
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-16 py-6 max-md:px-6 max-md:py-4">
         {/* Logo */}
-        <Link
-          href="/"
-          className="font-titulo text-[18px] font-bold tracking-[-0.02em] text-espresso transition-colors"
-        >
-          {SITE_NAME}<span className="text-terracota">.</span>
+        <Link href="/" className="transition-opacity hover:opacity-75">
+          <Image
+            src="/images/sections/Logo-escrito-preto.png"
+            alt="Oficina Cigarra"
+            width={140}
+            height={46}
+            priority
+            className="h-10 w-auto"
+          />
         </Link>
 
         {/* Nav links — ocultos em mobile */}
@@ -44,7 +43,7 @@ export default function Header({ ctaUrl, ctaText }: HeaderProps) {
           <li>
             <a
               href="#curso"
-              className="font-corpo text-[13px] font-medium uppercase tracking-[0.08em] text-brown transition-colors hover:text-espresso"
+              className="font-corpo text-label font-medium uppercase tracking-[0.08em] text-brown transition-colors hover:text-espresso"
             >
               O Curso
             </a>
@@ -52,7 +51,7 @@ export default function Header({ ctaUrl, ctaText }: HeaderProps) {
           <li>
             <a
               href="#instrutor"
-              className="font-corpo text-[13px] font-medium uppercase tracking-[0.08em] text-brown transition-colors hover:text-espresso"
+              className="font-corpo text-label font-medium uppercase tracking-[0.08em] text-brown transition-colors hover:text-espresso"
             >
               Quem ensina
             </a>
@@ -62,8 +61,7 @@ export default function Header({ ctaUrl, ctaText }: HeaderProps) {
         {/* CTA */}
         <Link
           href={ctaUrl}
-          className="font-corpo text-[13px] font-medium uppercase tracking-[0.06em] text-cream bg-terracota px-6 py-[10px] transition-all hover:bg-terracota-dark hover:-translate-y-px"
-          style={{ borderRadius: "2px" }}
+          className="font-corpo rounded-sm bg-terracota px-6 py-[10px] text-label font-medium uppercase tracking-[0.06em] text-cream transition-all hover:-translate-y-px hover:bg-terracota-dark"
         >
           {ctaText}
         </Link>

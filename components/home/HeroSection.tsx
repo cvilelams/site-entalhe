@@ -13,7 +13,7 @@ function renderTitleWithAccent(title: string) {
   const parts = title.split(/\b(entalhe)\b/i);
   return parts.map((part, i) =>
     part.toLowerCase() === "entalhe" ? (
-      <em key={i} style={{ fontStyle: "italic", color: "#E07840" }}>
+      <em key={i} className="italic text-highlight">
         {part}
       </em>
     ) : (
@@ -30,60 +30,27 @@ export default function HeroSection({
   imageSrc,
 }: HeroSectionProps) {
   return (
-    <section
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
-      style={{ paddingTop: "88px" }}
-    >
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden pt-[88px]">
       <HeroParallaxBackground imageSrc={imageSrc} />
 
       {/* Conteúdo centralizado */}
       <div className="relative z-10 flex flex-col items-center text-center px-6 py-16 w-full max-w-3xl">
         {/* Label de seção */}
-        <div
-          className="flex items-center gap-3 mb-8"
-          style={{ color: "#C4622D" }}
-        >
-          <span
-            aria-hidden="true"
-            style={{ display: "block", width: "32px", height: "1px", background: "#C4622D", flexShrink: 0 }}
-          />
-          <span
-            className="font-corpo font-medium uppercase text-label"
-            style={{ color: "#FDF8F0" }}
-          >
+        <div className="mb-8 flex items-center gap-3 text-terracota">
+          <span aria-hidden className="block h-px w-8 shrink-0 bg-terracota" />
+          <span className="font-corpo text-label font-medium uppercase text-cream">
             Curso de Entalhe em Madeira
           </span>
-          <span
-            aria-hidden="true"
-            style={{ display: "block", width: "32px", height: "1px", background: "#C4622D", flexShrink: 0 }}
-          />
+          <span aria-hidden className="block h-px w-8 shrink-0 bg-terracota" />
         </div>
 
         {/* Headline */}
-        <h1
-          className="font-titulo font-black"
-          style={{
-            fontSize: "clamp(52px, 6vw, 80px)",
-            lineHeight: 1.0,
-            letterSpacing: "-0.03em",
-            marginBottom: "40px",
-            color: "#FDF8F0",
-          }}
-        >
+        <h1 className="font-titulo mb-10 text-h1 font-black text-cream">
           {title ? renderTitleWithAccent(title) : "Aprenda a\u00a0entalhar\u00a0madeira"}
         </h1>
 
         {/* Subtítulo */}
-        <p
-          className="font-corpo font-light"
-          style={{
-            fontSize: "20px",
-            lineHeight: 1.75,
-            color: "rgba(253, 248, 240, 0.88)",
-            maxWidth: "540px",
-            marginBottom: "48px",
-          }}
-        >
+        <p className="font-corpo mb-12 max-w-[540px] text-xl font-light leading-[1.75] text-cream/90">
           {subtitle}
         </p>
 

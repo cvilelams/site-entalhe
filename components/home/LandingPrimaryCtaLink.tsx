@@ -10,7 +10,7 @@ type LandingPrimaryCtaLinkProps = {
 };
 
 const baseClass =
-  "font-corpo font-medium uppercase inline-block text-center transition-all hover:-translate-y-px";
+  "font-corpo inline-block text-center text-[17px] font-medium uppercase leading-[1.2] tracking-[0.08em] transition-all hover:-translate-y-px rounded-sm px-[72px] py-5";
 
 export default function LandingPrimaryCtaLink({
   href,
@@ -24,17 +24,7 @@ export default function LandingPrimaryCtaLink({
       : "bg-cream text-terracota hover:bg-terracota-dark hover:text-cream";
 
   return (
-    <Link
-      href={href}
-      className={`${baseClass} ${variantClass} ${className}`.trim()}
-      style={{
-        padding: "20px 72px",
-        borderRadius: "2px",
-        fontSize: "17px",
-        lineHeight: 1.2,
-        letterSpacing: "0.08em",
-      }}
-    >
+    <Link href={href} className={`${baseClass} ${variantClass} ${className}`.trim()}>
       {children}
     </Link>
   );

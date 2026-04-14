@@ -78,7 +78,7 @@ Adicione no `index.html` ou no `layout.tsx`:
 
 // Caption / Small
 <p className="font-corpo text-sm-body text-gray-400">
-  *Acesso vitalício após a compra.
+  *Acesso válido por 3 anos após a compra.
 </p>
 
 // Label / Eyebrow

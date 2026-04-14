@@ -19,38 +19,23 @@ function ModuleOverviewCard({
   if (compact) {
     return (
       <div
-        className="group flex h-full flex-col bg-cream-2 transition-colors duration-200 hover:bg-cream-3"
-        style={{ padding: "28px 28px 32px" }}
+        className="group flex h-full flex-col bg-cream-2 px-7 py-8 transition-colors duration-200 hover:bg-cream-3"
       >
         <div>
           <div
-            className="font-titulo font-black text-rule transition-colors duration-200 group-hover:text-terracota/50"
-            style={{
-              fontSize: "44px",
-              lineHeight: 1,
-              letterSpacing: "-0.04em",
-              marginBottom: "12px",
-            }}
+            className="font-titulo mb-3 font-black leading-none tracking-[-0.04em] text-rule transition-colors duration-200 group-hover:text-terracota/50"
+            style={{ fontSize: "44px" }}
           >
             {m.icon}
           </div>
           <div className="h-px w-10 bg-terracota/35" aria-hidden />
         </div>
         <div className="mt-6 flex flex-col">
-          <h3
-            className="font-titulo font-bold text-espresso"
-            style={{
-              fontSize: "18px",
-              lineHeight: 1.25,
-              letterSpacing: "-0.02em",
-              marginBottom: "10px",
-            }}
-          >
+          <h3 className="font-titulo mb-2.5 text-h3 font-bold text-espresso">
             {m.title}
           </h3>
           <p
-            className="font-corpo line-clamp-4 font-light text-sm-body"
-            style={{ color: "#6B5344", lineHeight: 1.65 }}
+            className="font-corpo text-sm-body line-clamp-4 font-light leading-[1.65] text-brown"
             title={m.description}
           >
             {m.description}
@@ -62,39 +47,22 @@ function ModuleOverviewCard({
 
   return (
     <div
-      className="group flex min-h-[272px] flex-col bg-cream-2 transition-colors duration-200 hover:bg-cream-3 md:min-h-[300px]"
-      style={{ padding: "40px 36px 44px" }}
+      className="group flex min-h-[272px] flex-col bg-cream-2 px-9 py-10 transition-colors duration-200 hover:bg-cream-3 md:min-h-[300px]"
     >
       <div>
         <div
-          className="font-titulo font-black text-rule transition-colors duration-200 group-hover:text-terracota/50"
-          style={{
-            fontSize: "52px",
-            lineHeight: 1,
-            letterSpacing: "-0.04em",
-            marginBottom: "16px",
-          }}
+          className="font-titulo mb-4 font-black leading-none tracking-[-0.04em] text-rule transition-colors duration-200 group-hover:text-terracota/50"
+          style={{ fontSize: "52px" }}
         >
           {m.icon}
         </div>
         <div className="h-px w-11 bg-terracota/35" aria-hidden />
       </div>
       <div className="mt-10 flex flex-1 flex-col">
-        <h3
-          className="font-titulo font-bold text-espresso"
-          style={{
-            fontSize: "20px",
-            lineHeight: 1.25,
-            letterSpacing: "-0.02em",
-            marginBottom: "14px",
-          }}
-        >
+        <h3 className="font-titulo mb-3.5 text-h3 font-bold text-espresso">
           {m.title}
         </h3>
-        <p
-          className="font-corpo font-light text-sm-body"
-          style={{ color: "#6B5344", lineHeight: 1.7 }}
-        >
+        <p className="font-corpo text-sm-body font-light leading-[1.7] text-brown">
           {m.description}
         </p>
       </div>
@@ -128,11 +96,11 @@ function buildBentoItems(
     { kind: "module", module: m3 },
     { kind: "makingOf", src: makingOfSlots[1].url, step: 2, videoFallbackUrl: makingOfSlots[1].videoFallbackUrl },
     { kind: "module", module: m4 },
-    { kind: "makingOf", src: makingOfSlots[2].url, step: 3, videoFallbackUrl: makingOfSlots[2].videoFallbackUrl },
     { kind: "module", module: m5 },
+    { kind: "makingOf", src: makingOfSlots[2].url, step: 3, videoFallbackUrl: makingOfSlots[2].videoFallbackUrl },
     { kind: "module", module: m6 },
-    { kind: "makingOf", src: makingOfSlots[3].url, step: 4, videoFallbackUrl: makingOfSlots[3].videoFallbackUrl },
     { kind: "module", module: m7 },
+    { kind: "makingOf", src: makingOfSlots[3].url, step: 4, videoFallbackUrl: makingOfSlots[3].videoFallbackUrl },
     { kind: "final", src: finalUrl, videoFallbackUrl: finalVideoFallbackUrl },
   ];
 }
@@ -178,21 +146,13 @@ export function CourseOverviewBento({
 
   if (!items) {
     return (
-      <div style={{ marginBottom: "40px" }}>
+      <div className="mb-10">
         <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-          style={{ gap: "2px" }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-rule"
         >
           {modules.map((m) => (
             <ModuleOverviewCard key={m.id} m={m} />
           ))}
-        </div>
-        <div className="mt-6 overflow-hidden bg-cream-2">
-          <OverviewFinalMedia
-            url={finalUrl}
-            videoFallbackUrl={finalVideoFallback || undefined}
-            ariaLabel="Capivara em visualização 360 graus"
-          />
         </div>
       </div>
     );
@@ -200,8 +160,7 @@ export function CourseOverviewBento({
 
   return (
     <div
-      className="grid grid-cols-2 md:grid-cols-12"
-      style={{ gap: "2px", marginBottom: "40px" }}
+      className="grid grid-cols-2 md:grid-cols-12 gap-rule mb-10"
     >
       {items.map((item, index) => {
         if (item.kind === "module") {
@@ -217,7 +176,7 @@ export function CourseOverviewBento({
           return (
             <div
               key={`making-of-${item.step}-${index}`}
-              className="col-span-2 min-w-0 overflow-hidden self-stretch md:col-span-4"
+              className="col-span-2 min-h-[240px] min-w-0 overflow-hidden self-stretch md:col-span-4"
             >
               {item.src ? (
                 <MakingOfTileMedia
@@ -232,18 +191,7 @@ export function CourseOverviewBento({
           );
         }
 
-        return (
-          <div
-            key="course-overview-final"
-            className="col-span-2 overflow-hidden bg-cream-2 md:col-span-12"
-          >
-            <OverviewFinalMedia
-              url={item.src}
-              videoFallbackUrl={item.videoFallbackUrl}
-              ariaLabel="Capivara em visualização 360 graus"
-            />
-          </div>
-        );
+        return null;
       })}
     </div>
   );
