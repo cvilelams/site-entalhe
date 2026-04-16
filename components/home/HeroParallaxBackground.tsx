@@ -12,14 +12,19 @@ export default function HeroParallaxBackground({ imageSrc }: HeroParallaxBackgro
   const containerRef = useRef<HTMLDivElement>(null);
   const rafIdRef = useRef<number | null>(null);
   const [translateY, setTranslateY] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const settings = useHeroParallaxSettings();
 
   useEffect(() => {
     const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     const mobileQuery = window.matchMedia("(max-width: 768px)");
 
+    setIsMobile(mobileQuery.matches);
+
     const updatePosition = () => {
       if (!containerRef.current) return;
+
+      setIsMobile(mobileQuery.matches);
 
       const shouldReduceMotion = settings.respectReducedMotion && reduceMotionQuery.matches;
 
@@ -67,19 +72,31 @@ export default function HeroParallaxBackground({ imageSrc }: HeroParallaxBackgro
     settings.backgroundFactorMobile,
     settings.backgroundMaxOffsetDesktop,
     settings.backgroundMaxOffsetMobile,
+    settings.backgroundScaleDesktop,
+    settings.backgroundScaleMobile,
     settings.enabled,
     settings.respectReducedMotion,
   ]);
+
+  const activeScale = isMobile ? settings.backgroundScaleMobile : settings.backgroundScaleDesktop;
+  const mobileScalePct = Math.ceil(settings.backgroundScaleMobile * 100);
 
   return (
     <div ref={containerRef} className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center will-change-transform"
         style={{
-          transform: `translate3d(0, ${translateY}px, 0) scale(${settings.backgroundScale})`,
+          transform: `translate3d(0, ${translateY}px, 0) scale(${activeScale})`,
         }}
       >
-        <Image src={imageSrc} alt="" fill priority sizes="100vw" className="object-cover object-center" />
+        <Image
+          src={imageSrc}
+          alt=""
+          fill
+          priority
+          sizes={`(max-width: 768px) ${mobileScalePct}vw, 100vw`}
+          className="object-cover object-center"
+        />
       </div>
       <div
         className="absolute inset-0"

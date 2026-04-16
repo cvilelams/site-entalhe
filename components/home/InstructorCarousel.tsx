@@ -31,7 +31,7 @@ export default function InstructorCarousel() {
   return (
     <div className="my-12">
       {/* Label */}
-      <div className="font-corpo mb-5 text-[11px] font-light uppercase tracking-[0.18em] text-terra-lt">
+      <div className="font-corpo mb-5 text-[11px] font-light uppercase tracking-[0.18em] text-terracota">
         Galeria
       </div>
 

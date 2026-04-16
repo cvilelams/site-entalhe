@@ -416,7 +416,7 @@ export default function HomePage() {
 
       {/* ── QUEM ENSINA — seção escura ── */}
       {isVisible(visibility, "instructors") && (
-        <section id="instrutor" className="bg-dark">
+        <section id="instrutor" className="bg-cream-3">
           {/* Faixa decorativa no topo */}
           <div
             aria-hidden="true"
@@ -425,12 +425,12 @@ export default function HomePage() {
 
           {/* Conteúdo centralizado */}
           <div className="mx-auto flex max-w-3xl flex-col px-6 py-24 md:px-10">
-            <SectionLabel dark>Quem ensina</SectionLabel>
+            <SectionLabel>Quem ensina</SectionLabel>
 
-            <h2 className="font-titulo mb-2 text-h2 font-black text-cream">
+            <h2 className="font-titulo mb-2 text-h2 font-black text-espresso">
               Mentoras
             </h2>
-            <div className="font-corpo text-label mb-10 font-light uppercase tracking-[0.1em] text-terra-lt">
+            <div className="font-corpo text-label mb-10 font-light uppercase tracking-[0.1em] text-terracota">
               Mayra e Simone — Arquitetura &amp; Entalhe
             </div>
 
@@ -444,7 +444,7 @@ export default function HomePage() {
               />
             </div>
 
-            <p className="font-corpo mb-12 text-base font-light leading-[1.75] text-cream/65">
+            <p className="font-corpo mb-12 text-base font-light leading-[1.75] text-espresso/70">
               {pw("Somos Mayra e Simone, duas irmãs que compartilham das mesmas afinidades desde a infância. Cursamos Arquitetura e Urbanismo e, há anos, decidimos trabalhar juntas na marcenaria. No meio do caminho, nos apaixonamos pela técnica de entalhe e hoje criamos peças artísticas selecionadas e premiadas em Salões de Arte.")}
             </p>
 

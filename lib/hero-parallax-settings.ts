@@ -9,7 +9,8 @@ export type HeroParallaxSettings = {
   backgroundFactorMobile: number;
   backgroundMaxOffsetDesktop: number;
   backgroundMaxOffsetMobile: number;
-  backgroundScale: number;
+  backgroundScaleDesktop: number;
+  backgroundScaleMobile: number;
   contentFactorDesktop: number;
   contentFactorMobile: number;
   contentMaxOffsetDesktop: number;
@@ -26,7 +27,8 @@ export const HERO_PARALLAX_DEFAULTS: HeroParallaxSettings = {
   backgroundFactorMobile: 0.75,
   backgroundMaxOffsetDesktop: 760,
   backgroundMaxOffsetMobile: 420,
-  backgroundScale: 1.5,
+  backgroundScaleDesktop: 1.5,
+  backgroundScaleMobile: 1.15,
   contentFactorDesktop: 0.3,
   contentFactorMobile: 0.2,
   contentMaxOffsetDesktop: 220,
@@ -53,7 +55,8 @@ function sanitizeSettings(next: HeroParallaxSettings): HeroParallaxSettings {
     backgroundFactorMobile: clamp(next.backgroundFactorMobile, 0, 2),
     backgroundMaxOffsetDesktop: clamp(next.backgroundMaxOffsetDesktop, 0, 1200),
     backgroundMaxOffsetMobile: clamp(next.backgroundMaxOffsetMobile, 0, 800),
-    backgroundScale: clamp(next.backgroundScale, 1, 2.5),
+    backgroundScaleDesktop: clamp(next.backgroundScaleDesktop, 1, 2.5),
+    backgroundScaleMobile: clamp(next.backgroundScaleMobile, 1, 2.5),
     contentFactorDesktop: clamp(next.contentFactorDesktop, 0, 1),
     contentFactorMobile: clamp(next.contentFactorMobile, 0, 1),
     contentMaxOffsetDesktop: clamp(next.contentMaxOffsetDesktop, 0, 360),
@@ -76,7 +79,8 @@ function hasSettingsChanged(next: HeroParallaxSettings) {
     currentSettings.backgroundFactorMobile !== next.backgroundFactorMobile ||
     currentSettings.backgroundMaxOffsetDesktop !== next.backgroundMaxOffsetDesktop ||
     currentSettings.backgroundMaxOffsetMobile !== next.backgroundMaxOffsetMobile ||
-    currentSettings.backgroundScale !== next.backgroundScale ||
+    currentSettings.backgroundScaleDesktop !== next.backgroundScaleDesktop ||
+    currentSettings.backgroundScaleMobile !== next.backgroundScaleMobile ||
     currentSettings.contentFactorDesktop !== next.contentFactorDesktop ||
     currentSettings.contentFactorMobile !== next.contentFactorMobile ||
     currentSettings.contentMaxOffsetDesktop !== next.contentMaxOffsetDesktop ||
