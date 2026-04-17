@@ -70,8 +70,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Course",
   name: "Curso de Entalhe em Madeira com Faca",
-  description:
-    "Aprenda a entalhar em madeira com faca do zero. Mais de 30 aulas online com Mayra e Simone da Oficina Cigarra.",
+  description: SITE_DESCRIPTION,
   url: "https://curso.oficinacigarra.com.br",
   provider: {
     "@type": "Organization",

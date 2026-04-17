@@ -390,7 +390,10 @@ export default function HomePage() {
                   Compre o curso e ganhe um e-book com 10 projetos de entalhe.
                 </p>
                 <p className="font-corpo text-body mb-6 font-light text-brown">
-                  Além disso, você vai poder interagir e tirar suas dúvidas no fórum de entalhe.
+                  Você vai poder interagir e tirar suas dúvidas no fórum de entalhe.
+                </p>
+                <p className="font-corpo text-body mb-6 font-light text-brown">
+                  Além disso, você vai ter acesso às transmissões ao vivo de conteúdo mensais.
                 </p>
                 <p className="font-corpo text-body mb-6 font-light text-brown">
                   Disponível para celular, tablet e computador.

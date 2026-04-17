@@ -1,7 +1,7 @@
 export const SITE_NAME = "Entalhe em madeira com faca";
 
 export const SITE_DESCRIPTION =
-  "Comece a entalhar em madeira com o curso da Oficina Cigarra.";
+  "Um curso para aprender na prática todos os fundamentos da técnica de entalhe com faca. Do bloco de madeira maciça à capivarinha, faça parte dessa comunidade e entalhe sua primeira peça de muitas!";
 
 export const MAX_UPLOAD_MB = 15;
 
