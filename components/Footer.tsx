@@ -35,18 +35,20 @@ export default function Footer() {
               Comunidade
             </span>
             <ul className="flex flex-col gap-3 list-none">
-              {landingData.footer.links.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-corpo text-sm-body font-light text-cream/55 transition-colors hover:text-cream"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {landingData.footer.links.map((link) => {
+                const isExternal = link.href.startsWith("http");
+                return (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
+                      className="font-corpo text-sm-body font-light text-cream/55 transition-colors hover:text-cream"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

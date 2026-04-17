@@ -28,28 +28,33 @@ export function MakingOfTileMedia({ src, videoFallbackUrl, ariaLabel }: MakingOf
 
   useEffect(() => {
     const v = videoRef.current;
-    if (!v) return;
-    if (videoSources.length === 0) return;
+    if (!v || videoSources.length === 0) return;
 
     v.muted = true;
     v.defaultMuted = true;
     v.playsInline = true;
     setNeedsPlayButton(false);
 
+    const onPlaying = () => setNeedsPlayButton(false);
+
     const tryPlay = () => {
       const p = v.play();
       if (p !== undefined) {
-        p.then(() => setNeedsPlayButton(false)).catch(() => setNeedsPlayButton(true));
+        p.catch((err: unknown) => {
+          const name = err instanceof Error ? err.name : "";
+          if (name === "NotAllowedError") setNeedsPlayButton(true);
+        });
       }
     };
 
-    tryPlay();
-    const onReady = () => tryPlay();
-    v.addEventListener("canplay", onReady);
-    v.addEventListener("loadeddata", onReady);
+    v.addEventListener("playing", onPlaying);
+    v.addEventListener("canplay", tryPlay);
+
+    if (v.readyState >= 3) tryPlay();
+
     return () => {
-      v.removeEventListener("canplay", onReady);
-      v.removeEventListener("loadeddata", onReady);
+      v.removeEventListener("playing", onPlaying);
+      v.removeEventListener("canplay", tryPlay);
     };
   }, [videoKey]);
 

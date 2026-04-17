@@ -14,11 +14,11 @@ export default function InstructorCarousel() {
         aria-label="Galeria de peças das mentoras"
         className="grid grid-cols-2 md:grid-cols-3 gap-rule"
       >
-        {/* Selfie no ateliê — 1 col */}
+        {/* Cabeça entalhada — 1 col (imagem trocada, espaço mantido) */}
         <div className="relative h-[260px] overflow-hidden rounded-sm">
           <Image
-            src="/images/sections/7_peçasselfie.webp"
-            alt="Mayra e Simone no ateliê"
+            src="/images/sections/7_peçascabeça.webp"
+            alt="Detalhe de peça entalhada"
             fill
             sizes="(max-width: 768px) 50vw, 33vw"
             className="object-cover transition-transform duration-500 motion-safe:hover:scale-105"
@@ -36,11 +36,11 @@ export default function InstructorCarousel() {
           />
         </div>
 
-        {/* Cabeça entalhada — 2 cols */}
+        {/* Selfie no ateliê — 2 cols (imagem trocada, espaço mantido) */}
         <div className="relative h-[260px] overflow-hidden rounded-sm md:col-span-2">
           <Image
-            src="/images/sections/7_peçascabeça.webp"
-            alt="Detalhe de peça entalhada"
+            src="/images/sections/7_peçasselfie.webp"
+            alt="Mayra e Simone no ateliê"
             fill
             sizes="(max-width: 768px) 50vw, 67vw"
             className="object-cover transition-transform duration-500 motion-safe:hover:scale-105"
@@ -54,7 +54,7 @@ export default function InstructorCarousel() {
             alt="Coleção de peças entalhadas"
             fill
             sizes="(max-width: 768px) 50vw, 33vw"
-            className="object-cover transition-transform duration-500 motion-safe:hover:scale-105"
+            className="object-cover object-[center_15%] transition-transform duration-500 motion-safe:hover:scale-105"
           />
         </div>
 

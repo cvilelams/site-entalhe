@@ -30,30 +30,36 @@ export function OverviewFinalMedia({ url, videoFallbackUrl, ariaLabel }: Overvie
 
   useEffect(() => {
     const v = videoRef.current;
-    if (!v) return;
-    if (videoSources.length === 0) return;
+    if (!v || videoSources.length === 0) return;
 
     v.muted = true;
     v.defaultMuted = true;
     v.playsInline = true;
-
     setNeedsPlayButton(false);
+
+    // "playing" é o sinal mais confiável de que o vídeo realmente está rodando
+    const onPlaying = () => setNeedsPlayButton(false);
 
     const tryPlay = () => {
       const p = v.play();
       if (p !== undefined) {
-        p.then(() => setNeedsPlayButton(false)).catch(() => setNeedsPlayButton(true));
+        p.catch((err: unknown) => {
+          // AbortError = vídeo ainda não carregou o suficiente; canplay vai tentar de novo
+          // NotAllowedError = bloqueio real de autoplay pelo navegador → mostra botão
+          const name = err instanceof Error ? err.name : "";
+          if (name === "NotAllowedError") setNeedsPlayButton(true);
+        });
       }
     };
 
-    tryPlay();
+    v.addEventListener("playing", onPlaying);
+    v.addEventListener("canplay", tryPlay);
 
-    const onReady = () => tryPlay();
-    v.addEventListener("canplay", onReady);
-    v.addEventListener("loadeddata", onReady);
+    if (v.readyState >= 3) tryPlay();
+
     return () => {
-      v.removeEventListener("canplay", onReady);
-      v.removeEventListener("loadeddata", onReady);
+      v.removeEventListener("playing", onPlaying);
+      v.removeEventListener("canplay", tryPlay);
     };
   }, [videoKey]);
 

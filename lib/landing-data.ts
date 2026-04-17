@@ -167,8 +167,8 @@ export const landingData = {
   footer: {
     copyright: "Oficina Cigarra",
     links: [
-      { label: "Instagram", href: "https://instagram.com" },
-      { label: "Contato", href: "https://wa.me/5500000000000" },
+      { label: "Instagram", href: "https://instagram.com/oficinacigarra" },
+      { label: "Contato", href: "mailto:contato@oficinacigarra.com.br" },
     ],
   },
 };

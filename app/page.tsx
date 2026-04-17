@@ -112,6 +112,9 @@ export default function HomePage() {
                     Por que entalhar<br />
                     <em>com faca?</em>
                   </SectionTitle>
+                  <h3 className="font-titulo mb-4 text-h3 font-bold text-espresso">
+                    1. Uma prática manual para uma vida melhor
+                  </h3>
                   <p className="font-corpo text-body mb-4 font-light text-brown">
                     {pw("Numa sociedade cada vez mais virtual, desconectar-se e trabalhar com as mãos é uma atividade preciosa.")}
                   </p>
@@ -146,7 +149,7 @@ export default function HomePage() {
               <div className="space-y-6">
                 <div>
                   <h3 className="font-titulo mb-4 text-h3 font-bold text-espresso">
-                    Desenvolver sua criatividade
+                    2. Desenvolver sua criatividade
                   </h3>
                   <p className="font-corpo text-body mb-4 font-light text-brown">
                     {pw("Após esculpir o famoso Davi de um enorme bloco de mármore, há quem diga que Michelangelo afirmou: \"Eu apenas tirei da pedra de mármore tudo que não era Davi\". Isso se aplica a qualquer atividade de entalhe: a retirada do que não importa para se revelar o que sempre esteve lá.")}
@@ -157,35 +160,35 @@ export default function HomePage() {
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-rule">
-                  {/* A — pomba (1 col) */}
+                  {/* A — geek (1 col) */}
                   <div className="relative h-[260px] overflow-hidden">
                     <Image
-                      src="/images/sections/bento-pomba.webp"
-                      alt="Pomba entalhada e pintada com detalhes realistas"
+                      src="/images/sections/bento-geek.webp"
+                      alt="Mago entalhado em madeira, personagem de fantasia"
                       fill
                       className="object-cover transition-transform duration-500 motion-safe:hover:scale-105"
                       sizes="(max-width: 768px) 50vw, 33vw"
                     />
                   </div>
 
-                  {/* B — baleias (2 cols desktop, 1 col mobile) */}
-                  <div className="relative h-[260px] overflow-hidden md:col-span-2">
-                    <Image
-                      src="/images/sections/bento-baleias.webp"
-                      alt="Duas baleias entalhadas em madeira, pintadas de azul"
-                      fill
-                      className="object-cover transition-transform duration-500 motion-safe:hover:scale-105"
-                      sizes="(max-width: 768px) 50vw, 67vw"
-                    />
-                  </div>
-
-                  {/* C — ensaios (2 cols desktop, 1 col mobile) */}
+                  {/* B — ensaios (2 cols desktop, 1 col mobile) */}
                   <div className="relative h-[260px] overflow-hidden md:col-span-2">
                     <Image
                       src="/images/sections/bento-ensaios.webp"
                       alt="Suportes de tubos de ensaio entalhados em madeira com plantas"
                       fill
                       className="object-cover transition-transform duration-500 motion-safe:hover:scale-105"
+                      sizes="(max-width: 768px) 50vw, 67vw"
+                    />
+                  </div>
+
+                  {/* C — baleias (2 cols desktop, 1 col mobile) */}
+                  <div className="relative h-[260px] overflow-hidden md:col-span-2">
+                    <Image
+                      src="/images/sections/bento-baleias.webp"
+                      alt="Duas baleias entalhadas em madeira, pintadas de azul"
+                      fill
+                      className="object-cover object-[center_65%] transition-transform duration-500 motion-safe:hover:scale-105"
                       sizes="(max-width: 768px) 50vw, 67vw"
                     />
                   </div>
@@ -212,13 +215,13 @@ export default function HomePage() {
                     />
                   </div>
 
-                  {/* F — geek (2 cols desktop, 1 col mobile) */}
+                  {/* F — pomba (2 cols desktop, 1 col mobile) */}
                   <div className="relative h-[260px] overflow-hidden md:col-span-2">
                     <Image
-                      src="/images/sections/bento-geek.webp"
-                      alt="Mago entalhado em madeira, personagem de fantasia"
+                      src="/images/sections/2_oficinagatinho.webp"
+                      alt="Gatinho entalhado na oficina"
                       fill
-                      className="object-cover transition-transform duration-500 motion-safe:hover:scale-105"
+                      className="object-cover object-[center_40%] transition-transform duration-500 motion-safe:hover:scale-105"
                       sizes="(max-width: 768px) 50vw, 67vw"
                     />
                   </div>
@@ -475,11 +478,11 @@ export default function HomePage() {
 
           <div className="mt-10 grid grid-cols-1 gap-rule sm:grid-cols-3">
             {[
-              { n: "700+", l: "Já aprenderam com Oficina Cigarra" },
-              { n: "3 anos", l: "Acesso para rever quando quiser" },
-              { n: "Suporte", l: "Dúvidas respondidas no fórum" },
+              { n: "700+", l: <>Já aprenderam<br />com Oficina Cigarra</> },
+              { n: "3 anos", l: <>Acesso para rever quando quiser</> },
+              { n: "Suporte", l: <>Dúvidas respondidas no fórum</> },
             ].map((stat) => (
-              <div key={stat.l} className="bg-cream-2 px-9 py-10">
+              <div key={stat.n} className="bg-cream-2 px-9 py-10">
                 <span className="font-titulo block text-stat font-black text-espresso">
                   {stat.n}
                 </span>
