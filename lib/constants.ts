@@ -1,7 +1,7 @@
-export const SITE_NAME = "Oficina Cigarra";
+export const SITE_NAME = "Curso de Entalhe em Madeira com Faca | Oficina Cigarra";
 
 export const SITE_DESCRIPTION =
-  "Aprenda a entalhar madeira com faca em um curso artesanal, acessivel e guiado.";
+  "Aprenda a entalhar em madeira com faca do zero. Curso online da Oficina Cigarra com Mayra e Simone — mais de 700 alunos, 30+ aulas, acesso por 3 anos.";
 
 export const MAX_UPLOAD_MB = 15;
 
