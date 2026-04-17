@@ -62,6 +62,8 @@ export default function Header({ ctaUrl, ctaText }: HeaderProps) {
         {/* CTA */}
         <Link
           href={ctaUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="font-corpo rounded-sm bg-terracota px-6 py-[10px] text-label font-medium uppercase tracking-[0.06em] text-cream transition-all hover:-translate-y-px hover:bg-terracota-dark"
           onClick={() => trackCTAClick("header", ctaUrl)}
         >

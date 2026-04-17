@@ -29,6 +29,8 @@ export default function LandingPrimaryCtaLink({
   return (
     <Link
       href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`${baseClass} ${variantClass} ${className}`.trim()}
       onClick={() => trackCTAClick(slot ?? "cta_sem_slot", href)}
     >
