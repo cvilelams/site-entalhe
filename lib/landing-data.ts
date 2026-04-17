@@ -2,7 +2,7 @@ export const landingData = {
   hero: {
     title: "Explore o universo do entalhe em madeira",
     subtitle: "Do bloquinho de madeira à escultura, aprenda na prática ao entalhar uma capivara!",
-    cta_text: "QUERO ENTALHAR",
+    cta_text: "ENTRAR NA LISTA",
     cta_url: "https://wa.me/5500000000000",
     media_type: "image",
     media_url: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1600&auto=format&fit=crop",
@@ -30,43 +30,43 @@ export const landingData = {
     {
       id: "m1",
       title: "Madeira e suas particularidades",
-      description: "Como ler a madeira e escolher o melhor caminho de corte para cada peça.",
+      description: "Espécies recomendadas para entalhe e como trabalhar com as fibras da madeira.",
       icon: "01",
     },
     {
       id: "m2",
       title: "Ferramenta e manuseio seguro",
-      description: "Formas seguras de uso para ganhar confiança e evitar acidentes durante a prática.",
+      description: "Tipos de faca de entalhe e como utilizá-las de forma segura e eficiente.",
       icon: "02",
     },
     {
       id: "m3",
       title: "Afiação",
-      description: "Preparação e manutenção do fio para cortes limpos, controle e melhor rendimento.",
+      description: "Conceitos gerais do processo e demonstração da afiação e polimento de uma faca de entalhe.",
       icon: "03",
     },
     {
       id: "m4",
       title: "Alongamentos para o corpo",
-      description: "Rotina simples para preparar mãos, punhos e postura antes de entalhar.",
+      description: "Exercícios para preparar o corpo para a prática.",
       icon: "04",
     },
     {
       id: "m5",
-      title: "Capivara completa: passo a passo",
+      title: "Entalhe da capivara",
       description: "Do bloco maciço à peça final, com orientação detalhada em cada etapa do processo.",
       icon: "05",
     },
     {
       id: "m6",
       title: "Lixamento",
-      description: "Técnicas para refinar formas, remover marcas e valorizar os volumes da escultura.",
+      description: "Uma segunda possibilidade de finalização do entalhe.",
       icon: "06",
     },
     {
       id: "m7",
       title: "Acabamento",
-      description: "Finalização da peça para proteger a madeira e ressaltar sua beleza natural.",
+      description: "Processos para proteger e realçar a peça.",
       icon: "07",
     },
     {
@@ -132,13 +132,7 @@ export const landingData = {
     {
       id: "f3",
       question: "Por quanto tempo eu tenho acesso ao curso?",
-      answer: "Seu acesso é válido por 3 anos! Durante esse período, você poderá acessá-lo sempre que quiser!",
-    },
-    {
-      id: "f4",
-      question: "Quanto tempo dura o curso?",
-      answer:
-        "São 32 vídeos, totalizando XX horas de conteúdo. Porém, cada pessoa deve seguir o seu próprio ritmo, podendo pausar o vídeo sempre que desejar para finalizar determinada etapa do entalhe.",
+      answer: "Você terá acesso a todo o conteúdo do curso e o Fórum de Entalhe por três anos inteiros, além de conteúdos ao vivo que iremos transmitir mensalmente aos nossos alunos, podendo acessar de qualquer lugar e quantas vezes quiser!",
     },
     {
       id: "f5",
@@ -161,13 +155,13 @@ export const landingData = {
     {
       id: "f8",
       question: "Quais as formas de pagamento?",
-      answer: "Ver na Hotmart.",
+      answer: "Você pode pagar à vista ou parcelar em até 12x sem juros pela plataforma do Hotmart, com total segurança!",
     },
   ],
   finalCta: {
     title: "Comece a entalhar com autonomia.",
     subtitle: "Faça parte dessa comunidade e entalhe sua primeira peça de muitas!",
-    button_text: "Quero fazer o curso",
+    button_text: "ENTRAR NA LISTA",
     button_url: "https://wa.me/5500000000000",
   },
   footer: {

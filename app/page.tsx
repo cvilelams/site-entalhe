@@ -77,7 +77,7 @@ export default function HomePage() {
   const overview = content.sections.course_overview;
   const finalCta = content.sections.final_cta;
   const ctaUrl = hero?.cta_url ?? "#";
-  const ctaText = hero?.cta_text ?? "QUERO ENTALHAR";
+  const ctaText = hero?.cta_text ?? "ENTRAR NA LISTA";
 
   /* padding base */
   const sectionPadding = "px-6 py-[72px] md:px-16 md:py-[120px]";
@@ -234,17 +234,19 @@ export default function HomePage() {
           </section>
 
           {/* Ferramentas — seção separada com identidade própria */}
-          <section className={`${sectionPadding} bg-cream-2`} id="ferramentas">
+          <section className={`${sectionPadding} pb-2 md:pb-2 bg-cream-2`} id="ferramentas">
             <div className="mx-auto max-w-6xl space-y-8">
-              <div>
-                <SectionTitle>
-                  Comece com<br />
-                  <em>o essencial</em>
-                </SectionTitle>
-              </div>
               <div className="flex flex-col gap-rule">
-                {/* Bloco 3 — card: foto | texto */}
+                {/* Bloco 3 — card: texto | foto */}
                 <div className="group/card-tools overflow-hidden bg-cream-3 md:grid md:grid-cols-2 md:items-stretch">
+                  <div className="flex flex-col justify-center px-9 py-10">
+                    <h3 className="font-titulo mb-4 text-h3 font-bold text-espresso">
+                      3. Comece com poucas ferramentas
+                    </h3>
+                    <p className="font-corpo text-body max-w-prose font-light text-brown">
+                      {pw("Basicamente com um pedaço de madeira e uma faca de entalhe já podemos esculpir.")}
+                    </p>
+                  </div>
                   <div className="relative aspect-[4/3] min-h-[200px] overflow-hidden md:aspect-auto md:min-h-[300px] md:h-full">
                     <Image
                       src="/images/sections/capivarinha.webp"
@@ -254,21 +256,22 @@ export default function HomePage() {
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
-                  <div className="flex flex-col justify-center px-9 py-10">
-                    <h3 className="font-titulo mb-4 text-h3 font-bold text-espresso">
-                      Comece com poucas ferramentas
-                    </h3>
-                    <p className="font-corpo text-body max-w-prose font-light text-brown">
-                      {pw("Basicamente com um pedaço de madeira e uma faca de entalhe já podemos esculpir.")}
-                    </p>
-                  </div>
                 </div>
 
-                {/* Bloco 4 — card: kit (texto | imagem no desktop; imagem primeiro no mobile) */}
+                {/* Bloco 4 — card: kit (imagem | texto) */}
                 <div className="group/card overflow-hidden bg-cream-3 md:grid md:grid-cols-2 md:items-stretch">
-                  <div className="order-2 flex flex-col justify-center px-9 py-10 md:order-1">
+                  <div className="relative aspect-[4/3] min-h-[200px] overflow-hidden md:aspect-auto md:min-h-[300px] md:h-full">
+                    <Image
+                      src="/images/sections/ferramentas-kit.jpg"
+                      alt="Kit de ferramentas para iniciantes no entalhe"
+                      fill
+                      className="object-cover transition-transform duration-500 motion-safe:group-hover/card:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <div className="flex flex-col justify-center px-9 py-10">
                     <h3 className="font-titulo mb-4 text-h3 font-bold text-espresso">
-                      Ainda não tenho nenhuma ferramenta…
+                      "Ainda não tenho nenhuma ferramenta…"
                     </h3>
                     <p className="font-corpo text-body max-w-prose font-light text-brown">
                       {pw("Preparamos kits para você iniciar e dar continuidade à prática do entalhe. Para te incentivar a começar agora, você tem desconto se comprá-los junto com o curso.")}
@@ -284,15 +287,6 @@ export default function HomePage() {
                     </div>
                     */}
                   </div>
-                  <div className="relative order-1 aspect-[4/3] min-h-[200px] overflow-hidden md:order-2 md:aspect-auto md:min-h-[300px] md:h-full">
-                    <Image
-                      src="/images/sections/ferramentas-kit.jpg"
-                      alt="Kit de ferramentas para iniciantes no entalhe"
-                      fill
-                      className="object-cover transition-transform duration-500 motion-safe:group-hover/card:scale-105"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
                 </div>
               </div>
             </div>
@@ -307,18 +301,18 @@ export default function HomePage() {
                   {[
                     {
                       num: "01",
-                      title: "Não precisa de espaço",
+                      title: "4. Não precisa de espaço",
                       desc: "Nós sabemos como maquinários e ferramentas ocupam espaço, e valorizamos muito a possibilidade de entalhar de qualquer lugar. Seja em casa, apartamento ou kitnet, em um parque, durante uma viagem. A praticidade do entalhe, que envolve basicamente você ter um pedaço de madeira e uma faca de entalhe, torna a atividade extremamente acessível.",
                     },
                     {
                       num: "02",
-                      title: "Fonte de renda extra",
+                      title: "5. Fonte de renda extra",
                       desc: "Temos alunos que já venderam suas peças em feiras, sendo super possível complementar a renda com suas próprias criações.",
                     },
                   ].map((item) => (
                     <div
                       key={item.num}
-                      className="overflow-hidden bg-cream px-8 py-10 md:px-10 md:py-12"
+                      className="overflow-hidden bg-cream-3 px-8 py-10 md:px-10 md:py-12"
                     >
                       <h3 className="font-titulo text-h3 mb-4 font-bold text-espresso">
                         {item.title}
@@ -343,7 +337,10 @@ export default function HomePage() {
             {/* Card 03 — Para quem é */}
             <div className="mb-10">
               <SectionLabel>Para quem é</SectionLabel>
-              <SectionTitle as="h3">Será que esse curso é para mim?</SectionTitle>
+              <SectionTitle as="h3">
+                Será que esse curso<br />
+                <em>é para mim?</em>
+              </SectionTitle>
               <p className="font-corpo text-body font-light text-brown">
                 {pw("Nosso curso é para todos: quem nunca entalhou na vida (inclusive costumamos tranquilizar nossos alunos pois a esmagadora maioria de fato nunca praticou), e também para quem já praticou e quer desenvolver ainda mais suas técnicas.")}
               </p>
@@ -352,7 +349,10 @@ export default function HomePage() {
             <div className="mb-10 flex flex-col gap-10 md:flex-row md:items-center">
               <div className="flex-1 min-w-0">
                 <SectionLabel>O curso</SectionLabel>
-                <SectionTitle>{overview?.title}</SectionTitle>
+                <SectionTitle>
+                  Como é<br />
+                  <em>o curso?</em>
+                </SectionTitle>
                 <p className="font-corpo text-body mb-8 font-light text-brown">
                   {overview?.description}
                 </p>
@@ -379,7 +379,7 @@ export default function HomePage() {
         <section className={`${sectionPadding} bg-cream-2`}>
           <div className="mx-auto max-w-6xl">
             <SectionLabel>O que você recebe</SectionLabel>
-            <SectionTitle>XX horas · XX aulas</SectionTitle>
+            <SectionTitle>Mais de 30 aulas</SectionTitle>
 
             <div className="mt-10 grid grid-cols-1 gap-16 md:grid-cols-2 md:items-start">
               <div>
@@ -402,12 +402,14 @@ export default function HomePage() {
                   </LandingPrimaryCtaLink>
                 </div>
               </div>
-              <div className="min-h-64 overflow-hidden bg-cream-3">
-                <div
-                  className="h-full min-h-64 w-full bg-gradient-to-br from-cream-2 to-cream-3"
-                  aria-hidden="true"
+              <div>
+                <Image
+                  src="/images/sections/5 - Mockup.png"
+                  alt="Montagem do e-book em celular, tablet e computador"
+                  width={1200}
+                  height={900}
+                  className="w-full h-auto object-contain scale-125 origin-center"
                 />
-                <span className="sr-only">Montagem do e-book em celular, tablet e computador</span>
               </div>
             </div>
           </div>
@@ -423,8 +425,8 @@ export default function HomePage() {
             className="h-1 bg-gradient-to-r from-mahogany via-terra-lt to-mahogany"
           />
 
-          {/* Conteúdo centralizado */}
-          <div className="mx-auto flex max-w-3xl flex-col px-6 py-24 md:px-10">
+          {/* Texto — contentor estreito para boa leitura */}
+          <div className="mx-auto flex max-w-3xl flex-col px-6 pt-24 pb-0 md:px-10">
             <SectionLabel>Quem ensina</SectionLabel>
 
             <h2 className="font-titulo mb-2 text-h2 font-black text-espresso">
@@ -444,10 +446,13 @@ export default function HomePage() {
               />
             </div>
 
-            <p className="font-corpo mb-12 text-base font-light leading-[1.75] text-espresso/70">
-              {pw("Somos Mayra e Simone, duas irmãs que compartilham das mesmas afinidades desde a infância. Cursamos Arquitetura e Urbanismo e, há anos, decidimos trabalhar juntas na marcenaria. No meio do caminho, nos apaixonamos pela técnica de entalhe e hoje criamos peças artísticas selecionadas e premiadas em Salões de Arte.")}
+            <p className="font-corpo mb-6 text-base font-light leading-[1.75] text-espresso/70">
+              {pw("Somos Mayra e Simone, duas irmãs que compartilham das mesmas afinidades desde a infância. Cursamos Arquitetura e Urbanismo e há anos decidimos trabalhar juntas na marcenaria. No meio do caminho nos apaixonamos pela técnica de entalhe e hoje criamos peças artísticas selecionadas e premiadas em Salões de Arte. Já compartilhamos o que aprendemos com mais de 700 pessoas pelo Brasil, despertando em muitas a paixão pelo entalhe.")}
             </p>
+          </div>
 
+          {/* Galeria — contentor largo para projeção horizontal */}
+          <div className="mx-auto max-w-6xl px-6 pb-24 md:px-10">
             <InstructorCarousel />
 
             <div className="mt-10 flex justify-center">
@@ -470,7 +475,7 @@ export default function HomePage() {
 
           <div className="mt-10 grid grid-cols-1 gap-rule sm:grid-cols-3">
             {[
-              { n: "700+", l: "Alunos em todo o Brasil" },
+              { n: "700+", l: "Já aprenderam com Oficina Cigarra" },
               { n: "3 anos", l: "Acesso para rever quando quiser" },
               { n: "Suporte", l: "Dúvidas respondidas no fórum" },
             ].map((stat) => (
@@ -525,7 +530,7 @@ export default function HomePage() {
                 href={ctaUrl}
                 className="font-corpo text-label block border border-rule bg-transparent py-3.5 text-center font-medium uppercase tracking-[0.07em] text-espresso transition-colors hover:bg-cream-3 rounded-sm"
               >
-                Começar
+                ENTRAR NA LISTA
               </Link>
             </div>
 

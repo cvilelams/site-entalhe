@@ -29,7 +29,7 @@ export default function Header({ ctaUrl, ctaText }: HeaderProps) {
         {/* Logo */}
         <Link href="/" className="transition-opacity hover:opacity-75">
           <Image
-            src="/images/sections/Logo-escrito-preto.png"
+            src="/images/sections/Logo escrito cavaco preto.svg"
             alt="Oficina Cigarra"
             width={140}
             height={46}

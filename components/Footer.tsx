@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { landingData } from "@/lib/landing-data";
 
@@ -9,20 +10,22 @@ export default function Footer() {
       {/* Corpo do footer */}
       <footer className="bg-dark px-6 py-16 md:px-16">
         <div
-          className="mx-auto grid max-w-6xl gap-12 max-md:grid-cols-2 max-sm:grid-cols-1"
-          style={{ gridTemplateColumns: "2fr 1fr 1fr" }}
+          className="mx-auto grid max-w-6xl gap-12 max-sm:grid-cols-1"
+          style={{ gridTemplateColumns: "2fr 1fr" }}
         >
           {/* Coluna da marca */}
           <div>
-            <Link
-              href="/"
-              className="font-titulo mb-4 block text-xl font-bold tracking-[-0.02em] text-cream transition-colors"
-            >
-              {landingData.footer.copyright}
-              <span className="text-terracota">.</span>
+            <Link href="/" className="mb-4 block transition-opacity hover:opacity-75">
+              <Image
+                src="/images/sections/Logo escrito cavaco branco.svg"
+                alt="Oficina Cigarra"
+                width={140}
+                height={46}
+                className="h-10 w-auto"
+              />
             </Link>
             <p className="font-corpo max-w-[260px] text-sm-body font-light leading-[1.65] text-cream/40">
-              Ensino artesanal de entalhe em madeira — para quem quer aprender com atenção plena ao fazer manual.
+              Ensino de entalhe em madeira com faca.
             </p>
           </div>
 
@@ -47,28 +50,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Coluna curso */}
-          <div>
-            <span className="font-corpo text-label mb-5 block font-medium uppercase text-cream/30">
-              Curso
-            </span>
-            <ul className="flex flex-col gap-3 list-none">
-              {[
-                { label: "O método", href: "#curso" },
-                { label: "Módulos", href: "#modulos" },
-                { label: "Quem ensina", href: "#instrutor" },
-              ].map(({ label, href }) => (
-                <li key={label}>
-                  <a
-                    href={href}
-                    className="font-corpo text-sm-body font-light text-cream/55 transition-colors hover:text-cream"
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </footer>
 
