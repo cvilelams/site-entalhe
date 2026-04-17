@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { trackCTAClick } from "@/lib/analytics";
 
 type LandingPrimaryCtaLinkProps = {
   href: string;
   children: React.ReactNode;
   variant?: "filled" | "inverted";
   className?: string;
+  slot?: string;
 };
 
 const baseClass =
@@ -17,6 +19,7 @@ export default function LandingPrimaryCtaLink({
   children,
   variant = "filled",
   className = "",
+  slot,
 }: LandingPrimaryCtaLinkProps) {
   const variantClass =
     variant === "filled"
@@ -24,7 +27,11 @@ export default function LandingPrimaryCtaLink({
       : "bg-cream text-terracota hover:bg-terracota-dark hover:text-cream";
 
   return (
-    <Link href={href} className={`${baseClass} ${variantClass} ${className}`.trim()}>
+    <Link
+      href={href}
+      className={`${baseClass} ${variantClass} ${className}`.trim()}
+      onClick={() => trackCTAClick(slot ?? "cta_sem_slot", href)}
+    >
       {children}
     </Link>
   );

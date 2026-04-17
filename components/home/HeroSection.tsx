@@ -56,7 +56,7 @@ export default function HeroSection({
 
         {/* Ações */}
         <div className="flex justify-center">
-          <LandingPrimaryCtaLink href={ctaUrl ?? "#"} variant="filled">
+          <LandingPrimaryCtaLink href={ctaUrl ?? "#"} variant="filled" slot="hero">
             {ctaText ?? "Começar agora"}
           </LandingPrimaryCtaLink>
         </div>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { landingData } from "@/lib/landing-data";
+import { trackLinkClick } from "@/lib/analytics";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -43,6 +44,7 @@ export default function Footer() {
                       href={link.href}
                       {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
                       className="font-corpo text-sm-body font-light text-cream/55 transition-colors hover:text-cream"
+                      onClick={() => trackLinkClick(`footer_${link.label.toLowerCase()}`, link.href)}
                     >
                       {link.label}
                     </Link>

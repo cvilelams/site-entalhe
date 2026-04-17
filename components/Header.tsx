@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { trackCTAClick } from "@/lib/analytics";
 
 type HeaderProps = {
   ctaUrl: string;
@@ -62,6 +63,7 @@ export default function Header({ ctaUrl, ctaText }: HeaderProps) {
         <Link
           href={ctaUrl}
           className="font-corpo rounded-sm bg-terracota px-6 py-[10px] text-label font-medium uppercase tracking-[0.06em] text-cream transition-all hover:-translate-y-px hover:bg-terracota-dark"
+          onClick={() => trackCTAClick("header", ctaUrl)}
         >
           {ctaText}
         </Link>

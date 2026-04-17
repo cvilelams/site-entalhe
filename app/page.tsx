@@ -229,7 +229,7 @@ export default function HomePage() {
               </div>
 
               <div className="flex justify-center">
-                <LandingPrimaryCtaLink href={ctaUrl} variant="filled">
+                <LandingPrimaryCtaLink href={ctaUrl} variant="filled" slot="visao_geral">
                   {ctaText}
                 </LandingPrimaryCtaLink>
               </div>
@@ -400,7 +400,7 @@ export default function HomePage() {
                   Assista no seu tempo: o curso fica disponível por 3 anos.
                 </p>
                 <div className="flex justify-center">
-                  <LandingPrimaryCtaLink href={ctaUrl} variant="filled">
+                  <LandingPrimaryCtaLink href={ctaUrl} variant="filled" slot="acesso">
                     {ctaText}
                   </LandingPrimaryCtaLink>
                 </div>
@@ -459,7 +459,7 @@ export default function HomePage() {
             <InstructorCarousel />
 
             <div className="mt-10 flex justify-center">
-              <LandingPrimaryCtaLink href={ctaUrl} variant="filled">
+              <LandingPrimaryCtaLink href={ctaUrl} variant="filled" slot="instrutoras">
                 {ctaText}
               </LandingPrimaryCtaLink>
             </div>
@@ -560,7 +560,7 @@ export default function HomePage() {
                 ))}
               </ul>
               <div className="flex justify-center">
-                <LandingPrimaryCtaLink href={ctaUrl} variant="filled">
+                <LandingPrimaryCtaLink href={ctaUrl} variant="filled" slot="garantia">
                   {ctaText}
                 </LandingPrimaryCtaLink>
               </div>
@@ -609,7 +609,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="flex w-full justify-center shrink-0">
-              <LandingPrimaryCtaLink href={finalCta?.button_url ?? "#"} variant="inverted">
+              <LandingPrimaryCtaLink href={finalCta?.button_url ?? "#"} variant="inverted" slot="cta_final">
                 {finalCta?.button_text}
               </LandingPrimaryCtaLink>
             </div>
