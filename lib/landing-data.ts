@@ -144,7 +144,7 @@ export const landingData = {
       id: "f6",
       question: "Onde posso tirar dúvidas?",
       answer:
-        "Você pode deixar sua dúvida em nosso Fórum de Entalhe ou em nossa Comunidade de Entalhe do WhatsApp! Semanalmente, iremos responder às dúvidas dos alunos.",
+        "Você pode deixar todas as suas dúvidas em nosso Fórum de Entalhe. Lá você também poderá compartilhar seu progresso com os outros alunos, fazendo parte de um espaço de incentivo e troca.",
     },
     {
       id: "f7",

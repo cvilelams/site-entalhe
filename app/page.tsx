@@ -171,13 +171,13 @@ export default function HomePage() {
                     />
                   </div>
 
-                  {/* B — ensaios (2 cols desktop, 1 col mobile) */}
+                  {/* B — gatinho (2 cols desktop, 1 col mobile) */}
                   <div className="relative h-[260px] overflow-hidden md:col-span-2">
                     <Image
-                      src="/images/sections/bento-ensaios.webp"
-                      alt="Suportes de tubos de ensaio entalhados em madeira com plantas"
+                      src="/images/sections/2_oficinagatinho.webp"
+                      alt="Gatinho entalhado na oficina"
                       fill
-                      className="object-cover transition-transform duration-500 motion-safe:hover:scale-105"
+                      className="object-cover object-[center_45%] transition-transform duration-500 motion-safe:hover:scale-105"
                       sizes="(max-width: 768px) 50vw, 67vw"
                     />
                   </div>
@@ -215,13 +215,13 @@ export default function HomePage() {
                     />
                   </div>
 
-                  {/* F — pomba (2 cols desktop, 1 col mobile) */}
+                  {/* F — pingente (2 cols desktop, 1 col mobile) */}
                   <div className="relative h-[260px] overflow-hidden md:col-span-2">
                     <Image
-                      src="/images/sections/2_oficinagatinho.webp"
-                      alt="Gatinho entalhado na oficina"
+                      src="/images/sections/2_oficinapingente (2).webp"
+                      alt="Pingente entalhado em madeira na oficina"
                       fill
-                      className="object-cover object-[center_40%] transition-transform duration-500 motion-safe:hover:scale-105"
+                      className="object-cover transition-transform duration-500 motion-safe:hover:scale-105"
                       sizes="(max-width: 768px) 50vw, 67vw"
                     />
                   </div>
@@ -479,8 +479,8 @@ export default function HomePage() {
           <div className="mt-10 grid grid-cols-1 gap-rule sm:grid-cols-3">
             {[
               { n: "700+", l: <>Já aprenderam<br />com Oficina Cigarra</> },
-              { n: "3 anos", l: <>Acesso para rever quando quiser</> },
-              { n: "Suporte", l: <>Dúvidas respondidas no fórum</> },
+              { n: "3 anos", l: <>Acesse para rever<br />quando quiser</> },
+              { n: "Suporte", l: <>Dúvidas respondidas<br />no fórum</> },
             ].map((stat) => (
               <div key={stat.n} className="bg-cream-2 px-9 py-10">
                 <span className="font-titulo block text-stat font-black text-espresso">
