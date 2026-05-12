@@ -287,6 +287,8 @@ export default function HomePage() {
                     <div className="mt-7 flex justify-center">
                       <Link
                         href="https://hotmart.com/pt-br/club/roda-de-entalhe?from=HomePage"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="font-corpo text-label inline-block rounded-sm border border-terracota bg-transparent px-8 py-3.5 font-medium uppercase tracking-[0.08em] text-terracota transition-all duration-200 hover:-translate-y-px"
                       >
                         Acesse os produtos
