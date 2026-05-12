@@ -23,10 +23,11 @@ const defaultVisibility: SectionVisibilityItem[] = [
   { section: "course_overview", label: "Visao Geral do Curso", is_visible: true, order_index: 3 },
   { section: "modules", label: "Modulos do Curso", is_visible: true, order_index: 4 },
   { section: "instructors", label: "Instrutoras", is_visible: true, order_index: 5 },
-  { section: "testimonials", label: "Depoimentos", is_visible: true, order_index: 6 },
-  { section: "guarantee", label: "Garantia", is_visible: true, order_index: 7 },
-  { section: "faq", label: "FAQ", is_visible: true, order_index: 8 },
-  { section: "final_cta", label: "CTA Final", is_visible: true, order_index: 9 },
+  { section: "investment", label: "Investimento", is_visible: true, order_index: 6 },
+  { section: "testimonials", label: "Depoimentos", is_visible: true, order_index: 7 },
+  { section: "guarantee", label: "Garantia", is_visible: true, order_index: 8 },
+  { section: "faq", label: "FAQ", is_visible: true, order_index: 9 },
+  { section: "final_cta", label: "CTA Final", is_visible: true, order_index: 10 },
 ];
 
 let state: {

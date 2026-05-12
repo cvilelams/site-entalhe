@@ -13,6 +13,8 @@ const config: Config = {
           DEFAULT: "#FDF8F0",
           2: "#F0E8DC",
           3: "#E4D8C8",
+          /** Faixa investimento / preços (entre blocos bege e creme) */
+          bridge: "#F2EAE0",
         },
         espresso: "#1A0F0A",
         brown: {
