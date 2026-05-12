@@ -11,6 +11,7 @@ module.exports = {
           DEFAULT: "#FDF8F0",
           2: "#F0E8DC",
           3: "#E4D8C8",
+          bridge: "#F2EAE0",
         },
         espresso: "#1A0F0A",
         brown: {

@@ -15,6 +15,7 @@ export const SECTIONS = {
   COURSE_OVERVIEW: "course_overview",
   MODULES: "modules",
   INSTRUCTORS: "instructors",
+  INVESTMENT: "investment",
   TESTIMONIALS: "testimonials",
   GUARANTEE: "guarantee",
   FAQ: "faq",

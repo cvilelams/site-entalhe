@@ -16,6 +16,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Check } from "lucide-react";
+import { landingData } from "@/lib/landing-data";
 
 /* ── Previne viúvas tipográficas — substitui o último espaço por &nbsp; ── */
 function pw(text: string): string {
@@ -77,11 +78,15 @@ export default function HomePage() {
   const overview = content.sections.course_overview;
   const finalCta = content.sections.final_cta;
   const ctaUrl = hero?.cta_url ?? "#";
-  const ctaText = hero?.cta_text ?? "ENTRAR NA LISTA";
+  const ctaText = hero?.cta_text ?? "QUERO ENTALHAR";
 
   /* padding base */
   const sectionPadding = "px-6 py-[72px] md:px-16 md:py-[120px]";
   const sectionPaddingMd = "px-6 py-[72px] md:px-16 md:py-[96px]";
+
+  const contatoHref =
+    landingData.footer.links.find((l) => l.label === "Contato")?.href ??
+    "mailto:contato@oficinacigarra.com.br";
 
   return (
     <main>
@@ -279,16 +284,14 @@ export default function HomePage() {
                     <p className="font-corpo text-body max-w-prose font-light text-brown">
                       {pw("Preparamos kits para você iniciar e dar continuidade à prática do entalhe. Para te incentivar a começar agora, você tem desconto se comprá-los junto com o curso.")}
                     </p>
-                    {/* TODO: reativar quando o kit estiver disponível para compra
                     <div className="mt-7 flex justify-center">
                       <Link
-                        href="#"
+                        href="https://hotmart.com/pt-br/club/roda-de-entalhe?from=HomePage"
                         className="font-corpo text-label inline-block rounded-sm border border-terracota bg-transparent px-8 py-3.5 font-medium uppercase tracking-[0.08em] text-terracota transition-all duration-200 hover:-translate-y-px"
                       >
-                        Comprar kit
+                        Acesse os produtos
                       </Link>
                     </div>
-                    */}
                   </div>
                 </div>
               </div>
@@ -393,9 +396,6 @@ export default function HomePage() {
                   Você vai poder interagir e tirar suas dúvidas no fórum de entalhe.
                 </p>
                 <p className="font-corpo text-body mb-6 font-light text-brown">
-                  Além disso, você vai ter acesso às transmissões ao vivo de conteúdo mensais.
-                </p>
-                <p className="font-corpo text-body mb-6 font-light text-brown">
                   Disponível para celular, tablet e computador.
                 </p>
                 {/* Pull quote */}
@@ -498,6 +498,53 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── INVESTIMENTO ── */}
+      {isVisible(visibility, "investment") && (
+        <section
+          className={`${sectionPaddingMd} bg-cream-bridge`}
+          aria-labelledby="sec-investimento"
+        >
+          <div className="mx-auto max-w-6xl">
+            <div className="mx-auto max-w-xl text-center">
+              <div className="flex justify-center">
+                <SectionLabel>Investimento</SectionLabel>
+              </div>
+
+              <h2 id="sec-investimento" className="sr-only">
+                Investimento e condições de pagamento
+              </h2>
+
+              <p className="font-titulo mt-2 text-[clamp(32px,5vw,52px)] font-bold leading-[1.05] tracking-[-0.035em] text-espresso">
+                12x de{" "}
+                <span className="inline-flex items-baseline gap-1 font-black text-terracota">
+                  <span className="text-[32px] leading-none">R$</span>
+                  <span className="text-[clamp(40px,6vw,64px)] leading-none">49,64</span>
+                </span>
+              </p>
+
+              <div className="mt-5 w-full border-t border-rule/50 pt-5">
+                <div className="flex justify-center">
+                  <p className="inline-flex flex-wrap items-baseline justify-center gap-x-2 gap-y-0.5">
+                    <span className="font-titulo text-[clamp(17px,2.2vw,22px)] font-semibold tabular-nums tracking-[-0.02em] text-espresso/75">
+                      R$&nbsp;480
+                    </span>
+                    <span className="font-corpo text-caption font-medium uppercase tracking-[0.12em] text-brown-lt">
+                      à vista
+                    </span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-8 flex justify-center">
+                <LandingPrimaryCtaLink href={ctaUrl} variant="filled" slot="investimento">
+                  QUERO ENTALHAR
+                </LandingPrimaryCtaLink>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── PLANOS / PREÇOS ── (temporariamente oculto — reativar no futuro) */}
       {false && (
       <section id="planos" className={`${sectionPadding} bg-cream-2`}>
@@ -536,7 +583,7 @@ export default function HomePage() {
                 href={ctaUrl}
                 className="font-corpo text-label block border border-rule bg-transparent py-3.5 text-center font-medium uppercase tracking-[0.07em] text-espresso transition-colors hover:bg-cream-3 rounded-sm"
               >
-                ENTRAR NA LISTA
+                QUERO ENTALHAR
               </Link>
             </div>
 
@@ -595,6 +642,22 @@ export default function HomePage() {
                 </AccordionItem>
               ))}
             </Accordion>
+          </div>
+        </section>
+      )}
+
+      {/* ── Contato após FAQ ── */}
+      {isVisible(visibility, "faq") && (
+        <section className={`${sectionPadding} bg-cream-2`}>
+          <div className="mx-auto max-w-6xl">
+            <SectionLabel>Ainda com dúvidas?</SectionLabel>
+            <SectionTitle>Fale com a gente!</SectionTitle>
+            <Link
+              href={contatoHref}
+              className="font-corpo text-label inline-block rounded-sm border border-terracota bg-transparent px-8 py-3.5 font-medium uppercase tracking-[0.08em] text-terracota transition-all duration-200 hover:-translate-y-px"
+            >
+              Quero tirar dúvidas
+            </Link>
           </div>
         </section>
       )}

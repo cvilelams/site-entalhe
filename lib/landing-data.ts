@@ -2,8 +2,8 @@ export const landingData = {
   hero: {
     title: "Explore o universo do entalhe em madeira",
     subtitle: "Do bloquinho de madeira à escultura, aprenda na prática ao entalhar uma capivara!",
-    cta_text: "ENTRAR NA LISTA",
-    cta_url: "https://docs.google.com/forms/d/e/1FAIpQLSewyUvbqQl1rfm-sM9dUgMsj5ZyhHuR0G7bM03vdd_7b6MTew/viewform",
+    cta_text: "QUERO ENTALHAR",
+    cta_url: "https://pay.hotmart.com/V105166531Q",
     media_type: "image",
     media_url: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1600&auto=format&fit=crop",
   },
@@ -132,7 +132,13 @@ export const landingData = {
     {
       id: "f3",
       question: "Por quanto tempo eu tenho acesso ao curso?",
-      answer: "Você terá acesso a todo o conteúdo do curso e o Fórum de Entalhe por três anos inteiros, além de conteúdos ao vivo que iremos transmitir mensalmente aos nossos alunos, podendo acessar de qualquer lugar e quantas vezes quiser!",
+      answer: "Você terá acesso a todo o conteúdo do curso e o Fórum de Entalhe por três anos inteiros, podendo acessar de qualquer lugar e quantas vezes quiser, além de acesso para transmissões ao vivo mensais para esclarecimento de dúvidas.",
+    },
+    {
+      id: "f4",
+      question: "Quanto tempo dura o curso?",
+      answer:
+        "São 35 vídeos abrangendo diversos aspectos do entalhe com faca, além de todo o passo-a-passo do entalhe da capivarinha. Não há um tempo de curso estimado, já que cada um deve seguir seu próprio ritmo, e inclusive recomendamos que se pause o vídeo sempre que necessário, até a conclusão de determinada etapa do entalhe.",
     },
     {
       id: "f5",
@@ -161,8 +167,8 @@ export const landingData = {
   finalCta: {
     title: "Comece a entalhar com autonomia.",
     subtitle: "Faça parte dessa comunidade e entalhe sua primeira peça de muitas!",
-    button_text: "ENTRAR NA LISTA",
-    button_url: "https://docs.google.com/forms/d/e/1FAIpQLSewyUvbqQl1rfm-sM9dUgMsj5ZyhHuR0G7bM03vdd_7b6MTew/viewform",
+    button_text: "QUERO ENTALHAR",
+    button_url: "https://pay.hotmart.com/V105166531Q",
   },
   footer: {
     copyright: "Oficina Cigarra",
