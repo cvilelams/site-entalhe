@@ -54,7 +54,7 @@ export const landingData = {
     {
       id: "m5",
       title: "Entalhe da capivara",
-      description: "Do bloco maciço à peça final, com orientação detalhada em cada etapa do processo.",
+      description: "Do bloco maciço à capivara, um passo-a-passo completo para você aplicar na prática todo o conhecimento adquirido nas aulas anteriores",
       icon: "05",
     },
     {

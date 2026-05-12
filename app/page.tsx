@@ -160,7 +160,7 @@ export default function HomePage() {
                     {pw("Após esculpir o famoso Davi de um enorme bloco de mármore, há quem diga que Michelangelo afirmou: \"Eu apenas tirei da pedra de mármore tudo que não era Davi\". Isso se aplica a qualquer atividade de entalhe: a retirada do que não importa para se revelar o que sempre esteve lá.")}
                   </p>
                   <p className="font-corpo text-body font-light text-brown">
-                    {pw("É muito satisfatório começar a entender um bloco rígido como uma potencial peça escultural, estimulando naturalmente diversas habilidades criativas e praticando sua expressão.")}
+                    {pw("É muito satisfatório começar a entender um bloco rígido como uma potencial peça escultural, estimulando naturalmente diversas habilidades criativas e praticando sua expressão. De um mesmo pedaço de madeira pode-se extrair infinitas possibilidades.")}
                   </p>
                 </div>
 
@@ -396,6 +396,9 @@ export default function HomePage() {
                 </p>
                 <p className="font-corpo text-body mb-6 font-light text-brown">
                   Você vai poder interagir e tirar suas dúvidas no fórum de entalhe.
+                </p>
+                <p className="font-corpo text-body mb-6 font-light text-brown">
+                  Além disso, vai ter acesso a transmissões ao vivo para esclarecimento de dúvidas.
                 </p>
                 <p className="font-corpo text-body mb-6 font-light text-brown">
                   Disponível para celular, tablet e computador.
