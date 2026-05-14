@@ -174,7 +174,7 @@ export const landingData = {
     copyright: "Oficina Cigarra",
     links: [
       { label: "Instagram", href: "https://instagram.com/oficinacigarra" },
-      { label: "Contato", href: "mailto:contato@oficinacigarra.com.br" },
+      { label: "Contato", href: "https://wa.me/5511947449322" },
     ],
   },
 };
