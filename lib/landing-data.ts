@@ -3,7 +3,7 @@ export const landingData = {
     title: "Explore o universo do entalhe em madeira",
     subtitle: "Do bloquinho de madeira à escultura, aprenda na prática ao entalhar uma capivara!",
     cta_text: "QUERO ENTALHAR",
-    cta_url: "https://pay.hotmart.com/V105166531Q",
+    cta_url: "https://pay.hotmart.com/V105166531Q?checkoutMode=10&bid=1779457190490",
     media_type: "image",
     media_url: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1600&auto=format&fit=crop",
   },
@@ -168,7 +168,7 @@ export const landingData = {
     title: "Comece a entalhar com autonomia.",
     subtitle: "Faça parte dessa comunidade e entalhe sua primeira peça de muitas!",
     button_text: "QUERO ENTALHAR",
-    button_url: "https://pay.hotmart.com/V105166531Q",
+    button_url: "https://pay.hotmart.com/V105166531Q?checkoutMode=10&bid=1779457190490",
   },
   footer: {
     copyright: "Oficina Cigarra",
