@@ -282,7 +282,7 @@ export default function HomePage() {
                       "Ainda não tenho nenhuma ferramenta…"
                     </h3>
                     <p className="font-corpo text-body max-w-prose font-light text-brown">
-                      {pw("Preparamos kits para você iniciar e dar continuidade à prática do entalhe. Para te incentivar a começar agora, você tem desconto se comprá-los junto com o curso.")}
+                      {pw("Preparamos kits para você iniciar e dar continuidade à prática do entalhe.")}
                     </p>
                     <div className="mt-7 flex justify-center">
                       <Link
