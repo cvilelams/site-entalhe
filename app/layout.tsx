@@ -8,7 +8,7 @@ import DevDialKit from "@/components/DevDialKit";
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
-  weight: ["400", "700", "900"],
+  weight: ["400", "500", "600", "700", "900"],
   style: ["normal", "italic"],
   display: "swap",
 });
@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
 const jost = Jost({
   subsets: ["latin"],
   variable: "--font-jost",
-  weight: ["300", "400", "500"],
+  weight: ["300", "400", "500", "700"],
   display: "swap",
 });
 

@@ -32,6 +32,21 @@ const config: Config = {
         mahogany: "#3A1F0E",
         dark: "#0D0705",
         rule: "#D4C4B0",
+        /* Tokens da seção Fork / Cursos rápidos */
+        "tan-bg": "#F1E6D6",
+        walnut: {
+          DEFAULT: "#2A1F16",
+          2: "#3B2C1E",
+          text: "#F3E9DA",
+        },
+        "raw-wood": "#E7D2AE",
+        "raw-wood-line": "rgba(139, 94, 45, 0.22)",
+        ink: {
+          DEFAULT: "#241C15",
+          soft: "#6E5F4E",
+        },
+        line: "#E2D3BC",
+        "terracotta-deep": "#8C4520",
         // Aliases de compatibilidade
         fundo: {
           DEFAULT: "#FDF8F0",

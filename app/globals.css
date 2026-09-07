@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --cream: #faf5ec;
+  --tan-bg: #f1e6d6;
+  --terracotta: #bb5b2e;
+  --terracotta-deep: #8c4520;
+  --walnut: #2a1f16;
+  --walnut-2: #3b2c1e;
+  --walnut-text: #f3e9da;
+  --raw-wood: #e7d2ae;
+  --raw-wood-line: rgba(139, 94, 45, 0.22);
+  --ink: #241c15;
+  --ink-soft: #6e5f4e;
+  --line: #e2d3bc;
+}
+
 @layer base {
   *, *::before, *::after {
     box-sizing: border-box;
@@ -37,5 +52,99 @@
   a {
     color: inherit;
     text-decoration: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer utilities {
+  .wood-grain-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.08;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 480' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23F3E9DA' stroke-linecap='round'%3E%3Cpath stroke-width='1.2' d='M-30 40C80 8 160 72 260 42s190-36 290 2 170 44 310-10'/%3E%3Cpath stroke-width='0.75' d='M-30 78C90 46 180 110 280 80s200-32 300 4 180 46 320-8'/%3E%3Cpath stroke-width='1' d='M-30 118C70 88 165 148 270 120s185-30 285 8 175 40 305-6'/%3E%3Cpath stroke-width='0.65' d='M-30 158C95 126 185 190 290 160s195-28 295 10 185 44 315-4'/%3E%3Cpath stroke-width='1.1' d='M-30 200C75 168 170 232 275 204s188-34 288 6 178 42 308-8'/%3E%3Cpath stroke-width='0.7' d='M-30 242C88 210 178 274 285 246s198-30 298 8 182 46 312-6'/%3E%3Cpath stroke-width='0.95' d='M-30 286C72 256 168 318 278 290s186-28 286 12 176 40 306-4'/%3E%3Cpath stroke-width='0.6' d='M-30 328C92 296 182 360 288 332s200-32 300 6 184 44 314-8'/%3E%3Cpath stroke-width='1.05' d='M-30 370C78 340 172 402 276 374s190-30 290 10 174 42 304-6'/%3E%3Cpath stroke-width='0.7' d='M-30 412C86 382 176 444 284 416s196-28 296 8 180 46 310-4'/%3E%3Cpath stroke-width='0.9' d='M-30 452C74 424 166 484 274 456s188-26 288 10 172 40 302-6'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: cover;
+  }
+
+  .complete-teaser {
+    margin-top: 90px;
+    padding-top: 60px;
+    border-top: 1px solid rgba(243, 233, 218, 0.12);
+    display: grid;
+    grid-template-columns: 0.9fr 1.3fr;
+    gap: 64px;
+    align-items: center;
+    min-height: 420px;
+  }
+
+  .complete-teaser .eyebrow {
+    color: #e3b48c;
+  }
+
+  .complete-teaser p.bridge-text {
+    font-family: var(--font-playfair), Georgia, serif;
+    font-size: 29px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--walnut-text);
+    max-width: 30ch;
+  }
+
+  .complete-teaser p.bridge-text em {
+    font-style: italic;
+    font-weight: 600;
+    color: #e3b48c;
+  }
+
+  .complete-teaser .teaser-image {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    min-height: 420px;
+    border-radius: 3px;
+    background: var(--walnut-2);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+  }
+
+  .complete-teaser .teaser-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='160'%3E%3Cpath d='M-10,24 C60,8 130,40 210,22 C290,4 360,36 430,20' stroke='rgba(243,233,218,0.06)' stroke-width='1.4' fill='none'/%3E%3Cpath d='M-10,64 C60,50 130,80 210,62 C290,44 360,78 430,60' stroke='rgba(243,233,218,0.05)' stroke-width='1.2' fill='none'/%3E%3Cpath d='M-10,104 C60,92 130,118 210,100 C290,84 360,116 430,98' stroke='rgba(243,233,218,0.045)' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+    background-size: 420px 160px;
+  }
+
+  @media (max-width: 859px) {
+    .complete-teaser {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      margin-top: 64px;
+      padding-top: 48px;
+      min-height: 0;
+    }
+  }
+
+  .quick-courses-track,
+  .what-they-say-track {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .quick-courses-track::-webkit-scrollbar,
+  .what-they-say-track::-webkit-scrollbar {
+    display: none;
   }
 }

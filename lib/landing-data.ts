@@ -1,7 +1,7 @@
 export const landingData = {
   hero: {
     title: "Explore o universo do entalhe em madeira",
-    subtitle: "Do bloquinho de madeira à escultura, aprenda na prática ao entalhar uma capivara!",
+    subtitle: "Do bloquinho de madeira à escultura, aprenda na prática a técnica do entalhe com especialistas no assunto!",
     cta_text: "QUERO ENTALHAR",
     cta_url: "https://pay.hotmart.com/V105166531Q?checkoutMode=10&bid=1779457190490",
     media_type: "image",
@@ -16,9 +16,9 @@ export const landingData = {
     item3_label: "satisfação",
   },
   courseOverview: {
-    title: "Como é o curso?",
+    title: "Como é o curso completo de entalhe?",
     description:
-      "Vamos abordar os principais fundamentos do entalhe para você construir uma base sólida de prática. Partindo de um bloco maciço, você vai entalhar uma capivara completa, com passo a passo detalhado.",
+      "Vamos abordar todos os principais aspectos do entalhe para você adquirir uma sólida base para sua prática:",
     making_of_1_url: "/images/sections/video1.mp4",
     making_of_2_url: "/images/sections/video2.mp4",
     making_of_3_url: "/images/sections/video3.mp4",
@@ -119,26 +119,27 @@ export const landingData = {
   faq: [
     {
       id: "f1",
-      question: "Para fazer o curso, preciso ter algum conhecimento prévio?",
+      question: "Para fazer os cursos, preciso ter algum conhecimento prévio?",
       answer:
         "Não! Todo o conteúdo é explicado de forma detalhada, voltado tanto para o público iniciante quanto para quem que já possui experiência e deseja aperfeiçoar a técnica.",
     },
     {
       id: "f2",
-      question: "O curso é voltado para qual faixa etária?",
+      question: "Os cursos são voltados para qual faixa etária?",
       answer:
-        "De jovens a pessoas idosas! Nosso curso é completo e formulado para você fazer no seu ritmo, sempre respeitando seu corpo. Como existe a manipulação da faca de entalhe, recomendamos idade mínima de 16 anos, com a supervisão dos pais.",
+        "De jovens a pessoas idosas! Nossos cursos são formulados para você fazer no seu ritmo, sempre respeitando seu corpo.\n\nNos cursos em que há manipulação da faca de entalhe, recomendamos idade mínima de 16 anos, com a supervisão dos pais.",
     },
     {
       id: "f3",
       question: "Por quanto tempo eu tenho acesso ao curso?",
-      answer: "Você terá acesso a todo o conteúdo do curso e o Fórum de Entalhe por três anos inteiros, podendo acessar de qualquer lugar e quantas vezes quiser, além de acesso para transmissões ao vivo mensais para esclarecimento de dúvidas.",
+      answer:
+        "Nos cursos rápidos, você tem acesso por um ano a partir da data de aquisição.\n\nNo curso completo “Entalhe em Madeira com Faca”, você terá acesso a todo o conteúdo e o Fórum de Entalhe por três anos inteiros, podendo acessar de qualquer lugar e quantas vezes quiser.",
     },
     {
       id: "f4",
       question: "Quanto tempo dura o curso?",
       answer:
-        "São 35 vídeos abrangendo diversos aspectos do entalhe com faca, além de todo o passo-a-passo do entalhe da capivarinha. Não há um tempo de curso estimado, já que cada um deve seguir seu próprio ritmo, e inclusive recomendamos que se pause o vídeo sempre que necessário, até a conclusão de determinada etapa do entalhe.",
+        "Não há um tempo de curso estimado, já que cada um deve seguir seu próprio ritmo, e inclusive recomendamos que se pause o vídeo sempre que necessário, até a conclusão de determinada etapa do entalhe. Os cursos ficam disponíveis conforme o tempo indicado acima, podendo o aluno se organizar para assistir às aulas durante o período de acesso.",
     },
     {
       id: "f5",
@@ -150,18 +151,112 @@ export const landingData = {
       id: "f6",
       question: "Onde posso tirar dúvidas?",
       answer:
-        "Você pode deixar todas as suas dúvidas em nosso Fórum de Entalhe. Lá você também poderá compartilhar seu progresso com os outros alunos, fazendo parte de um espaço de incentivo e troca.",
+        "O acesso ao Fórum de Entalhe está disponível apenas para o curso completo “Entalhe em Madeira com Faca”, onde você pode tirar todas as suas dúvidas. Lá você também poderá compartilhar seu progresso com os outros alunos, fazendo parte de um espaço de incentivo e troca.",
     },
     {
       id: "f7",
       question: "Posso comprar módulos separados?",
       answer:
-        "Não, pois o curso foi articulado a partir de um percurso de aprendizagem. Mesmo que você possua experiência na prática, durante as aulas compartilhamos muita experiência e conhecimento que certamente irão agregar. Costumamos falar que, mesmo com anos de prática, nunca deixamos de aprender, pelo contrário! Nas trocas de experiências, seguimos acumulando conhecimento.",
+        "Não, pois os cursos foram articulados a partir de um percurso de aprendizagem. Mesmo que você possua experiência na prática, durante as aulas compartilhamos muita experiência e conhecimento que certamente irão agregar. Costumamos falar que, mesmo com anos de prática, nunca deixamos de aprender, pelo contrário! Nas trocas de experiências, seguimos acumulando conhecimento.",
     },
     {
       id: "f8",
       question: "Quais as formas de pagamento?",
-      answer: "Você pode pagar à vista ou parcelar em até 12x sem juros pela plataforma do Hotmart, com total segurança!",
+      answer: "Você pode pagar à vista ou parcelar em até 12x pela plataforma do Hotmart, com total segurança!",
+    },
+  ],
+  whatTheySay: [
+    {
+      id: "fala-1",
+      kind: "print" as const,
+      src: "/images/sections/o que falam_1.jpeg",
+      alt: "Print de mensagem elogiando o curso: aulas curtas e conteúdo claro",
+    },
+    {
+      id: "fala-2",
+      kind: "photo" as const,
+      src: "/images/sections/o que falam_2.jpeg",
+      alt: "Capivara entalhada por aluno, segurada na mão",
+    },
+    {
+      id: "fala-4",
+      kind: "print" as const,
+      src: "/images/sections/o que falam_4.PNG",
+      alt: "Print de mensagem recomendando o curso e destacando a didática",
+    },
+    {
+      id: "fala-8",
+      kind: "photo" as const,
+      src: "/images/sections/o que falam_8.jpg",
+      alt: "Coelho entalhado por aluno, na palma da mão",
+    },
+    {
+      id: "fala-7",
+      kind: "print" as const,
+      src: "/images/sections/o que falam_7.jpeg",
+      alt: "Print de mensagem sobre o curso didático e a prática da baleia",
+    },
+    {
+      id: "fala-9",
+      kind: "photo" as const,
+      src: "/images/sections/o que falam_9.jpg",
+      alt: "Baleia entalhada por aluno",
+    },
+    {
+      id: "fala-10",
+      kind: "print" as const,
+      src: "/images/sections/o que falam_10.PNG",
+      alt: "Print de mensagem recomendando os cursos da Oficina Cigarra",
+    },
+    {
+      id: "fala-12",
+      kind: "photo" as const,
+      src: "/images/sections/o que falam_12.jpg",
+      alt: "Tatu entalhado por aluno",
+    },
+    {
+      id: "fala-14",
+      kind: "print" as const,
+      src: "/images/sections/o que falam_14.jpeg",
+      alt: "Print de mensagem sobre a capivarinha e a didática do curso",
+    },
+    {
+      id: "fala-3",
+      kind: "photo" as const,
+      src: "/images/sections/o que falam_3.jpg",
+      alt: "Capivara entalhada por aluno, ao lado de blocos de madeira",
+    },
+    {
+      id: "fala-5",
+      kind: "photo" as const,
+      src: "/images/sections/o que falam_5.jpg",
+      alt: "Capivara entalhada por aluno, apoiada sobre uma faca",
+    },
+    {
+      id: "fala-6",
+      kind: "photo" as const,
+      src: "/images/sections/o que falam_6.jpg",
+      alt: "Capivara entalhada por aluno, ao sol",
+    },
+    {
+      id: "fala-11",
+      kind: "photo" as const,
+      src: "/images/sections/o que falam_11.jpg",
+      alt: "Capivara entalhada por aluno, sobre a bancada",
+    },
+  ],
+  quickCourses: [
+    {
+      id: "passaro",
+      title: "Entalhe de passarinho",
+      description:
+        "Neste curso, você vai aprender a entalhar um passarinho em madeira utilizando apenas uma faca de entalhe, partindo de um bloco maciço em que, através de um passo a passo progressivo, a escultura se revela!",
+      priceCash: "R$ 49,90",
+      priceInstallments: "12x de R$ 5,16",
+      access: "acesso por 1 ano",
+      ctaUrl: "https://pay.hotmart.com/J107324201O?checkoutMode=10",
+      imageSrc: "/images/sections/foto_entalhe de pássaro.jpg",
+      imageAlt: "Passarinho entalhado em madeira, com faca e bloco do curso rápido",
     },
   ],
   finalCta: {

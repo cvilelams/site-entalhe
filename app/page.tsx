@@ -8,6 +8,9 @@ import { OverviewFinalMedia } from "@/components/home/OverviewFinalMedia";
 import MobileScrollCta from "@/components/home/MobileScrollCta";
 import LandingPrimaryCtaLink from "@/components/home/LandingPrimaryCtaLink";
 import InstructorCarousel from "@/components/home/InstructorCarousel";
+import ProductForkSection from "@/components/home/ProductForkSection";
+import QuickCoursesSection from "@/components/home/QuickCoursesSection";
+import WhatTheySaySection from "@/components/home/WhatTheySaySection";
 import { getContent, getVisibility } from "@/lib/content/store";
 import {
   Accordion,
@@ -97,17 +100,19 @@ export default function HomePage() {
         <HeroSection
           title={hero?.title}
           subtitle={hero?.subtitle}
-          ctaUrl={ctaUrl}
+          ctaUrl="https://hotmart.com/pt-br/club/roda-de-entalhe"
           ctaText={ctaText}
           imageSrc="/images/hero/hero-bg-workshop-20260311.jpeg"
         />
       )}
 
+      <ProductForkSection />
+
       {/* ── PROVA SOCIAL ── */}
       {isVisible(visibility, "social_proof") && (
         <>
           {/* A prática */}
-          <section className={`${sectionPadding} bg-cream`} id="curso">
+          <section className="bg-cream px-6 pb-0 pt-[72px] md:px-16 md:pb-0 md:pt-[120px]" id="curso">
             <div className="mx-auto max-w-6xl space-y-16">
               {/* Card 1 — SectionTitle dentro do cartão, elimina hierarquia dupla */}
               <div className="space-y-8">
@@ -232,21 +237,15 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-
-              <div className="flex justify-center">
-                <LandingPrimaryCtaLink href={ctaUrl} variant="filled" slot="visao_geral">
-                  {ctaText}
-                </LandingPrimaryCtaLink>
-              </div>
             </div>
           </section>
 
           {/* Ferramentas — seção separada com identidade própria */}
-          <section className={`${sectionPadding} pb-2 md:pb-2 bg-cream-2`} id="ferramentas">
+          <section className="bg-cream px-6 pb-2 pt-16 md:px-16 md:pb-2 md:pt-16" id="ferramentas">
             <div className="mx-auto max-w-6xl space-y-8">
               <div className="flex flex-col gap-rule">
                 {/* Bloco 3 — card: texto | foto */}
-                <div className="group/card-tools overflow-hidden bg-cream-3 md:grid md:grid-cols-2 md:items-stretch">
+                <div className="group/card-tools overflow-hidden bg-cream md:grid md:grid-cols-2 md:items-stretch">
                   <div className="flex flex-col justify-center px-9 py-10">
                     <h3 className="font-titulo mb-4 text-h3 font-bold text-espresso">
                       3. Comece com poucas ferramentas
@@ -267,7 +266,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Bloco 4 — card: kit (imagem | texto) */}
-                <div className="group/card overflow-hidden bg-cream-3 md:grid md:grid-cols-2 md:items-stretch">
+                <div className="group/card overflow-hidden bg-cream md:grid md:grid-cols-2 md:items-stretch">
                   <div className="relative aspect-[4/3] min-h-[200px] overflow-hidden md:aspect-auto md:min-h-[300px] md:h-full">
                     <Image
                       src="/images/sections/ferramentas-kit.jpg"
@@ -301,7 +300,7 @@ export default function HomePage() {
           </section>
 
           {/* Cards de features — grade 2 colunas + banner full-width */}
-          <section className={`${sectionPaddingMd} pt-0 md:pt-0 bg-cream-2`}>
+          <section className={`${sectionPaddingMd} pt-0 md:pt-0 bg-cream`}>
             <div className="mx-auto max-w-6xl">
               <div className="flex flex-col gap-2">
                 {/* Cards 01 e 02 — lado a lado */}
@@ -320,7 +319,7 @@ export default function HomePage() {
                   ].map((item) => (
                     <div
                       key={item.num}
-                      className="overflow-hidden bg-cream-3 px-8 py-10 md:px-10 md:py-12"
+                      className="overflow-hidden bg-cream px-8 py-10 md:px-10 md:py-12"
                     >
                       <h3 className="font-titulo text-h3 mb-4 font-bold text-espresso">
                         {item.title}
@@ -332,40 +331,34 @@ export default function HomePage() {
                   ))}
                 </div>
 
+                <div className="mt-8 flex justify-center md:mt-10">
+                  <LandingPrimaryCtaLink href={ctaUrl} variant="filled" slot="visao_geral">
+                    {ctaText}
+                  </LandingPrimaryCtaLink>
+                </div>
               </div>
             </div>
           </section>
         </>
       )}
 
+      {isVisible(visibility, "testimonials") && <WhatTheySaySection />}
+
+      <QuickCoursesSection completeCtaUrl={ctaUrl} />
+
       {/* ── VISÃO GERAL DO CURSO ── */}
       {isVisible(visibility, "course_overview") && (
-        <section id="modulos" className={`${sectionPadding} bg-cream`}>
+        <section id="modulos" className={`${sectionPadding} scroll-mt-28 bg-cream`}>
           <div className="mx-auto max-w-6xl">
-            {/* Card 03 — Para quem é */}
-            <div className="mb-10">
-              <SectionLabel>Para quem é</SectionLabel>
-              <SectionTitle as="h3">
-                Será que esse curso<br />
-                <em>é para mim?</em>
-              </SectionTitle>
-              <p className="font-corpo text-body font-light text-brown">
-                {pw("Nosso curso é para todos: quem nunca entalhou na vida (inclusive costumamos tranquilizar nossos alunos pois a esmagadora maioria de fato nunca praticou), e também para quem já praticou e quer desenvolver ainda mais suas técnicas.")}
-              </p>
-            </div>
-
             <div className="mb-10 flex flex-col gap-10 md:flex-row md:items-center">
               <div className="flex-1 min-w-0">
                 <SectionLabel>O curso</SectionLabel>
                 <SectionTitle>
-                  Como é<br />
-                  <em>o curso?</em>
+                  Como é o curso<br />
+                  <em>completo de entalhe?</em>
                 </SectionTitle>
-                <p className="font-corpo text-body mb-8 font-light text-brown">
-                  {overview?.description}
-                </p>
                 <p className="font-corpo text-body font-light text-brown">
-                  {pw("Você vai absorver, na prática, todos esses fundamentos partindo de um bloco maciço que se transformará em uma capivara.")}
+                  {pw(overview?.description ?? "")}
                 </p>
               </div>
               <div className="w-full overflow-hidden bg-cream-2 md:w-[420px] md:flex-shrink-0">
@@ -398,14 +391,11 @@ export default function HomePage() {
                   Você vai poder interagir e tirar suas dúvidas no fórum de entalhe.
                 </p>
                 <p className="font-corpo text-body mb-6 font-light text-brown">
-                  Além disso, vai ter acesso a transmissões ao vivo para esclarecimento de dúvidas.
-                </p>
-                <p className="font-corpo text-body mb-6 font-light text-brown">
                   Disponível para celular, tablet e computador.
                 </p>
                 {/* Pull quote */}
                 <p className="font-titulo text-h3 mb-10 border-l-[3px] border-terracota pl-7 font-bold leading-[1.35] tracking-[-0.02em] text-terracota">
-                  Assista no seu tempo: o curso fica disponível por 3 anos.
+                  Assista no seu tempo: o curso completo “Entalhe em Madeira com Faca” fica disponível por três anos.
                 </p>
                 <div className="flex justify-center">
                   <LandingPrimaryCtaLink href={ctaUrl} variant="filled" slot="acesso">
@@ -458,7 +448,7 @@ export default function HomePage() {
             </div>
 
             <p className="font-corpo mb-6 text-base font-light leading-[1.75] text-espresso/70">
-              {pw("Somos Mayra e Simone, duas irmãs que compartilham das mesmas afinidades desde a infância. Cursamos Arquitetura e Urbanismo e há anos decidimos trabalhar juntas na marcenaria. No meio do caminho nos apaixonamos pela técnica de entalhe e hoje criamos peças artísticas selecionadas e premiadas em Salões de Arte. Já compartilhamos o que aprendemos com mais de 700 pessoas pelo Brasil, despertando em muitas a paixão pelo entalhe.")}
+              {pw("Somos Mayra e Simone, duas irmãs que compartilham das mesmas afinidades desde a infância. Cursamos Arquitetura e Urbanismo e há anos decidimos trabalhar juntas na marcenaria. No meio do caminho nos apaixonamos pela técnica de entalhe e hoje criamos peças artísticas selecionadas e premiadas em Salões de Arte. Já compartilhamos o que aprendemos com mais de 1000 pessoas pelo Brasil, despertando em muitas a paixão pelo entalhe.")}
             </p>
           </div>
 
@@ -480,13 +470,13 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl">
           <SectionLabel>Confiança</SectionLabel>
           <SectionTitle>
-            Por que esse curso<br />
+            Por que o curso completo<br />
             <em>é confiável?</em>
           </SectionTitle>
 
           <div className="mt-10 grid grid-cols-1 gap-rule sm:grid-cols-3">
             {[
-              { n: "700+", l: <>Já aprenderam<br />com Oficina Cigarra</> },
+              { n: "1000+", l: <>Já aprenderam<br />com Oficina Cigarra</> },
               { n: "3 anos", l: <>Acesse para rever<br />quando quiser</> },
               { n: "Suporte", l: <>Dúvidas respondidas<br />no fórum</> },
             ].map((stat) => (
@@ -641,7 +631,7 @@ export default function HomePage() {
                   <AccordionTrigger className="font-titulo px-9 py-7 text-left text-lg font-bold leading-[1.3] tracking-[-0.01em] text-espresso hover:no-underline">
                     {f.question}
                   </AccordionTrigger>
-                  <AccordionContent className="font-corpo px-9 pb-7 text-base font-light leading-[1.75] text-brown">
+                  <AccordionContent className="font-corpo px-9 pb-7 text-base font-light leading-[1.75] text-brown whitespace-pre-line">
                     {f.answer}
                   </AccordionContent>
                 </AccordionItem>
