@@ -12,10 +12,7 @@ export default function Footer() {
     <>
       {/* Corpo do footer */}
       <footer className="bg-dark px-6 py-16 md:px-16">
-        <div
-          className="mx-auto grid max-w-6xl gap-12 max-sm:grid-cols-1"
-          style={{ gridTemplateColumns: "2fr 1fr" }}
-        >
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 sm:grid-cols-[2fr_1fr]">
           {/* Coluna da marca */}
           <div>
             <Link href="/" className="mb-4 block transition-opacity hover:opacity-75">

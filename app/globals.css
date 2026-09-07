@@ -29,6 +29,10 @@
   }
 
   body {
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-x: clip;
+    overscroll-behavior-x: none;
     font-family: var(--font-jost), system-ui, sans-serif;
     /* Alinha ao token Tailwind `cream` / `espresso` */
     background: theme("colors.cream.DEFAULT");
@@ -56,6 +60,8 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   @media (prefers-reduced-motion: reduce) {

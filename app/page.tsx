@@ -92,8 +92,8 @@ export default function HomePage() {
     "mailto:contato@oficinacigarra.com.br";
 
   return (
-    <main>
-      <Header ctaUrl={ctaUrl} ctaText={ctaText} />
+    <main className="overflow-x-clip">
+      <Header ctaUrl="https://hotmart.com/pt-br/club/roda-de-entalhe" ctaText={ctaText} />
 
       {/* ── HERO ── */}
       {isVisible(visibility, "hero") && (
@@ -403,13 +403,13 @@ export default function HomePage() {
                   </LandingPrimaryCtaLink>
                 </div>
               </div>
-              <div>
+              <div className="overflow-hidden">
                 <Image
                   src="/images/sections/5 - Mockup.png"
                   alt="Montagem do e-book em celular, tablet e computador"
                   width={1200}
                   height={900}
-                  className="w-full h-auto object-contain scale-125 origin-center"
+                  className="h-auto w-full origin-center object-contain max-md:scale-110 md:scale-125"
                 />
               </div>
             </div>
@@ -672,7 +672,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="flex w-full justify-center shrink-0">
-              <LandingPrimaryCtaLink href={finalCta?.button_url ?? "#"} variant="inverted" slot="cta_final">
+              <LandingPrimaryCtaLink href="https://hotmart.com/pt-br/club/roda-de-entalhe" variant="inverted" slot="cta_final">
                 {finalCta?.button_text}
               </LandingPrimaryCtaLink>
             </div>

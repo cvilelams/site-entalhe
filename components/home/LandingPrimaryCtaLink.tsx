@@ -12,7 +12,7 @@ type LandingPrimaryCtaLinkProps = {
 };
 
 const baseClass =
-  "font-corpo inline-block text-center text-[17px] font-medium uppercase leading-[1.2] tracking-[0.08em] transition-all hover:-translate-y-px rounded-sm px-[72px] py-5";
+  "font-corpo inline-block max-w-full text-center text-[17px] font-medium uppercase leading-[1.2] tracking-[0.08em] transition-all hover:-translate-y-px rounded-sm px-8 py-5 sm:px-[72px]";
 
 export default function LandingPrimaryCtaLink({
   href,

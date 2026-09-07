@@ -149,6 +149,7 @@ export default function QuickCoursesSection({ completeCtaUrl }: QuickCoursesSect
           role="region"
           aria-roledescription="carrossel"
           aria-label="Lista de cursos rápidos"
+          className="min-w-0"
           onMouseEnter={() => {
             hoverRef.current = true;
           }}
