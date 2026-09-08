@@ -1,7 +1,7 @@
 export const SITE_NAME = "Entalhe em madeira com faca";
 
 export const SITE_DESCRIPTION =
-  "Um curso para aprender na prática todos os fundamentos da técnica de entalhe com faca. Do bloco de madeira maciça à capivarinha, faça parte dessa comunidade e entalhe sua primeira peça de muitas!";
+  "Cursos online para aprender na prática o entalhe em madeira com faca. Do bloco maciço à sua primeira escultura em madeira, faça parte da nossa Roda de Entalhe!";
 
 export const MAX_UPLOAD_MB = 15;
 
