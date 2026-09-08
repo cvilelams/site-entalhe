@@ -93,14 +93,14 @@ export default function HomePage() {
 
   return (
     <main className="overflow-x-clip">
-      <Header ctaUrl="https://hotmart.com/pt-br/club/roda-de-entalhe" ctaText={ctaText} />
+      <Header ctaUrl={ctaUrl} ctaText={ctaText} />
 
       {/* ── HERO ── */}
       {isVisible(visibility, "hero") && (
         <HeroSection
           title={hero?.title}
           subtitle={hero?.subtitle}
-          ctaUrl="https://hotmart.com/pt-br/club/roda-de-entalhe"
+          ctaUrl={ctaUrl}
           ctaText={ctaText}
           imageSrc="/images/hero/hero-bg-workshop-20260311.jpeg"
         />
@@ -672,7 +672,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="flex w-full justify-center shrink-0">
-              <LandingPrimaryCtaLink href="https://hotmart.com/pt-br/club/roda-de-entalhe" variant="inverted" slot="cta_final">
+              <LandingPrimaryCtaLink href={ctaUrl} variant="inverted" slot="cta_final">
                 {finalCta?.button_text}
               </LandingPrimaryCtaLink>
             </div>
