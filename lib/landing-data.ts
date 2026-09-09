@@ -1,4 +1,6 @@
 export const landingData = {
+  /** Destino dos CTAs "QUERO ENTALHAR" do header, hero, visão geral e faixa final. */
+  clubCtaUrl: "https://hotmart.com/pt-br/club/roda-de-entalhe",
   hero: {
     title: "Explore o universo do entalhe em madeira",
     subtitle: "Do bloquinho de madeira à escultura, aprenda na prática a técnica do entalhe com especialistas no assunto!",
@@ -263,7 +265,7 @@ export const landingData = {
     title: "Comece a entalhar com autonomia.",
     subtitle: "Faça parte dessa comunidade e entalhe sua primeira peça de muitas!",
     button_text: "QUERO ENTALHAR",
-    button_url: "https://pay.hotmart.com/V105166531Q?checkoutMode=10",
+    button_url: "https://hotmart.com/pt-br/club/roda-de-entalhe",
   },
   footer: {
     copyright: "Oficina Cigarra",

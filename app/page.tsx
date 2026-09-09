@@ -82,6 +82,7 @@ export default function HomePage() {
   const finalCta = content.sections.final_cta;
   const ctaUrl = hero?.cta_url ?? "#";
   const ctaText = hero?.cta_text ?? "QUERO ENTALHAR";
+  const clubCtaUrl = landingData.clubCtaUrl;
 
   /* padding base */
   const sectionPadding = "px-6 py-[72px] md:px-16 md:py-[120px]";
@@ -93,14 +94,14 @@ export default function HomePage() {
 
   return (
     <main className="overflow-x-clip">
-      <Header ctaUrl={ctaUrl} ctaText={ctaText} />
+      <Header ctaUrl={clubCtaUrl} ctaText={ctaText} />
 
       {/* ── HERO ── */}
       {isVisible(visibility, "hero") && (
         <HeroSection
           title={hero?.title}
           subtitle={hero?.subtitle}
-          ctaUrl={ctaUrl}
+          ctaUrl={clubCtaUrl}
           ctaText={ctaText}
           imageSrc="/images/hero/hero-bg-workshop-20260311.jpeg"
         />
@@ -332,7 +333,7 @@ export default function HomePage() {
                 </div>
 
                 <div className="mt-8 flex justify-center md:mt-10">
-                  <LandingPrimaryCtaLink href={ctaUrl} variant="filled" slot="visao_geral">
+                  <LandingPrimaryCtaLink href={clubCtaUrl} variant="filled" slot="visao_geral">
                     {ctaText}
                   </LandingPrimaryCtaLink>
                 </div>
@@ -672,7 +673,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="flex w-full justify-center shrink-0">
-              <LandingPrimaryCtaLink href={ctaUrl} variant="inverted" slot="cta_final">
+              <LandingPrimaryCtaLink href={clubCtaUrl} variant="inverted" slot="cta_final">
                 {finalCta?.button_text}
               </LandingPrimaryCtaLink>
             </div>
