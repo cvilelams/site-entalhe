@@ -9,8 +9,17 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
   weight: ["400", "500", "600", "700", "900"],
-  style: ["normal", "italic"],
+  style: "normal",
   display: "swap",
+});
+
+const playfairItalic = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair-italic",
+  weight: ["600", "700", "900"],
+  style: "italic",
+  display: "swap",
+  preload: false,
 });
 
 const jost = Jost({
@@ -118,7 +127,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${playfair.variable} ${jost.variable}`}>
+      <body className={`${playfair.variable} ${playfairItalic.variable} ${jost.variable}`}>
         {children}
         <DevDialKit />
       </body>

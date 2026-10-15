@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { extOf, isVideoUrl, videoSourcesFromUrls } from "@/lib/media-url";
+import { useLoadWhenNear } from "@/components/home/use-load-when-near";
 
 type OverviewFinalMediaProps = {
   url: string;
@@ -27,10 +28,11 @@ export function OverviewFinalMedia({ url, videoFallbackUrl, ariaLabel }: Overvie
   const videoKey = videoSources.map((s) => s.src).join("|");
   const videoRef = useRef<HTMLVideoElement>(null);
   const [needsPlayButton, setNeedsPlayButton] = useState(false);
+  const { ref: nearRef, shouldLoad } = useLoadWhenNear<HTMLDivElement>();
 
   useEffect(() => {
     const v = videoRef.current;
-    if (!v || videoSources.length === 0) return;
+    if (!shouldLoad || !v || videoSources.length === 0) return;
 
     v.muted = true;
     v.defaultMuted = true;
@@ -61,7 +63,7 @@ export function OverviewFinalMedia({ url, videoFallbackUrl, ariaLabel }: Overvie
       v.removeEventListener("playing", onPlaying);
       v.removeEventListener("canplay", tryPlay);
     };
-  }, [videoKey]);
+  }, [shouldLoad, videoKey]);
 
   const onPlayClick = useCallback(() => {
     const v = videoRef.current;
@@ -72,22 +74,26 @@ export function OverviewFinalMedia({ url, videoFallbackUrl, ariaLabel }: Overvie
 
   if (videoSources.length > 0) {
     return (
-      <div className="relative w-full">
-        <video
-          key={videoKey}
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="h-auto w-full object-cover"
-          aria-label={ariaLabel}
-        >
-          {videoSources.map((s) => (
-            <source key={s.src} src={s.src} type={s.type} />
-          ))}
-        </video>
+      <div ref={nearRef} className="relative w-full">
+        {shouldLoad ? (
+          <video
+            key={videoKey}
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="h-auto w-full object-cover"
+            aria-label={ariaLabel}
+          >
+            {videoSources.map((s) => (
+              <source key={s.src} src={s.src} type={s.type} />
+            ))}
+          </video>
+        ) : (
+          <div className="aspect-square w-full bg-cream-2" aria-hidden />
+        )}
         {needsPlayButton && (
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-espresso/20">
             <button

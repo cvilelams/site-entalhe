@@ -49,6 +49,12 @@
     text-wrap: balance;
   }
 
+  h1 em, h2 em, h3 em, h4 em, h5 em, h6 em,
+  .font-titulo em {
+    font-family: var(--font-playfair-italic), Georgia, serif;
+    font-style: italic;
+  }
+
   p {
     text-wrap: pretty;
   }
@@ -108,6 +114,7 @@
   }
 
   .complete-teaser p.bridge-text em {
+    font-family: var(--font-playfair-italic), Georgia, serif;
     font-style: italic;
     font-weight: 600;
     color: #e3b48c;

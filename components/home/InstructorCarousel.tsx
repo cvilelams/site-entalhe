@@ -17,7 +17,7 @@ export default function InstructorCarousel() {
         {/* Cabeça entalhada — 1 col (imagem trocada, espaço mantido) */}
         <div className="relative h-[260px] overflow-hidden rounded-sm">
           <Image
-            src="/images/sections/7_peçascabeça.webp"
+            src="/images/opt/peca-cabeca.webp"
             alt="Detalhe de peça entalhada"
             fill
             sizes="(max-width: 768px) 50vw, 33vw"
@@ -28,7 +28,7 @@ export default function InstructorCarousel() {
         {/* Peças das mentoras — 2 cols */}
         <div className="relative h-[260px] overflow-hidden rounded-sm md:col-span-2">
           <Image
-            src="/images/sections/7_peçadesembaraço2.png"
+            src="/images/opt/peca-desembaraco.webp"
             alt="Peças de entalhe criadas pelas mentoras"
             fill
             sizes="(max-width: 768px) 50vw, 67vw"
@@ -39,7 +39,7 @@ export default function InstructorCarousel() {
         {/* Selfie no ateliê — 2 cols (imagem trocada, espaço mantido) */}
         <div className="relative h-[260px] overflow-hidden rounded-sm md:col-span-2">
           <Image
-            src="/images/sections/7_peçasselfie.webp"
+            src="/images/opt/mentoras-selfie.webp"
             alt="Mayra e Simone no ateliê"
             fill
             sizes="(max-width: 768px) 50vw, 67vw"
@@ -50,7 +50,7 @@ export default function InstructorCarousel() {
         {/* Coleção de peças — 1 col */}
         <div className="relative h-[260px] overflow-hidden rounded-sm">
           <Image
-            src="/images/sections/7_peçaspeças.webp"
+            src="/images/opt/pecas-colecao.webp"
             alt="Coleção de peças entalhadas"
             fill
             sizes="(max-width: 768px) 50vw, 33vw"
@@ -61,7 +61,7 @@ export default function InstructorCarousel() {
         {/* Onça Caetana — largura total */}
         <div className="relative h-[260px] overflow-hidden rounded-sm col-span-2 md:col-span-3">
           <Image
-            src="/images/sections/7_peçasonçacaetana.webp"
+            src="/images/opt/onca-caetana.webp"
             alt="Peça entalhada — Onça Caetana"
             fill
             sizes="100vw"

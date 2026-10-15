@@ -103,7 +103,7 @@ export default function HomePage() {
           subtitle={hero?.subtitle}
           ctaUrl={clubCtaUrl}
           ctaText={ctaText}
-          imageSrc="/images/hero/hero-bg-workshop-20260311.jpeg"
+          imageSrc="/images/opt/hero.webp"
         />
       )}
 
@@ -137,7 +137,7 @@ export default function HomePage() {
                 <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
                     <Image
-                      src={`/images/sections/${encodeURIComponent("1_mãeentalhando (2).webp")}`}
+                      src="/images/opt/mae-entalhando-2.webp"
                       alt="Mãe concentrada no entalhe à mesa, com ferramentas e madeira"
                       fill
                       className="object-cover transition-transform duration-500 motion-safe:hover:scale-105"
@@ -146,7 +146,7 @@ export default function HomePage() {
                   </div>
                   <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
                     <Image
-                      src={`/images/sections/${encodeURIComponent("1_mãeentalhando (1) (1).webp")}`}
+                      src="/images/opt/mae-entalhando-1.webp"
                       alt="Mãe e criança entalhando madeira juntas em ambiente acolhedor"
                       fill
                       className="object-cover transition-transform duration-500 motion-safe:hover:scale-105"
@@ -174,7 +174,7 @@ export default function HomePage() {
                   {/* A — geek (1 col) */}
                   <div className="relative h-[260px] overflow-hidden">
                     <Image
-                      src="/images/sections/bento-geek.webp"
+                      src="/images/opt/bento-geek.webp"
                       alt="Mago entalhado em madeira, personagem de fantasia"
                       fill
                       className="object-cover transition-transform duration-500 motion-safe:hover:scale-105"
@@ -185,7 +185,7 @@ export default function HomePage() {
                   {/* B — gatinho (2 cols desktop, 1 col mobile) */}
                   <div className="relative h-[260px] overflow-hidden md:col-span-2">
                     <Image
-                      src="/images/sections/2_oficinagatinho.webp"
+                      src="/images/opt/oficina-gatinho.webp"
                       alt="Gatinho entalhado na oficina"
                       fill
                       className="object-cover object-[center_45%] transition-transform duration-500 motion-safe:hover:scale-105"
@@ -196,7 +196,7 @@ export default function HomePage() {
                   {/* C — baleias (2 cols desktop, 1 col mobile) */}
                   <div className="relative h-[260px] overflow-hidden md:col-span-2">
                     <Image
-                      src="/images/sections/bento-baleias.webp"
+                      src="/images/opt/bento-baleias.webp"
                       alt="Duas baleias entalhadas em madeira, pintadas de azul"
                       fill
                       className="object-cover object-[center_65%] transition-transform duration-500 motion-safe:hover:scale-105"
@@ -207,7 +207,7 @@ export default function HomePage() {
                   {/* D — fruta (1 col) */}
                   <div className="relative h-[260px] overflow-hidden">
                     <Image
-                      src="/images/sections/bento-fruta.webp"
+                      src="/images/opt/bento-fruta.webp"
                       alt="Melancia entalhada e pintada com expressão divertida"
                       fill
                       className="object-cover transition-transform duration-500 motion-safe:hover:scale-105"
@@ -218,7 +218,7 @@ export default function HomePage() {
                   {/* E — dino (1 col) */}
                   <div className="relative h-[260px] overflow-hidden">
                     <Image
-                      src="/images/sections/bento-dino.webp"
+                      src="/images/opt/bento-dino.webp"
                       alt="Dinossauro entalhado em madeira natural"
                       fill
                       className="object-cover transition-transform duration-500 motion-safe:hover:scale-105"
@@ -229,7 +229,7 @@ export default function HomePage() {
                   {/* F — pingente (2 cols desktop, 1 col mobile) */}
                   <div className="relative h-[260px] overflow-hidden md:col-span-2">
                     <Image
-                      src="/images/sections/2_oficinapingente (2).webp"
+                      src="/images/opt/oficina-pingente.webp"
                       alt="Pingente entalhado em madeira na oficina"
                       fill
                       className="object-cover transition-transform duration-500 motion-safe:hover:scale-105"
@@ -257,7 +257,7 @@ export default function HomePage() {
                   </div>
                   <div className="relative aspect-[4/3] min-h-[200px] overflow-hidden md:aspect-auto md:min-h-[300px] md:h-full">
                     <Image
-                      src="/images/sections/capivarinha.webp"
+                      src="/images/opt/capivarinha.webp"
                       alt="Bloco de madeira, faca de entalhe e capivara esculpida — do início ao resultado"
                       fill
                       className="object-cover transition-transform duration-500 motion-safe:group-hover/card-tools:scale-105"
@@ -270,7 +270,7 @@ export default function HomePage() {
                 <div className="group/card overflow-hidden bg-cream md:grid md:grid-cols-2 md:items-stretch">
                   <div className="relative aspect-[4/3] min-h-[200px] overflow-hidden md:aspect-auto md:min-h-[300px] md:h-full">
                     <Image
-                      src="/images/sections/ferramentas-kit.jpg"
+                      src="/images/opt/ferramentas-kit.webp"
                       alt="Kit de ferramentas para iniciantes no entalhe"
                       fill
                       className="object-cover transition-transform duration-500 motion-safe:group-hover/card:scale-105"
@@ -406,7 +406,7 @@ export default function HomePage() {
               </div>
               <div className="overflow-hidden">
                 <Image
-                  src="/images/sections/5 - Mockup.png"
+                  src="/images/opt/mockup-ebook.webp"
                   alt="Montagem do e-book em celular, tablet e computador"
                   width={1200}
                   height={900}
@@ -440,7 +440,7 @@ export default function HomePage() {
 
             <div className="mb-8 max-h-[56vh] overflow-hidden rounded-sm">
               <Image
-                src="/images/sections/mentoras.jpg"
+                src="/images/opt/mentoras.webp"
                 alt="Mayra e Simone"
                 width={1024}
                 height={1024}

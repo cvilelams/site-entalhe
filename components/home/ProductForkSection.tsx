@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import capivarinha from "@/public/images/sections/capivarinha.webp";
-import fotoBannerMinicurso from "@/public/images/sections/foto-banner-minicurso-passaro.jpg";
+import capivarinha from "@/public/images/opt/capivarinha.webp";
+import fotoBannerMinicurso from "@/public/images/opt/banner-minicurso-passaro.webp";
 import { trackLinkClick } from "@/lib/analytics";
 
 function pw(text: string): string {

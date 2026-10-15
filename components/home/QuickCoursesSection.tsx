@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import cursoCompleto from "@/public/images/sections/cursocompleto.png";
+import cursoCompleto from "@/public/images/opt/curso-completo.webp";
 import { landingData } from "@/lib/landing-data";
 import { trackCTAClick } from "@/lib/analytics";
 
