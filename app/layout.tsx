@@ -4,6 +4,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/constants";
 import DevDialKit from "@/components/DevDialKit";
+import MetaPixel from "@/components/MetaPixel";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -130,6 +131,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`${playfair.variable} ${playfairItalic.variable} ${jost.variable}`}>
         {children}
         <DevDialKit />
+        <MetaPixel />
       </body>
       <GoogleAnalytics gaId="G-RETWTCTJHQ" />
     </html>
