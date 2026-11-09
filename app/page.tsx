@@ -102,7 +102,7 @@ export default function HomePage() {
           title={hero?.title}
           subtitle={hero?.subtitle}
           ctaUrl={clubCtaUrl}
-          ctaText={ctaText}
+          ctaText="QUERO APRENDER A ENTALHAR"
           imageSrc="/images/opt/hero.webp"
         />
       )}

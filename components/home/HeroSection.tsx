@@ -1,6 +1,8 @@
 import HeroParallaxBackground from "@/components/home/HeroParallaxBackground";
 import LandingPrimaryCtaLink from "@/components/home/LandingPrimaryCtaLink";
 
+const materialsCtaUrl = "https://www.oficinacigarra.com.br/entalhe";
+
 type HeroSectionProps = {
   title?: string | null;
   subtitle?: string | null;
@@ -55,9 +57,16 @@ export default function HeroSection({
         </p>
 
         {/* Ações */}
-        <div className="flex justify-center">
+        <div className="flex w-full max-w-full flex-col items-stretch gap-4 sm:w-max max-sm:[&>a]:w-full">
           <LandingPrimaryCtaLink href={ctaUrl ?? "#"} variant="filled" slot="hero">
-            {ctaText ?? "Começar agora"}
+            {ctaText ?? "QUERO APRENDER A ENTALHAR"}
+          </LandingPrimaryCtaLink>
+          <LandingPrimaryCtaLink
+            href={materialsCtaUrl}
+            variant="outline"
+            slot="hero_cta_materiais"
+          >
+            QUERO MATERIAIS DE ENTALHE
           </LandingPrimaryCtaLink>
         </div>
       </div>
